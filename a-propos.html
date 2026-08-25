@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CFO 360° - À propos</title>
+
+  <link rel="stylesheet" href="css cfo 360.css">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+
+  <style>
+    #language-modal-overlay {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+
+    <div class="top-actions">
+
+      <button
+        type="button"
+        class="btn-lang-trigger"
+        onclick="openLangModal()"
+      >
+        <i class="fa-solid fa-globe"></i>
+        <span data-i18n="language_button">
+          Langue / Language
+        </span>
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- MODALE DE CHOIX DE LANGUE -->
+  <div id="language-modal-overlay">
+
+    <div class="language-modal-card">
+
+      <h2 data-i18n="modal_title">
+        Langue / Language
+      </h2>
+
+      <p data-i18n="modal_text">
+        Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :
+      </p>
+
+      <div class="modal-buttons">
+
+        <button
+          type="button"
+          class="lang-btn"
+          onclick="translatePage('fr')"
+        >
+          <i class="fa-solid fa-globe"></i>
+          Français
+        </button>
+
+        <button
+          type="button"
+          class="lang-btn"
+          onclick="translatePage('en')"
+        >
+          <i class="fa-solid fa-globe"></i>
+          English
+        </button>
+
+        <button
+          type="button"
+          class="lang-btn"
+          onclick="translatePage('pt')"
+        >
+          <i class="fa-solid fa-globe"></i>
+          Português
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- HEADER -->
+  <header>
+
+    <div class="header-container">
+
+      <a
+        href="index.html"
+        class="logo-link"
+      >
+        <img
+          src="./Downloads/WhatsApp Image 2026-08-24 at 14.18.25.jpeg"
+          alt="CFO 360° Logo"
+          class="logo-img"
+        >
+      </a>
+
+      <nav>
+
+        <ul class="nav-links">
+
+          <li>
+            <a
+              href="index.html"
+              data-i18n="nav_home"
+            >
+              Accueil
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="services.html"
+              data-i18n="nav_services"
+            >
+              Services
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="realisations.html"
+              data-i18n="nav_ambitions"
+            >
+              Ambitions
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="a-propos.html"
+              class="active"
+              data-i18n="nav_about"
+            >
+              À propos
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="contact.html"
+              data-i18n="nav_contact"
+            >
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="container">
+
+    <section class="page-header">
+
+      <h1 data-i18n="page_title">
+        À propos de CFO 360°
+      </h1>
+
+      <p data-i18n="page_description">
+        Un cabinet indépendant dédié à l'excellence financière et à la création de valeur.
+      </p>
+
+    </section>
+
+
+    <section class="grid">
+
+
+      <!-- MISSION -->
+      <div class="card">
+
+        <div class="card-icon">
+          <i class="fa-solid fa-bullseye"></i>
+        </div>
+
+        <h3 data-i18n="mission_title">
+          Notre Mission
+        </h3>
+
+        <p data-i18n="mission_text">
+          Apporter aux dirigeants de PME des compétences de haut niveau en gestion financière sans la lourdeur d'un recrutement à temps plein.
+        </p>
+
+      </div>
+
+
+      <!-- VISION -->
+      <div class="card">
+
+        <div class="card-icon">
+          <i class="fa-solid fa-eye"></i>
+        </div>
+
+        <h3 data-i18n="vision_title">
+          Notre Vision
+        </h3>
+
+        <p data-i18n="vision_text">
+          Devenir la référence en conseil et direction financière partagée au Cap-Vert et dans la région, en conjuguant rigueur et proactivité.
+        </p>
+
+      </div>
+
+
+      <!-- VALEURS -->
+      <div class="card">
+
+        <div class="card-icon">
+          <i class="fa-solid fa-gem"></i>
+        </div>
+
+        <h3 data-i18n="values_title">
+          Nos Valeurs
+        </h3>
+
+        <p data-i18n="values_text">
+          Transparence, confidentialité, pragmatisme et engagement total au service de la rentabilité de nos clients.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- WHATSAPP FLOAT -->
+  <a
+    href="https://wa.me/2389735933"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-content">
+
+
+      <!-- COLONNE 1 -->
+      <div class="footer-col">
+
+        <h4>
+          CFO 360°
+        </h4>
+
+        <p data-i18n="footer_description">
+          Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.
+        </p>
+
+      </div>
+
+
+      <!-- COLONNE 2 -->
+      <div class="footer-col">
+
+        <h4 data-i18n="footer_navigation">
+          Navigation
+        </h4>
+
+        <ul>
+
+          <li>
+            <a
+              href="index.html"
+              data-i18n="nav_home"
+            >
+              Accueil
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="services.html"
+              data-i18n="nav_services"
+            >
+              Services
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="realisations.html"
+              data-i18n="nav_ambitions"
+            >
+              Réalisations
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="a-propos.html"
+              data-i18n="nav_about"
+            >
+              À propos
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="contact.html"
+              data-i18n="nav_contact"
+            >
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- COLONNE 3 -->
+      <div class="footer-col">
+
+        <h4 data-i18n="footer_contact">
+          Contact
+        </h4>
+
+        <ul>
+
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            cfo360.cv@gmail.com
+          </li>
+
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            +238 973 59 33
+          </li>
+
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            Praia, CAP VERT
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+      <p data-i18n="copyright">
+        © 2026 CFO 360°. Tous droits réservés.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ===================================================== -->
+  <!-- SYSTÈME DE TRADUCTION INTERNE CFO 360° -->
+  <!-- ===================================================== -->
+
+  <script>
+
+    const translations = {
+
+      /* ========================= */
+      /* FRANÇAIS */
+      /* ========================= */
+
+      fr: {
+
+        language_button:
+          "Langue / Language",
+
+        modal_title:
+          "Langue / Language",
+
+        modal_text:
+          "Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :",
+
+        nav_home:
+          "Accueil",
+
+        nav_services:
+          "Services",
+
+        nav_ambitions:
+          "Ambitions",
+
+        nav_about:
+          "À propos",
+
+        nav_contact:
+          "Contact",
+
+        page_title:
+          "À propos de CFO 360°",
+
+        page_description:
+          "Un cabinet indépendant dédié à l'excellence financière et à la création de valeur.",
+
+        mission_title:
+          "Notre Mission",
+
+        mission_text:
+          "Apporter aux dirigeants de PME des compétences de haut niveau en gestion financière sans la lourdeur d'un recrutement à temps plein.",
+
+        vision_title:
+          "Notre Vision",
+
+        vision_text:
+          "Devenir la référence en conseil et direction financière partagée au Cap-Vert et dans la région, en conjuguant rigueur et proactivité.",
+
+        values_title:
+          "Nos Valeurs",
+
+        values_text:
+          "Transparence, confidentialité, pragmatisme et engagement total au service de la rentabilité de nos clients.",
+
+        footer_description:
+          "Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.",
+
+        footer_navigation:
+          "Navigation",
+
+        footer_contact:
+          "Contact",
+
+        copyright:
+          "© 2026 CFO 360°. Tous droits réservés."
+
+      },
+
+
+      /* ========================= */
+      /* ENGLISH */
+      /* ========================= */
+
+      en: {
+
+        language_button:
+          "Language",
+
+        modal_title:
+          "Language",
+
+        modal_text:
+          "Please choose your preferred language / Choisissez votre langue / Escolha o seu idioma :",
+
+        nav_home:
+          "Home",
+
+        nav_services:
+          "Services",
+
+        nav_ambitions:
+          "Goals",
+
+        nav_about:
+          "About Us",
+
+        nav_contact:
+          "Contact",
+
+        page_title:
+          "About CFO 360°",
+
+        page_description:
+          "An independent firm dedicated to financial excellence and value creation.",
+
+        mission_title:
+          "Our Mission",
+
+        mission_text:
+          "Providing SME executives with high-level financial management expertise without the burden of a full-time recruitment.",
+
+        vision_title:
+          "Our Vision",
+
+        vision_text:
+          "To become the leading reference in financial advisory and part-time CFO services in Cape Verde and the region, combining rigor and proactivity.",
+
+        values_title:
+          "Our Values",
+
+        values_text:
+          "Transparency, confidentiality, pragmatism and total commitment to our clients' profitability.",
+
+        footer_description:
+          "Your trusted partner in part-time financial management and strategic support.",
+
+        footer_navigation:
+          "Navigation",
+
+        footer_contact:
+          "Contact",
+
+        copyright:
+          "© 2026 CFO 360°. All rights reserved."
+
+      },
+
+
+      /* ========================= */
+      /* PORTUGUÊS */
+      /* ========================= */
+
+      pt: {
+
+        language_button:
+          "Idioma",
+
+        modal_title:
+          "Idioma",
+
+        modal_text:
+          "Escolha o seu idioma preferido / Choose your language / Choisissez votre langue :",
+
+        nav_home:
+          "Início",
+
+        nav_services:
+          "Serviços",
+
+        nav_ambitions:
+          "Ambições",
+
+        nav_about:
+          "Sobre nós",
+
+        nav_contact:
+          "Contacto",
+
+        page_title:
+          "Sobre a CFO 360°",
+
+        page_description:
+          "Uma empresa independente dedicada à excelência financeira e à criação de valor.",
+
+        mission_title:
+          "A Nossa Missão",
+
+        mission_text:
+          "Fornecer aos gestores de PME competências de alto nível em gestão financeira sem o peso de uma contratação a tempo inteiro.",
+
+        vision_title:
+          "A Nossa Visão",
+
+        vision_text:
+          "Tornar-nos uma referência em consultoria e direção financeira partilhada em Cabo Verde e na região, combinando rigor e proatividade.",
+
+        values_title:
+          "Os Nossos Valores",
+
+        values_text:
+          "Transparência, confidencialidade, pragmatismo e compromisso total com a rentabilidade dos nossos clientes.",
+
+        footer_description:
+          "O seu parceiro de confiança em direção financeira a tempo parcial e acompanhamento estratégico.",
+
+        footer_navigation:
+          "Navegação",
+
+        footer_contact:
+          "Contacto",
+
+        copyright:
+          "© 2026 CFO 360°. Todos os direitos reservados."
+
+      }
+
+    };
+
+
+    /* ========================================= */
+    /* APPLICATION DE LA LANGUE */
+    /* ========================================= */
+
+    function applyLanguage(lang) {
+
+      if (!translations[lang]) {
+        lang = "fr";
+      }
+
+      document.documentElement.lang = lang;
+
+      const elements =
+        document.querySelectorAll("[data-i18n]");
+
+      elements.forEach(function(element) {
+
+        const key =
+          element.getAttribute("data-i18n");
+
+        if (
+          translations[lang][key] !== undefined
+        ) {
+
+          element.textContent =
+            translations[lang][key];
+
+        }
+
+      });
+
+      localStorage.setItem(
+        "cfo_selected_language",
+        lang
+      );
+
+      localStorage.setItem(
+        "cfo_lang_chosen",
+        "true"
+      );
+
+    }
+
+
+    /* ========================================= */
+    /* CHANGER LA LANGUE */
+    /* ========================================= */
+
+    function translatePage(langCode) {
+
+      if (
+        langCode !== "fr" &&
+        langCode !== "en" &&
+        langCode !== "pt"
+      ) {
+        return;
+      }
+
+      applyLanguage(langCode);
+
+      closeLangModal();
+
+    }
+
+
+    /* ========================================= */
+    /* OUVRIR LA MODALE */
+    /* ========================================= */
+
+    function openLangModal() {
+
+      const modal =
+        document.getElementById(
+          "language-modal-overlay"
+        );
+
+      if (modal) {
+
+        modal.style.display = "flex";
+
+      }
+
+    }
+
+
+    /* ========================================= */
+    /* FERMER LA MODALE */
+    /* ========================================= */
+
+    function closeLangModal() {
+
+      const modal =
+        document.getElementById(
+          "language-modal-overlay"
+        );
+
+      if (modal) {
+
+        modal.style.display = "none";
+
+      }
+
+    }
+
+
+    /* ========================================= */
+    /* CHARGEMENT DE LA PAGE */
+    /* ========================================= */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        const savedLanguage =
+          localStorage.getItem(
+            "cfo_selected_language"
+          );
+
+        if (savedLanguage) {
+
+          applyLanguage(savedLanguage);
+
+          closeLangModal();
+
+        } else {
+
+          openLangModal();
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>

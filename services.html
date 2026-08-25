@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CFO 360° - Nos Services</title>
+  <link rel="stylesheet" href="css cfo 360.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+</head>
+<body>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-actions">
+      <button
+        type="button"
+        class="btn-lang-trigger"
+        onclick="openLangModal()"
+      >
+        <i class="fa-solid fa-globe"></i>
+        <span data-i18n="language_button">Langue / Language</span>
+      </button>
+    </div>
+  </div>
+  <!-- MODALE TRADUCTION -->
+  <div id="language-modal-overlay">
+    <div class="language-modal-card">
+      <h2 data-i18n="modal_title">
+        Langue / Language
+      </h2>
+      <p data-i18n="modal_text">
+        Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :
+      </p>
+      <div class="modal-buttons">
+        <button
+          type="button"
+          class="lang-btn"
+          onclick="translatePage('fr')"
+        >
+          <i class="fa-solid fa-globe"></i>
+          Français
+        </button>
+        <button
+          type="button"
+          class="lang-btn"
+          onclick="translatePage('en')"
+        >
+          <i class="fa-solid fa-globe"></i>
+          English
+        </button>
+        <button
+          type="button"
+          class="lang-btn"
+          onclick="translatePage('pt')"
+        >
+          <i class="fa-solid fa-globe"></i>
+          Português
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a
+        href="index.html"
+        class="logo-link"
+      >
+        <img
+          src="./Downloads/WhatsApp Image 2026-08-24 at 14.18.25.jpeg"
+          alt="CFO 360° Logo"
+          class="logo-img"
+        >
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li>
+            <a
+              href="index.html"
+              data-i18n="nav_home"
+            >
+              Accueil
+            </a>
+          </li>
+          <li>
+            <a
+              href="services.html"
+              class="active"
+              data-i18n="nav_services"
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a
+              href="realisations.html"
+              data-i18n="nav_ambitions"
+            >
+              Ambitions
+            </a>
+          </li>
+          <li>
+            <a
+              href="a-propos.html"
+              data-i18n="nav_about"
+            >
+              À propos
+            </a>
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              data-i18n="nav_contact"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- CONTENU PRINCIPAL -->
+  <main class="container">
+    <section class="page-header">
+      <h1 data-i18n="page_title">
+        Nos Services & Solutions Financières
+      </h1>
+      <p data-i18n="page_description">
+        Une gamme complète d'expertises en direction financière pour piloter et sécuriser votre croissance.
+      </p>
+    </section>
+    <section class="grid">
+      <!-- SERVICE 01 -->
+      <div class="card">
+        <div class="card-icon">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <h3 data-i18n="service1_title">
+          01. Financial Health Check
+        </h3>
+        <p data-i18n="service1_text">
+          Diagnostic complet de votre santé financière pour identifier les vulnérabilités et définir des axes d'amélioration prioritaires.
+        </p>
+      </div>
+      <!-- SERVICE 02 -->
+      <div class="card">
+        <div class="card-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <h3 data-i18n="service2_title">
+          02. Management Reporting
+        </h3>
+        <p data-i18n="service2_text">
+          Conception et suivi de tableaux de bord sur mesure (KPIs) pour offrir aux dirigeants une visibilité claire sur les performances.
+        </p>
+      </div>
+      <!-- SERVICE 03 -->
+      <div class="card">
+        <div class="card-icon">
+          <i class="fa-solid fa-wallet"></i>
+        </div>
+        <h3 data-i18n="service3_title">
+          03. Cash Flow Management
+        </h3>
+        <p data-i18n="service3_text">
+          Optimisation du besoin en fonds de roulement (BFR), maîtrise du flux de trésorerie et prévisions glissantes à court et moyen terme.
+        </p>
+      </div>
+      <!-- SERVICE 04 -->
+      <div class="card">
+        <div class="card-icon">
+          <i class="fa-solid fa-calculator"></i>
+        </div>
+        <h3 data-i18n="service4_title">
+          04. Budget & Forecast
+        </h3>
+        <p data-i18n="service4_text">
+          Élaboration des budgets annuels, modélisation financière et projections stratégiques pour guider le développement de votre entreprise.
+        </p>
+      </div>
+      <!-- SERVICE 05 -->
+      <div class="card">
+        <div class="card-icon">
+          <i class="fa-solid fa-scale-balanced"></i>
+        </div>
+        <h3 data-i18n="service5_title">
+          05. Profitability & Cost Analysis
+        </h3>
+        <p data-i18n="service5_text">
+          Analyse détaillée des marges, de la structure des coûts et des centres de profit pour maximiser la rentabilité globale.
+        </p>
+      </div>
+      <!-- SERVICE 06 -->
+      <div class="card">
+        <div class="card-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h3 data-i18n="service6_title">
+          06. Internal Control & Risk
+        </h3>
+        <p data-i18n="service6_text">
+          Mise en place de procédures de contrôle interne, cartographie des risques financiers et sécurisation des processus opérationnels.
+        </p>
+      </div>
+      <!-- SERVICE 07 -->
+      <div class="card">
+        <div class="card-icon">
+          <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <h3 data-i18n="service7_title">
+          07. Bank & Financing Advisory
+        </h3>
+        <p data-i18n="service7_text">
+          Accompagnement dans la recherche de financements, la négociation avec les partenaires bancaires et la préparation des dossiers investisseurs.
+        </p>
+      </div>
+      <!-- SERVICE 08 -->
+      <div class="card">
+        <div class="card-icon">
+          <i class="fa-solid fa-arrows-rotate"></i>
+        </div>
+        <h3 data-i18n="service8_title">
+          08. Restructuration financière
+        </h3>
+        <p data-i18n="service8_text">
+          Réorganisation de la dette, réalignement des fonds propres et accompagnement stratégique dans les phases de retournement ou de transition.
+        </p>
+      </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-banner">
+      <h2 data-i18n="cta_title">
+        Besoin d'un accompagnement sur mesure ?
+      </h2>
+      <p data-i18n="cta_text">
+        Nos experts analysent vos besoins et conçoivent la feuille de route la plus adaptée à votre structure.
+      </p>
+      <a
+        href="contact.html"
+        class="btn btn-alt"
+      >
+        <span data-i18n="cta_button">
+          Prendre rendez-vous
+        </span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </section>
+  </main>
+  <!-- WHATSAPP FLOAT -->
+  <a
+    href="https://wa.me/2389735933"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <!-- FOOTER COL 1 -->
+      <div class="footer-col">
+        <h4>
+          CFO 360°
+        </h4>
+        <p data-i18n="footer_description">
+          Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.
+        </p>
+      </div>
+      <!-- FOOTER COL 2 -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_navigation">
+          Navigation
+        </h4>
+        <ul>
+          <li>
+            <a
+              href="index.html"
+              data-i18n="nav_home"
+            >
+              Accueil
+            </a>
+          </li>
+          <li>
+            <a
+              href="services.html"
+              data-i18n="nav_services"
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a
+              href="realisations.html"
+              data-i18n="nav_ambitions"
+            >
+              Réalisations
+            </a>
+          </li>
+          <li>
+            <a
+              href="a-propos.html"
+              data-i18n="nav_about"
+            >
+              À propos
+            </a>
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              data-i18n="nav_contact"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- FOOTER COL 3 -->
+      <div class="footer-col">
+        <h4 data-i18n="footer_contact">
+          Contact
+        </h4>
+        <ul>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            cfo360.cv@gmail.com
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            +238 973 59 33
+          </li>
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            Praia, CAP VERT
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+      <p data-i18n="copyright">
+        &copy; 2026 CFO 360°. Tous droits réservés.
+      </p>
+    </div>
+  </footer>
+  <!-- ===================================================== -->
+  <!-- SYSTÈME DE TRADUCTION INTERNE -->
+  <!-- ===================================================== -->
+  <script>
+    const translations = {
+      fr: {
+        language_button: "Langue / Language",
+        modal_title: "Langue / Language",
+        modal_text:
+          "Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :",
+        nav_home: "Accueil",
+        nav_services: "Services",
+        nav_ambitions: "Ambitions",
+        nav_about: "À propos",
+        nav_contact: "Contact",
+        page_title:
+          "Nos Services & Solutions Financières",
+        page_description:
+          "Une gamme complète d'expertises en direction financière pour piloter et sécuriser votre croissance.",
+        service1_title:
+          "01. Financial Health Check",
+        service1_text:
+          "Diagnostic complet de votre santé financière pour identifier les vulnérabilités et définir des axes d'amélioration prioritaires.",
+        service2_title:
+          "02. Management Reporting",
+        service2_text:
+          "Conception et suivi de tableaux de bord sur mesure (KPIs) pour offrir aux dirigeants une visibilité claire sur les performances.",
+        service3_title:
+          "03. Cash Flow Management",
+        service3_text:
+          "Optimisation du besoin en fonds de roulement (BFR), maîtrise du flux de trésorerie et prévisions glissantes à court et moyen terme.",
+        service4_title:
+          "04. Budget & Forecast",
+        service4_text:
+          "Élaboration des budgets annuels, modélisation financière et projections stratégiques pour guider le développement de votre entreprise.",
+        service5_title:
+          "05. Profitability & Cost Analysis",
+        service5_text:
+          "Analyse détaillée des marges, de la structure des coûts et des centres de profit pour maximiser la rentabilité globale.",
+        service6_title:
+          "06. Internal Control & Risk",
+        service6_text:
+          "Mise en place de procédures de contrôle interne, cartographie des risques financiers et sécurisation des processus opérationnels.",
+        service7_title:
+          "07. Bank & Financing Advisory",
+        service7_text:
+          "Accompagnement dans la recherche de financements, la négociation avec les partenaires bancaires et la préparation des dossiers investisseurs.",
+        service8_title:
+          "08. Restructuration financière",
+        service8_text:
+          "Réorganisation de la dette, réalignement des fonds propres et accompagnement stratégique dans les phases de retournement ou de transition.",
+        cta_title:
+          "Besoin d'un accompagnement sur mesure ?",
+        cta_text:
+          "Nos experts analysent vos besoins et conçoivent la feuille de route la plus adaptée à votre structure.",
+        cta_button:
+          "Prendre rendez-vous",
+        footer_description:
+          "Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.",
+        footer_navigation:
+          "Navigation",
+        footer_contact:
+          "Contact",
+        copyright:
+          "© 2026 CFO 360°. Tous droits réservés."
+      },
+      en: {
+        language_button: "Language",
+        modal_title: "Language",
+        modal_text:
+          "Please choose your preferred language / Choisissez votre langue / Escolha o seu idioma :",
+        nav_home:
+          "Home",
+        nav_services:
+          "Services",
+        nav_ambitions:
+          "Goals",
+        nav_about:
+          "About Us",
+        nav_contact:
+          "Contact",
+        page_title:
+          "Our Services & Financial Solutions",
+        page_description:
+          "A comprehensive range of financial management expertise to drive and secure your growth.",
+        service1_title:
+          "01. Financial Health Check",
+        service1_text:
+          "A comprehensive assessment of your financial health to identify vulnerabilities and define priority areas for improvement.",
+        service2_title:
+          "02. Management Reporting",
+        service2_text:
+          "Design and monitoring of customized dashboards (KPIs) to give executives clear visibility into performance.",
+        service3_title:
+          "03. Cash Flow Management",
+        service3_text:
+          "Working capital optimization, cash flow management and rolling short- and medium-term forecasts.",
+        service4_title:
+          "04. Budget & Forecast",
+        service4_text:
+          "Annual budgeting, financial modeling and strategic projections to guide your company's development.",
+        service5_title:
+          "05. Profitability & Cost Analysis",
+        service5_text:
+          "Detailed analysis of margins, cost structure and profit centers to maximize overall profitability.",
+        service6_title:
+          "06. Internal Control & Risk",
+        service6_text:
+          "Implementation of internal control procedures, financial risk mapping and operational process security.",
+        service7_title:
+          "07. Bank & Financing Advisory",
+        service7_text:
+          "Support in finding financing, negotiating with banking partners and preparing investor presentations.",
+        service8_title:
+          "08. Financial Restructuring",
+        service8_text:
+          "Debt reorganization, equity realignment and strategic support during turnaround or transition phases.",
+        cta_title:
+          "Need tailored support?",
+        cta_text:
+          "Our experts analyze your needs and design the roadmap best suited to your organization.",
+        cta_button:
+          "Book an appointment",
+        footer_description:
+          "Your trusted partner in part-time financial management and strategic support.",
+        footer_navigation:
+          "Navigation",
+        footer_contact:
+          "Contact",
+        copyright:
+          "© 2026 CFO 360°. All rights reserved."
+      },
+      pt: {
+        language_button:
+          "Idioma",
+        modal_title:
+          "Idioma",
+        modal_text:
+          "Escolha o seu idioma preferido / Choose your language / Choisissez votre langue :",
+        nav_home:
+          "Início",
+        nav_services:
+          "Serviços",
+        nav_ambitions:
+          "Ambições",
+        nav_about:
+          "Sobre nós",
+        nav_contact:
+          "Contacto",
+        page_title:
+          "Os Nossos Serviços & Soluções Financeiras",
+        page_description:
+          "Uma gama completa de competências em direção financeira para orientar e proteger o seu crescimento.",
+        service1_title:
+          "01. Avaliação da Saúde Financeira",
+        service1_text:
+          "Diagnóstico completo da sua saúde financeira para identificar vulnerabilidades e definir prioridades de melhoria.",
+        service2_title:
+          "02. Relatórios de Gestão",
+        service2_text:
+          "Conceção e acompanhamento de painéis personalizados (KPIs) para proporcionar aos gestores uma visão clara do desempenho.",
+        service3_title:
+          "03. Gestão de Fluxo de Caixa",
+        service3_text:
+          "Otimização das necessidades de fundo de maneio (BFR), controlo do fluxo de caixa e previsões contínuas de curto e médio prazo.",
+        service4_title:
+          "04. Orçamento & Previsões",
+        service4_text:
+          "Elaboração de orçamentos anuais, modelização financeira e projeções estratégicas para orientar o desenvolvimento da sua empresa.",
+        service5_title:
+          "05. Análise de Rentabilidade & Custos",
+        service5_text:
+          "Análise detalhada das margens, da estrutura de custos e dos centros de lucro para maximizar a rentabilidade global.",
+        service6_title:
+          "06. Controlo Interno & Risco",
+        service6_text:
+          "Implementação de procedimentos de controlo interno, mapeamento dos riscos financeiros e segurança dos processos operacionais.",
+        service7_title:
+          "07. Consultoria Bancária & Financiamento",
+        service7_text:
+          "Acompanhamento na procura de financiamento, negociação com parceiros bancários e preparação de dossiers para investidores.",
+        service8_title:
+          "08. Reestruturação Financeira",
+        service8_text:
+          "Reorganização da dívida, realinhamento dos capitais próprios e acompanhamento estratégico em fases de recuperação ou transição.",
+        cta_title:
+          "Precisa de um acompanhamento personalizado?",
+        cta_text:
+          "Os nossos especialistas analisam as suas necessidades e elaboram o roteiro mais adequado à sua estrutura.",
+        cta_button:
+          "Marcar uma reunião",
+        footer_description:
+          "O seu parceiro de confiança em direção financeira a tempo parcial e acompanhamento estratégico.",
+        footer_navigation:
+          "Navegação",
+        footer_contact:
+          "Contacto",
+        copyright:
+          "© 2026 CFO 360°. Todos os direitos reservados."
+      }
+    };
+    /*
+     * Appliquer la langue
+     */
+    function applyLanguage(lang) {
+      if (!translations[lang]) {
+        lang = "fr";
+      }
+      document.documentElement.lang = lang;
+      const elements =
+        document.querySelectorAll("[data-i18n]");
+      elements.forEach(function (element) {
+        const key =
+          element.getAttribute("data-i18n");
+        if (
+          translations[lang][key] !== undefined
+        ) {
+          element.textContent =
+            translations[lang][key];
+        }
+      });
+      localStorage.setItem(
+        "cfo_selected_language",
+        lang
+      );
+      localStorage.setItem(
+        "cfo_lang_chosen",
+        "true"
+      );
+    }
+    /*
+     * Changer la langue
+     */
+    function translatePage(langCode) {
+      if (
+        langCode !== "fr" &&
+        langCode !== "en" &&
+        langCode !== "pt"
+      ) {
+        return;
+      }
+      applyLanguage(langCode);
+      closeLangModal();
+    }
+    /*
+     * Ouvrir la modale
+     */
+    function openLangModal() {
+      const modal =
+        document.getElementById(
+          "language-modal-overlay"
+        );
+      if (modal) {
+        modal.style.display = "flex";
+      }
+    }
+    /*
+     * Fermer la modale
+     */
+    function closeLangModal() {
+      const modal =
+        document.getElementById(
+          "language-modal-overlay"
+        );
+      if (modal) {
+        modal.style.display = "none";
+      }
+    }
+    /*
+     * Charger automatiquement la langue
+     * précédemment choisie sur index.html
+     */
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+        const savedLanguage =
+          localStorage.getItem(
+            "cfo_selected_language"
+          );
+        if (savedLanguage) {
+          applyLanguage(savedLanguage);
+          closeLangModal();
+        } else {
+          openLangModal();
+        }
+      }
+    );
+  </script>
+</body>
+</html>
