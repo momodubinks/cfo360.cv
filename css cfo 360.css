@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CFO 360° - FEUILLE DE STYLE COMPLETE
+   CFO 360° - CSS COMPLET ET CORRIGÉ
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -41,6 +41,10 @@
   --radius-sm: 8px;
 
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Ces deux valeurs sont calculées automatiquement par JavaScript */
+  --topbar-height: 48px;
+  --header-height: 180px;
 }
 
 
@@ -61,15 +65,19 @@ html {
 }
 
 body {
+  margin: 0;
+
   font-family: var(--font-body);
+
   background-color: var(--bg-body);
+
   color: var(--text-dark);
+
   line-height: 1.8;
 
   top: 0 !important;
-  position: static !important;
 
-  margin: 0;
+  position: static !important;
 }
 
 
@@ -82,8 +90,11 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
+
   letter-spacing: 0.8px;
+
   font-weight: 700;
+
   color: var(--navy-primary);
 }
 
@@ -105,28 +116,35 @@ p {
 .goog-logo-link,
 .goog-te-gadget {
   display: none !important;
+
   visibility: hidden !important;
+
   opacity: 0 !important;
 }
 
 font {
   background-color: transparent !important;
+
   box-shadow: none !important;
 }
 
 
 /* ==========================================================================
-   TOP BAR
+   TOP BAR - TOUJOURS VISIBLE
    ========================================================================== */
 
 .top-bar {
-  position: relative;
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
 
   width: 100%;
 
   min-height: 48px;
 
-  z-index: 2000;
+  z-index: 3000;
 
   background-color: var(--navy-dark);
 
@@ -134,11 +152,21 @@ font {
 
   font-size: 0.82rem;
 
-  border-bottom: 1px solid rgba(197, 155, 39, 0.2);
+  border-bottom:
+    1px solid rgba(197, 155, 39, 0.2);
 
   padding: 0.4rem 0;
 
-  transition: transform 0.35s ease;
+  /*
+     IMPORTANT :
+     La top-bar ne disparaît JAMAIS.
+  */
+
+  transform: translateY(0) !important;
+
+  visibility: visible !important;
+
+  opacity: 1 !important;
 }
 
 
@@ -206,11 +234,13 @@ font {
 .btn-lang-trigger {
   position: relative;
 
-  z-index: 2100;
+  z-index: 3100;
 
   display: inline-flex;
 
   align-items: center;
+
+  justify-content: center;
 
   gap: 0.4rem;
 
@@ -251,13 +281,18 @@ font {
 header {
   position: fixed;
 
-  top: 48px;
+  /*
+     Le JavaScript adapte automatiquement cette position
+     à la vraie hauteur de la top-bar.
+  */
+
+  top: var(--topbar-height);
 
   left: 0;
 
   width: 100%;
 
-  z-index: 1500;
+  z-index: 2000;
 
   background: rgba(255, 255, 255, 0.98);
 
@@ -265,9 +300,11 @@ header {
 
   -webkit-backdrop-filter: blur(12px);
 
-  border-bottom: 2px solid var(--gold-primary);
+  border-bottom:
+    2px solid var(--gold-primary);
 
-  box-shadow: 0 4px 20px rgba(10, 37, 64, 0.06);
+  box-shadow:
+    0 4px 20px rgba(10, 37, 64, 0.06);
 
   transition:
     transform 0.35s ease,
@@ -276,22 +313,19 @@ header {
 
 
 /* ==========================================================================
-   HEADER CACHÉ AU DÉFILEMENT
+   HEADER CACHÉ EN DESCENDANT
    ========================================================================== */
 
 header.header-hidden {
-  transform: translateY(-110%);
+  /*
+     Le menu monte complètement au-dessus de l'écran.
+     La top-bar reste visible.
+  */
 
-  visibility: hidden;
-}
-
-
-/* ==========================================================================
-   TOP BAR CACHÉE AU DÉFILEMENT
-   ========================================================================== */
-
-.top-bar.header-hidden {
-  transform: translateY(-110%);
+  transform:
+    translateY(
+      calc(-1 * (var(--header-height) + 10px))
+    );
 
   visibility: hidden;
 }
@@ -374,7 +408,8 @@ header.header-hidden {
 
   background-color: #F4F6F9;
 
-  border: 1px solid rgba(197, 155, 39, 0.3);
+  border:
+    1px solid rgba(197, 155, 39, 0.3);
 
   border-radius: 50px;
 
@@ -389,29 +424,57 @@ header.header-hidden {
 
   border-color: transparent;
 
-  box-shadow: 0 4px 15px var(--gold-glow);
+  box-shadow:
+    0 4px 15px var(--gold-glow);
 }
 
 
 /* ==========================================================================
-   ESPACE DE SÉCURITÉ POUR LE BODY
+   ESPACE AUTOMATIQUE POUR LE HEADER
    ========================================================================== */
 
 /*
-   Le header est position: fixed.
-   On réserve donc l'espace correspondant au header avant le contenu.
+   IMPORTANT :
 
-   Top bar       = 48px
-   Header/logo   = environ 180px
-   Marge sécurité = 30px
+   Le top-bar est FIXED.
+   Le header est FIXED.
 
-   Le contenu commence donc suffisamment bas.
+   Ils ne prennent donc aucune place dans le body.
+
+   Le JavaScript ajoute automatiquement :
+   
+   top-bar + header + marge de sécurité
+
+   au début du contenu.
+
+   Il n'y a donc PLUS de margin-top fixe sur le Hero.
 */
 
 main {
   position: relative;
 
   z-index: 1;
+
+  padding-top:
+    calc(
+      var(--topbar-height) +
+      var(--header-height) +
+      30px
+    );
+}
+
+
+/* ==========================================================================
+   CONTENEUR PRINCIPAL
+   ========================================================================== */
+
+.container {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding:
+    2.5rem 1.5rem;
 }
 
 
@@ -427,11 +490,13 @@ main {
   text-align: center;
 
   /*
-     IMPORTANT :
-     Le hero est placé sous la top-bar + header.
+     PAS DE margin-top ici.
+
+     C'est main qui réserve automatiquement
+     l'espace nécessaire au menu.
   */
 
-  margin-top: 280px;
+  margin-top: 0;
 
   padding: 5rem 2rem;
 
@@ -448,7 +513,8 @@ main {
 
   margin-bottom: 3.5rem;
 
-  border-top: 4px solid var(--gold-primary);
+  border-top:
+    4px solid var(--gold-primary);
 }
 
 .hero h1 {
@@ -481,19 +547,6 @@ main {
 
 
 /* ==========================================================================
-   CONTENEUR PRINCIPAL
-   ========================================================================== */
-
-.container {
-  max-width: 1200px;
-
-  margin: 0 auto;
-
-  padding: 2.5rem 1.5rem;
-}
-
-
-/* ==========================================================================
    PAGE HEADER
    ========================================================================== */
 
@@ -518,7 +571,8 @@ main {
 
   margin-bottom: 3rem;
 
-  border-top: 4px solid var(--gold-primary);
+  border-top:
+    4px solid var(--gold-primary);
 }
 
 .page-header h1,
@@ -536,7 +590,7 @@ main {
 
 
 /* ==========================================================================
-   BOUTON
+   BOUTONS
    ========================================================================== */
 
 .btn {
@@ -608,13 +662,16 @@ main {
 .card {
   background: var(--bg-white);
 
-  border: 1px solid #E2E8F0;
+  border:
+    1px solid #E2E8F0;
 
-  border-top: 4px solid var(--gold-primary);
+  border-top:
+    4px solid var(--gold-primary);
 
   border-radius: var(--radius-md);
 
-  padding: 2.2rem 1.8rem;
+  padding:
+    2.2rem 1.8rem;
 
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.03);
@@ -659,7 +716,7 @@ main {
 
 
 /* ==========================================================================
-   CARTES BLEUES - CORRECTION LISIBILITÉ
+   CARTES BLEUES
    ========================================================================== */
 
 .grid .card:nth-child(even) {
@@ -675,9 +732,11 @@ main {
   color: var(--gold-light);
 }
 
+
 /*
-   Le texte était trop proche du bleu du fond.
-   On utilise un blanc légèrement bleuté beaucoup plus lisible.
+   CORRECTION DE LISIBILITÉ :
+
+   Le texte n'est plus bleu sur fond bleu.
 */
 
 .grid .card:nth-child(even) p {
@@ -703,7 +762,8 @@ main {
     var(--navy-dark) 100%
   );
 
-  padding: 3.5rem 2rem;
+  padding:
+    3.5rem 2rem;
 
   border-radius: var(--radius-lg);
 
@@ -728,7 +788,8 @@ main {
 
   max-width: 650px;
 
-  margin: 0 auto 1.8rem auto;
+  margin:
+    0 auto 1.8rem auto;
 }
 
 .btn-alt {
@@ -745,7 +806,7 @@ main {
 
 
 /* ==========================================================================
-   FORMULAIRE CONTACT
+   FORMULAIRE
    ========================================================================== */
 
 .contact-form {
@@ -755,7 +816,8 @@ main {
 
   border-radius: var(--radius-lg);
 
-  border: 1px solid #E2E8F0;
+  border:
+    1px solid #E2E8F0;
 
   border-top:
     4px solid var(--gold-primary);
@@ -784,9 +846,11 @@ main {
 .form-group textarea {
   width: 100%;
 
-  padding: 0.8rem 1rem;
+  padding:
+    0.8rem 1rem;
 
-  border: 1px solid #CBD5E1;
+  border:
+    1px solid #CBD5E1;
 
   border-radius: var(--radius-sm);
 
@@ -801,7 +865,8 @@ main {
 .form-group textarea:focus {
   outline: none;
 
-  border-color: var(--gold-primary);
+  border-color:
+    var(--gold-primary);
 
   box-shadow:
     0 0 0 3px var(--gold-glow);
@@ -954,6 +1019,21 @@ footer {
 
 
 /* ==========================================================================
+   MODALE DE LANGUE
+   ========================================================================== */
+
+/*
+   Elle est désactivée.
+   Le changement de langue se fait avec le bouton
+   de la top-bar.
+*/
+
+#language-modal-overlay {
+  display: none !important;
+}
+
+
+/* ==========================================================================
    TABLETTE / MOBILE
    ========================================================================== */
 
@@ -975,7 +1055,7 @@ footer {
   /* HEADER */
 
   header {
-    top: 48px;
+    top: var(--topbar-height);
   }
 
   .header-container {
@@ -1014,14 +1094,16 @@ footer {
 
 
   /*
-     Sur mobile, le header est beaucoup plus haut.
+     IMPORTANT :
 
-     On réserve donc une zone plus importante
-     avant le Hero.
+     Pas de margin-top sur le Hero.
+
+     main reçoit automatiquement la hauteur
+     réelle du header via JavaScript.
   */
 
   .hero {
-    margin-top: 330px;
+    margin-top: 0;
 
     padding:
       3rem 1.2rem;
@@ -1067,13 +1149,13 @@ footer {
 
 
 /* ==========================================================================
-   PETITS TÉLÉPHONES
+   PETITS ÉCRANS
    ========================================================================== */
 
 @media (max-width: 480px) {
 
   .hero {
-    margin-top: 350px;
+    margin-top: 0;
 
     padding:
       2.5rem 1rem;
