@@ -24,80 +24,149 @@
 
   <style>
 
-    /* ===================================================== */
-    /* MODALE LANGUE */
-    /* ===================================================== */
+    /* ============================================================
+       MODALE DE LANGUE
+       ============================================================ */
 
     #language-modal-overlay {
+
       display: none;
+
       position: fixed;
+
       inset: 0;
+
       width: 100%;
       height: 100%;
+
       background: rgba(6, 23, 41, 0.65);
+
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
+
       z-index: 999999;
+
       align-items: center;
       justify-content: center;
-    }
 
+      padding: 20px;
 
-    /* ===================================================== */
-    /* CORRECTION HEADER */
-    /* ===================================================== */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      box-sizing: border-box;
     }
 
 
     /*
-     * Le header peut disparaître au défilement.
-     * La top-bar, elle, reste toujours visible.
+     * Classe ajoutée par JavaScript
+     * pour afficher la modale.
+     */
+
+    #language-modal-overlay.language-modal-open {
+
+      display: flex;
+
+    }
+
+
+    /* ============================================================
+       HEADER
+       ============================================================ */
+
+    header {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
+      transition:
+        transform 0.35s ease;
+
+    }
+
+
+    /*
+     * Le header disparaît uniquement
+     * lorsque l'utilisateur descend.
      */
 
     header.header-hidden {
+
       transform: translateY(-100%);
-      transition: transform 0.35s ease;
+
     }
 
 
-    header {
-      transition: transform 0.35s ease;
-    }
-
-
-    /*
-     * Empêche le contenu de se retrouver sous le header
-     * lorsque la page est chargée.
-     */
-
-    main {
-      position: relative;
-      z-index: 1;
-    }
-
-
-    /* ===================================================== */
-    /* TOP BAR TOUJOURS VISIBLE */
-    /* ===================================================== */
+    /* ============================================================
+       TOP BAR
+       ============================================================ */
 
     .top-bar {
+
       position: relative;
+
       z-index: 10000;
+
     }
 
 
     .top-actions {
+
       max-width: 1200px;
+
       margin: 0 auto;
+
       padding: 0 1.5rem;
+
       display: flex;
+
       justify-content: flex-end;
+
       align-items: center;
+
+    }
+
+
+    /* ============================================================
+       CONTENU PRINCIPAL
+       ============================================================ */
+
+    main {
+
+      position: relative;
+
+      z-index: 1;
+
+    }
+
+
+    /* ============================================================
+       FORMULAIRE
+       ============================================================ */
+
+    .contact-form {
+
+      max-width: 850px;
+
+      margin: 0 auto;
+
+    }
+
+
+    /* ============================================================
+       FICHIER
+       ============================================================ */
+
+    .attachment-info {
+
+      color: var(--text-muted);
+
+      font-size: 0.8rem;
+
+      display: block;
+
+      margin-top: 0.3rem;
+
     }
 
   </style>
@@ -108,9 +177,9 @@
 <body>
 
 
-  <!-- ===================================================== -->
-  <!-- TOP BAR -->
-  <!-- ===================================================== -->
+  <!-- ============================================================
+       TOP BAR
+       ============================================================ -->
 
   <div class="top-bar">
 
@@ -136,9 +205,9 @@
   </div>
 
 
-  <!-- ===================================================== -->
-  <!-- MODALE DE LANGUE -->
-  <!-- ===================================================== -->
+  <!-- ============================================================
+       MODALE DE CHOIX DE LANGUE
+       ============================================================ -->
 
   <div
     id="language-modal-overlay"
@@ -166,6 +235,9 @@
 
       <div class="modal-buttons">
 
+
+        <!-- FRANÇAIS -->
+
         <button
           type="button"
           class="lang-btn"
@@ -179,6 +251,8 @@
         </button>
 
 
+        <!-- ENGLISH -->
+
         <button
           type="button"
           class="lang-btn"
@@ -191,6 +265,8 @@
 
         </button>
 
+
+        <!-- PORTUGUÊS -->
 
         <button
           type="button"
@@ -211,13 +287,16 @@
   </div>
 
 
-  <!-- ===================================================== -->
-  <!-- HEADER -->
-  <!-- ===================================================== -->
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
 
   <header>
 
     <div class="header-container">
+
+
+      <!-- LOGO -->
 
       <a
         href="index.html"
@@ -233,9 +312,14 @@
       </a>
 
 
+      <!-- NAVIGATION -->
+
       <nav>
 
         <ul class="nav-links">
+
+
+          <!-- ACCUEIL -->
 
           <li>
 
@@ -249,6 +333,8 @@
           </li>
 
 
+          <!-- SERVICES -->
+
           <li>
 
             <a
@@ -260,6 +346,8 @@
 
           </li>
 
+
+          <!-- AMBITIONS -->
 
           <li>
 
@@ -273,6 +361,8 @@
           </li>
 
 
+          <!-- À PROPOS -->
+
           <li>
 
             <a
@@ -284,6 +374,8 @@
 
           </li>
 
+
+          <!-- CONTACT -->
 
           <li>
 
@@ -306,16 +398,16 @@
   </header>
 
 
-  <!-- ===================================================== -->
-  <!-- CONTENU PRINCIPAL -->
-  <!-- ===================================================== -->
+  <!-- ============================================================
+       CONTENU PRINCIPAL
+       ============================================================ -->
 
   <main class="container">
 
 
-    <!-- =================================================== -->
-    <!-- TITRE -->
-    <!-- =================================================== -->
+    <!-- ==========================================================
+         EN-TÊTE
+         ========================================================== -->
 
     <section class="page-header">
 
@@ -335,9 +427,9 @@
     </section>
 
 
-    <!-- =================================================== -->
-    <!-- FORMULAIRE -->
-    <!-- =================================================== -->
+    <!-- ==========================================================
+         FORMULAIRE
+         ========================================================== -->
 
     <div class="contact-form">
 
@@ -347,9 +439,9 @@
       >
 
 
-        <!-- ================================================= -->
-        <!-- NOM -->
-        <!-- ================================================= -->
+        <!-- ======================================================
+             NOM
+             ====================================================== -->
 
         <div class="form-group">
 
@@ -376,9 +468,9 @@
         </div>
 
 
-        <!-- ================================================= -->
-        <!-- EMAIL -->
-        <!-- ================================================= -->
+        <!-- ======================================================
+             EMAIL
+             ====================================================== -->
 
         <div class="form-group">
 
@@ -405,9 +497,9 @@
         </div>
 
 
-        <!-- ================================================= -->
-        <!-- SUJET -->
-        <!-- ================================================= -->
+        <!-- ======================================================
+             SUJET
+             ====================================================== -->
 
         <div class="form-group">
 
@@ -433,9 +525,9 @@
         </div>
 
 
-        <!-- ================================================= -->
-        <!-- MESSAGE -->
-        <!-- ================================================= -->
+        <!-- ======================================================
+             MESSAGE
+             ====================================================== -->
 
         <div class="form-group">
 
@@ -461,9 +553,9 @@
         </div>
 
 
-        <!-- ================================================= -->
-        <!-- PIÈCE JOINTE -->
-        <!-- ================================================= -->
+        <!-- ======================================================
+             PIÈCE JOINTE
+             ====================================================== -->
 
         <div class="form-group">
 
@@ -486,12 +578,7 @@
 
 
           <small
-            style="
-              color: var(--text-muted);
-              font-size: 0.8rem;
-              display: block;
-              margin-top: 0.3rem;
-            "
+            class="attachment-info"
             data-i18n="attachment_info"
           >
 
@@ -502,9 +589,9 @@
         </div>
 
 
-        <!-- ================================================= -->
-        <!-- BOUTON -->
-        <!-- ================================================= -->
+        <!-- ======================================================
+             BOUTON ENVOYER
+             ====================================================== -->
 
         <button
           type="submit"
@@ -529,9 +616,9 @@
   </main>
 
 
-  <!-- ===================================================== -->
-  <!-- WHATSAPP -->
-  <!-- ===================================================== -->
+  <!-- ============================================================
+       WHATSAPP
+       ============================================================ -->
 
   <a
     href="https://wa.me/2389735933"
@@ -546,16 +633,18 @@
   </a>
 
 
-  <!-- ===================================================== -->
-  <!-- FOOTER -->
-  <!-- ===================================================== -->
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
 
   <footer>
 
     <div class="footer-content">
 
 
-      <!-- COLONNE 1 -->
+      <!-- ========================================================
+           COLONNE 1
+           ======================================================== -->
 
       <div class="footer-col">
 
@@ -573,7 +662,9 @@
       </div>
 
 
-      <!-- COLONNE 2 -->
+      <!-- ========================================================
+           COLONNE 2
+           ======================================================== -->
 
       <div class="footer-col">
 
@@ -585,6 +676,7 @@
 
 
         <ul>
+
 
           <li>
 
@@ -650,7 +742,9 @@
       </div>
 
 
-      <!-- COLONNE 3 -->
+      <!-- ========================================================
+           COLONNE 3
+           ======================================================== -->
 
       <div class="footer-col">
 
@@ -662,6 +756,7 @@
 
 
         <ul>
+
 
           <li>
 
@@ -696,9 +791,9 @@
     </div>
 
 
-    <!-- =================================================== -->
-    <!-- FOOTER BOTTOM -->
-    <!-- =================================================== -->
+    <!-- ========================================================
+         FOOTER BOTTOM
+         ======================================================== -->
 
     <div class="footer-bottom">
 
@@ -713,21 +808,22 @@
   </footer>
 
 
-  <!-- ===================================================== -->
-  <!-- JAVASCRIPT CFO 360° -->
-  <!-- ===================================================== -->
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
 
   <script>
 
-    /* ===================================================== */
-    /* TRADUÇÕES */
-    /* ===================================================== */
+    /* ============================================================
+       TRADUCTIONS
+       ============================================================ */
 
     const translations = {
 
-      /* =================================================== */
-      /* FRANÇAIS */
-      /* =================================================== */
+
+      /* ==========================================================
+         FRANÇAIS
+         ========================================================== */
 
       fr: {
 
@@ -739,6 +835,7 @@
 
         modal_text:
           "Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :",
+
 
         nav_home:
           "Accueil",
@@ -755,11 +852,13 @@
         nav_contact:
           "Contact",
 
+
         page_title:
           "Contactez CFO 360°",
 
         page_description:
           "Prenez rendez-vous dès aujourd'hui ou transmettez-nous vos documents pour étude.",
+
 
         name_label:
           "Nom complet *",
@@ -767,17 +866,20 @@
         name_placeholder:
           "Votre nom et prénom",
 
+
         email_label:
           "Adresse email *",
 
         email_placeholder:
           "nom@entreprise.com",
 
+
         subject_label:
           "Sujet *",
 
         subject_placeholder:
-          "Ex: Diagnostic financier / Financial Health Check",
+          "Ex : Diagnostic financier",
+
 
         message_label:
           "Message *",
@@ -785,14 +887,17 @@
         message_placeholder:
           "Détaillez votre demande ou votre projet...",
 
+
         attachment_label:
           "Joindre un fichier / Document (optionnel)",
 
         attachment_info:
           "Formats acceptés : PDF, Word, Excel, Images (Max 10 Mo).",
 
+
         send_button:
           "Envoyer le message",
+
 
         footer_description:
           "Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.",
@@ -809,9 +914,9 @@
       },
 
 
-      /* =================================================== */
-      /* ENGLISH */
-      /* =================================================== */
+      /* ==========================================================
+         ENGLISH
+         ========================================================== */
 
       en: {
 
@@ -823,6 +928,7 @@
 
         modal_text:
           "Please choose your preferred language / Choisissez votre langue / Escolha o seu idioma :",
+
 
         nav_home:
           "Home",
@@ -839,11 +945,13 @@
         nav_contact:
           "Contact",
 
+
         page_title:
           "Contact CFO 360°",
 
         page_description:
           "Book an appointment today or send us your documents for review.",
+
 
         name_label:
           "Full name *",
@@ -851,11 +959,13 @@
         name_placeholder:
           "Your first and last name",
 
+
         email_label:
           "Email address *",
 
         email_placeholder:
           "name@company.com",
+
 
         subject_label:
           "Subject *",
@@ -863,11 +973,13 @@
         subject_placeholder:
           "Ex: Financial Health Check",
 
+
         message_label:
           "Message *",
 
         message_placeholder:
           "Please describe your request or project...",
+
 
         attachment_label:
           "Attach a file / Document (optional)",
@@ -875,8 +987,10 @@
         attachment_info:
           "Accepted formats: PDF, Word, Excel, Images (Max 10 MB).",
 
+
         send_button:
           "Send message",
+
 
         footer_description:
           "Your trusted partner in part-time financial management and strategic support.",
@@ -893,9 +1007,9 @@
       },
 
 
-      /* =================================================== */
-      /* PORTUGUÊS */
-      /* =================================================== */
+      /* ==========================================================
+         PORTUGUÊS
+         ========================================================== */
 
       pt: {
 
@@ -907,6 +1021,7 @@
 
         modal_text:
           "Escolha o seu idioma preferido / Choose your language / Choisissez votre langue :",
+
 
         nav_home:
           "Início",
@@ -923,11 +1038,13 @@
         nav_contact:
           "Contacto",
 
+
         page_title:
           "Contacte a CFO 360°",
 
         page_description:
           "Marque uma reunião hoje ou envie-nos os seus documentos para análise.",
+
 
         name_label:
           "Nome completo *",
@@ -935,11 +1052,13 @@
         name_placeholder:
           "O seu nome e apelido",
 
+
         email_label:
           "Endereço de email *",
 
         email_placeholder:
           "nome@empresa.com",
+
 
         subject_label:
           "Assunto *",
@@ -947,11 +1066,13 @@
         subject_placeholder:
           "Ex: Diagnóstico financeiro",
 
+
         message_label:
           "Mensagem *",
 
         message_placeholder:
           "Descreva o seu pedido ou projeto...",
+
 
         attachment_label:
           "Anexar ficheiro / Documento (opcional)",
@@ -959,8 +1080,10 @@
         attachment_info:
           "Formatos aceites: PDF, Word, Excel, Imagens (Máx. 10 MB).",
 
+
         send_button:
           "Enviar mensagem",
+
 
         footer_description:
           "O seu parceiro de confiança em direção financeira a tempo parcial e acompanhamento estratégico.",
@@ -979,14 +1102,15 @@
     };
 
 
-    /* ===================================================== */
-    /* APPLICATION DE LA LANGUE */
-    /* ===================================================== */
+    /* ============================================================
+       APPLICATION DE LA LANGUE
+       ============================================================ */
 
     function applyLanguage(lang) {
 
+
       /*
-       * Portugais = langue par défaut
+       * Portugais par défaut
        */
 
       if (!translations[lang]) {
@@ -996,10 +1120,16 @@
       }
 
 
+      /*
+       * Langue HTML
+       */
+
       document.documentElement.lang = lang;
 
 
-      /* TEXTES */
+      /*
+       * Textes
+       */
 
       document
         .querySelectorAll("[data-i18n]")
@@ -1021,7 +1151,9 @@
         });
 
 
-      /* PLACEHOLDERS */
+      /*
+       * Placeholders
+       */
 
       document
         .querySelectorAll("[data-i18n-placeholder]")
@@ -1046,14 +1178,13 @@
 
 
       /*
-       * Mémorisation de la langue
+       * Sauvegarde
        */
 
       localStorage.setItem(
         "cfo_selected_language",
         lang
       );
-
 
       localStorage.setItem(
         "cfo_lang_chosen",
@@ -1063,11 +1194,12 @@
     }
 
 
-    /* ===================================================== */
-    /* CHANGEMENT DE LANGUE */
-    /* ===================================================== */
+    /* ============================================================
+       CHANGEMENT DE LANGUE
+       ============================================================ */
 
     function translatePage(langCode) {
+
 
       if (
         langCode !== "fr" &&
@@ -1082,50 +1214,307 @@
 
       applyLanguage(langCode);
 
-
       closeLangModal();
 
     }
 
-/* ===================================================== */
-/* OUVRIR LA MODALE DE LANGUE */
-/* ===================================================== */
 
-function openLangModal() {
+    /*
+     * Compatibilité avec les autres pages
+     */
 
-  const modal =
-    document.getElementById("language-modal-overlay");
+    function translateSite(langCode) {
 
-  if (!modal) {
-    console.error("Modale de langue introuvable.");
-    return;
-  }
+      translatePage(langCode);
 
-  modal.classList.add("language-modal-open");
-
-}
+    }
 
 
-/* ===================================================== */
-/* FERMER LA MODALE DE LANGUE */
-/* ===================================================== */
+    /* ============================================================
+       OUVRIR LA MODALE
+       ============================================================ */
 
-function closeLangModal() {
+    function openLangModal() {
 
-  const modal =
-    document.getElementById("language-modal-overlay");
 
-  if (!modal) {
-    return;
-  }
+      const modal =
+        document.getElementById(
+          "language-modal-overlay"
+        );
 
-  modal.classList.remove("language-modal-open");
 
-}
+      if (!modal) {
 
-    /* ===================================================== */
-    /* FORMULAIRE CONTACT */
-    /* ===================================================== */
+        console.error(
+          "Modale de langue introuvable."
+        );
+
+        return;
+
+      }
+
+
+      modal.classList.add(
+        "language-modal-open"
+      );
+
+
+      /*
+       * Empêche le défilement derrière la modale
+       */
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    /* ============================================================
+       FERMER LA MODALE
+       ============================================================ */
+
+    function closeLangModal() {
+
+
+      const modal =
+        document.getElementById(
+          "language-modal-overlay"
+        );
+
+
+      if (!modal) {
+
+        return;
+
+      }
+
+
+      modal.classList.remove(
+        "language-modal-open"
+      );
+
+
+      /*
+       * Réactive le défilement
+       */
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    /* ============================================================
+       INITIALISATION
+       ============================================================ */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+
+        /* ========================================================
+           LANGUE
+           ======================================================== */
+
+        const savedLanguage =
+          localStorage.getItem(
+            "cfo_selected_language"
+          );
+
+
+        if (
+          savedLanguage &&
+          translations[savedLanguage]
+        ) {
+
+          applyLanguage(
+            savedLanguage
+          );
+
+        }
+
+        else {
+
+          /*
+           * PORTUGAIS PAR DÉFAUT
+           */
+
+          applyLanguage("pt");
+
+        }
+
+
+        /*
+         * La modale ne s'ouvre jamais automatiquement.
+         */
+
+        closeLangModal();
+
+
+        /* ========================================================
+           FERMETURE DE LA MODALE
+           ======================================================== */
+
+        const modal =
+          document.getElementById(
+            "language-modal-overlay"
+          );
+
+
+        if (modal) {
+
+
+          modal.addEventListener(
+            "click",
+            function(event) {
+
+
+              /*
+               * Si on clique sur le fond
+               * et non sur la carte
+               */
+
+              if (
+                event.target === modal
+              ) {
+
+                closeLangModal();
+
+              }
+
+            }
+          );
+
+        }
+
+
+        /* ========================================================
+           TOUCHE ESC
+           ======================================================== */
+
+        document.addEventListener(
+          "keydown",
+          function(event) {
+
+
+            if (
+              event.key === "Escape"
+            ) {
+
+              closeLangModal();
+
+            }
+
+          }
+        );
+
+
+        /* ========================================================
+           MENU AU DÉFILEMENT
+           ======================================================== */
+
+        const header =
+          document.querySelector(
+            "header"
+          );
+
+
+        if (!header) {
+
+          return;
+
+        }
+
+
+        let lastScrollTop =
+          window.pageYOffset ||
+          document.documentElement.scrollTop;
+
+
+        window.addEventListener(
+          "scroll",
+          function() {
+
+
+            const currentScrollTop =
+              window.pageYOffset ||
+              document.documentElement.scrollTop;
+
+
+            /*
+             * TOUT EN HAUT
+             */
+
+            if (
+              currentScrollTop <= 10
+            ) {
+
+              header.classList.remove(
+                "header-hidden"
+              );
+
+
+              lastScrollTop =
+                currentScrollTop;
+
+
+              return;
+
+            }
+
+
+            /*
+             * ON DESCEND
+             *
+             * Seul le header disparaît.
+             */
+
+            if (
+              currentScrollTop >
+              lastScrollTop
+            ) {
+
+              header.classList.add(
+                "header-hidden"
+              );
+
+            }
+
+
+            /*
+             * ON REMONTE
+             */
+
+            else if (
+              currentScrollTop <
+              lastScrollTop
+            ) {
+
+              header.classList.remove(
+                "header-hidden"
+              );
+
+            }
+
+
+            lastScrollTop =
+              currentScrollTop;
+
+          },
+          {
+            passive: true
+          }
+        );
+
+
+      }
+    );
+
+
+    /* ============================================================
+       FORMULAIRE DE CONTACT
+       ============================================================ */
 
     document.addEventListener(
       "DOMContentLoaded",
@@ -1149,12 +1538,13 @@ function closeLangModal() {
           "submit",
           function(event) {
 
+
             event.preventDefault();
 
 
-            /* --------------------------------------------- */
-            /* RÉCUPÉRATION DES INFORMATIONS */
-            /* --------------------------------------------- */
+            /* ====================================================
+               RÉCUPÉRATION DES DONNÉES
+               ==================================================== */
 
             const name =
               document
@@ -1185,21 +1575,22 @@ function closeLangModal() {
 
 
             const attachment =
-              document
-                .getElementById("attachment");
+              document.getElementById(
+                "attachment"
+              );
 
 
-            /* --------------------------------------------- */
-            /* ADRESSE DE L'ENTREPRISE */
-            /* --------------------------------------------- */
+            /* ====================================================
+               DESTINATAIRE
+               ==================================================== */
 
             const emailTo =
               "cfo360.cv@gmail.com";
 
 
-            /* --------------------------------------------- */
-            /* SUJET EMAIL */
-            /* --------------------------------------------- */
+            /* ====================================================
+               SUJET
+               ==================================================== */
 
             const emailSubject =
               encodeURIComponent(
@@ -1208,9 +1599,9 @@ function closeLangModal() {
               );
 
 
-            /* --------------------------------------------- */
-            /* CORPS DE L'EMAIL */
-            /* --------------------------------------------- */
+            /* ====================================================
+               CORPS DU MESSAGE
+               ==================================================== */
 
             let emailBody =
 
@@ -1230,19 +1621,21 @@ function closeLangModal() {
               "\n\n" +
 
               "Message :" +
+
               "\n" +
+
               message;
 
 
-            /*
-             * Si un fichier est sélectionné,
-             * on indique son nom dans l'email.
-             */
+            /* ====================================================
+               DOCUMENT
+               ==================================================== */
 
             if (
               attachment &&
               attachment.files.length > 0
             ) {
+
 
               emailBody +=
 
@@ -1259,9 +1652,9 @@ function closeLangModal() {
             }
 
 
-            /* --------------------------------------------- */
-            /* ENCODAGE */
-            /* --------------------------------------------- */
+            /* ====================================================
+               ENCODAGE
+               ==================================================== */
 
             emailBody =
               encodeURIComponent(
@@ -1269,209 +1662,24 @@ function closeLangModal() {
               );
 
 
-            /* --------------------------------------------- */
-            /* OUVERTURE DU CLIENT EMAIL */
-            /* --------------------------------------------- */
+            /* ====================================================
+               OUVERTURE DU CLIENT EMAIL
+               ==================================================== */
 
             window.location.href =
 
               "mailto:" +
+
               emailTo +
 
               "?subject=" +
+
               emailSubject +
 
               "&body=" +
+
               emailBody;
 
-          }
-        );
-
-      }
-    );
-
-
-    /* ===================================================== */
-    /* CHARGEMENT INITIAL */
-    /* ===================================================== */
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      function() {
-
-
-        const savedLanguage =
-          localStorage.getItem(
-            "cfo_selected_language"
-          );
-
-
-        /*
-         * Si l'utilisateur a déjà choisi
-         * une langue, on la conserve.
-         */
-
-        if (
-          savedLanguage &&
-          translations[savedLanguage]
-        ) {
-
-          applyLanguage(
-            savedLanguage
-          );
-
-        }
-
-        /*
-         * Sinon :
-         * PORTUGAIS PAR DÉFAUT.
-         *
-         * Aucune fenêtre ne s'ouvre.
-         */
-
-        else {
-
-          applyLanguage("pt");
-
-          closeLangModal();
-
-        }
-
-      }
-    );
-
-
-    /* ===================================================== */
-    /* FERMETURE DE LA MODALE EN CLIQUANT À L'EXTÉRIEUR */
-    /* ===================================================== */
-
-    document.addEventListener(
-      "click",
-      function(event) {
-
-        const modal =
-          document.getElementById(
-            "language-modal-overlay"
-          );
-
-
-        if (
-          modal &&
-          event.target === modal
-        ) {
-
-          closeLangModal();
-
-        }
-
-      }
-    );
-
-
-    /* ===================================================== */
-    /* MENU QUI DISPARAÎT AU DÉFILEMENT */
-    /* ===================================================== */
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      function() {
-
-
-        const header =
-          document.querySelector(
-            "header"
-          );
-
-
-        /*
-         * On ne touche PAS à la top-bar.
-         */
-
-        if (!header) {
-
-          return;
-
-        }
-
-
-        let lastScrollTop =
-          window.pageYOffset ||
-          document.documentElement.scrollTop;
-
-
-        window.addEventListener(
-          "scroll",
-          function() {
-
-
-            const currentScrollTop =
-              window.pageYOffset ||
-              document.documentElement.scrollTop;
-
-
-            /*
-             * Tout en haut :
-             * le menu est visible.
-             */
-
-            if (
-              currentScrollTop <= 10
-            ) {
-
-              header.classList.remove(
-                "header-hidden"
-              );
-
-
-              lastScrollTop =
-                currentScrollTop;
-
-
-              return;
-
-            }
-
-
-            /*
-             * On descend :
-             * SEUL le header disparaît.
-             */
-
-            if (
-              currentScrollTop >
-              lastScrollTop
-            ) {
-
-              header.classList.add(
-                "header-hidden"
-              );
-
-            }
-
-
-            /*
-             * On remonte :
-             * le header revient.
-             */
-
-            else if (
-              currentScrollTop <
-              lastScrollTop
-            ) {
-
-              header.classList.remove(
-                "header-hidden"
-              );
-
-            }
-
-
-            lastScrollTop =
-              currentScrollTop;
-
-          },
-          {
-            passive: true
           }
         );
 
