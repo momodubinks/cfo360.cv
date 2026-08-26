@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CFO 360° - CSS COMPLET ET CORRIGÉ
+   CFO 360° — CSS COMMUN
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -42,9 +42,9 @@
 
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Ces deux valeurs sont calculées automatiquement par JavaScript */
+  /* Valeurs ajustées automatiquement par JavaScript */
   --topbar-height: 48px;
-  --header-height: 180px;
+  --header-height: 150px;
 }
 
 
@@ -66,18 +66,17 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
 
   font-family: var(--font-body);
 
-  background-color: var(--bg-body);
+  background: var(--bg-body);
 
   color: var(--text-dark);
 
   line-height: 1.8;
 
-  top: 0 !important;
-
-  position: static !important;
+  overflow-x: hidden;
 }
 
 
@@ -91,9 +90,9 @@ h3,
 h4 {
   font-family: var(--font-heading);
 
-  letter-spacing: 0.8px;
-
   font-weight: 700;
+
+  letter-spacing: 0.8px;
 
   color: var(--navy-primary);
 }
@@ -104,63 +103,29 @@ p {
 
 
 /* ==========================================================================
-   GOOGLE TRANSLATE
-   ========================================================================== */
-
-.goog-te-banner-frame,
-.goog-te-banner-frame.skiptranslate,
-#goog-gt-tt,
-.goog-te-balloon-frame,
-.goog-tooltip,
-.goog-tooltip:hover,
-.goog-logo-link,
-.goog-te-gadget {
-  display: none !important;
-
-  visibility: hidden !important;
-
-  opacity: 0 !important;
-}
-
-font {
-  background-color: transparent !important;
-
-  box-shadow: none !important;
-}
-
-
-/* ==========================================================================
-   TOP BAR - TOUJOURS VISIBLE
+   TOP BAR
    ========================================================================== */
 
 .top-bar {
   position: fixed;
 
   top: 0;
-
   left: 0;
 
   width: 100%;
 
-  min-height: 48px;
+  min-height: var(--topbar-height);
 
-  z-index: 3000;
-
-  background-color: var(--navy-dark);
+  background: var(--navy-dark);
 
   color: #94A3B8;
 
-  font-size: 0.82rem;
-
   border-bottom:
-    1px solid rgba(197, 155, 39, 0.2);
+    1px solid rgba(197, 155, 39, 0.25);
 
-  padding: 0.4rem 0;
+  z-index: 3000;
 
-  /*
-     IMPORTANT :
-     La top-bar ne disparaît JAMAIS.
-  */
+  padding: 0.35rem 0;
 
   transform: translateY(0) !important;
 
@@ -171,26 +136,12 @@ font {
 
 
 /* ==========================================================================
-   TOP BAR CONTAINER
+   TOP BAR — CONTAINER
    ========================================================================== */
 
-.top-bar-container {
-  max-width: 1200px;
-
-  min-height: 40px;
-
-  margin: 0 auto;
-
-  padding: 0 1.5rem;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-}
-
 .top-actions {
+  width: 100%;
+
   max-width: 1200px;
 
   min-height: 40px;
@@ -206,47 +157,23 @@ font {
   align-items: center;
 }
 
-.top-info {
-  display: flex;
-
-  gap: 1.5rem;
-
-  flex-wrap: wrap;
-}
-
-.top-info span {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 0.4rem;
-}
-
-.top-info i {
-  color: var(--gold-primary);
-}
-
 
 /* ==========================================================================
    BOUTON LANGUE
    ========================================================================== */
 
 .btn-lang-trigger {
-  position: relative;
-
-  z-index: 3100;
-
   display: inline-flex;
 
   align-items: center;
 
   justify-content: center;
 
-  gap: 0.4rem;
+  gap: 0.45rem;
 
-  padding: 0.35rem 0.9rem;
+  padding: 0.4rem 0.95rem;
 
-  background-color: transparent;
+  background: transparent;
 
   color: var(--gold-light);
 
@@ -271,28 +198,27 @@ font {
   color: var(--navy-dark);
 
   border-color: transparent;
+
+  transform: translateY(-1px);
+}
+
+.btn-lang-trigger i {
+  font-size: 0.85rem;
 }
 
 
 /* ==========================================================================
-   HEADER / MENU
+   HEADER
    ========================================================================== */
 
 header {
   position: fixed;
-
-  /*
-     Le JavaScript adapte automatiquement cette position
-     à la vraie hauteur de la top-bar.
-  */
 
   top: var(--topbar-height);
 
   left: 0;
 
   width: 100%;
-
-  z-index: 2000;
 
   background: rgba(255, 255, 255, 0.98);
 
@@ -304,7 +230,9 @@ header {
     2px solid var(--gold-primary);
 
   box-shadow:
-    0 4px 20px rgba(10, 37, 64, 0.06);
+    0 4px 20px rgba(10, 37, 64, 0.08);
+
+  z-index: 2000;
 
   transition:
     transform 0.35s ease,
@@ -313,18 +241,13 @@ header {
 
 
 /* ==========================================================================
-   HEADER CACHÉ EN DESCENDANT
+   HEADER CACHÉ
    ========================================================================== */
 
 header.header-hidden {
-  /*
-     Le menu monte complètement au-dessus de l'écran.
-     La top-bar reste visible.
-  */
-
   transform:
     translateY(
-      calc(-1 * (var(--header-height) + 10px))
+      calc(-1 * (var(--header-height) + 15px))
     );
 
   visibility: hidden;
@@ -336,17 +259,23 @@ header.header-hidden {
    ========================================================================== */
 
 .header-container {
+  width: 100%;
+
   max-width: 1200px;
+
+  min-height: var(--header-height);
 
   margin: 0 auto;
 
-  padding: 0.8rem 1.5rem;
+  padding: 0.5rem 1.5rem;
 
   display: flex;
 
   align-items: center;
 
   justify-content: space-between;
+
+  gap: 2rem;
 }
 
 
@@ -354,10 +283,24 @@ header.header-hidden {
    LOGO
    ========================================================================== */
 
+.logo-link {
+  display: flex;
+
+  align-items: center;
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+}
+
 .logo-img {
-  height: 150px;
+  display: block;
 
   width: auto;
+
+  height: 135px;
+
+  max-width: 260px;
 
   object-fit: contain;
 
@@ -373,14 +316,24 @@ header.header-hidden {
    NAVIGATION
    ========================================================================== */
 
+nav {
+  display: flex;
+
+  align-items: center;
+}
+
 .nav-links {
   display: flex;
 
   align-items: center;
 
-  gap: 0.8rem;
+  justify-content: center;
+
+  gap: 0.65rem;
 
   list-style: none;
+
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -390,28 +343,30 @@ header.header-hidden {
 
   justify-content: center;
 
-  padding: 0.55rem 1.2rem;
+  padding: 0.55rem 1rem;
 
-  font-family: var(--font-body);
-
-  font-size: 0.82rem;
-
-  font-weight: 700;
+  background: #F4F6F9;
 
   color: var(--navy-primary);
-
-  text-decoration: none;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.8px;
-
-  background-color: #F4F6F9;
 
   border:
     1px solid rgba(197, 155, 39, 0.3);
 
   border-radius: 50px;
+
+  text-decoration: none;
+
+  font-family: var(--font-body);
+
+  font-size: 0.76rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.6px;
+
+  white-space: nowrap;
 
   transition: var(--transition);
 }
@@ -426,29 +381,14 @@ header.header-hidden {
 
   box-shadow:
     0 4px 15px var(--gold-glow);
+
+  transform: translateY(-1px);
 }
 
 
 /* ==========================================================================
-   ESPACE AUTOMATIQUE POUR LE HEADER
+   CONTENU PRINCIPAL
    ========================================================================== */
-
-/*
-   IMPORTANT :
-
-   Le top-bar est FIXED.
-   Le header est FIXED.
-
-   Ils ne prennent donc aucune place dans le body.
-
-   Le JavaScript ajoute automatiquement :
-   
-   top-bar + header + marge de sécurité
-
-   au début du contenu.
-
-   Il n'y a donc PLUS de margin-top fixe sur le Hero.
-*/
 
 main {
   position: relative;
@@ -465,10 +405,12 @@ main {
 
 
 /* ==========================================================================
-   CONTENEUR PRINCIPAL
+   CONTAINER
    ========================================================================== */
 
 .container {
+  width: 100%;
+
   max-width: 1200px;
 
   margin: 0 auto;
@@ -479,46 +421,86 @@ main {
 
 
 /* ==========================================================================
+   PAGE HEADER
+   ========================================================================== */
+
+.page-header {
+  position: relative;
+
+  text-align: center;
+
+  padding: 3rem 1.5rem;
+
+  margin-bottom: 3rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--navy-primary) 0%,
+      var(--navy-dark) 100%
+    );
+
+  border-radius: var(--radius-lg);
+
+  border-top:
+    4px solid var(--gold-primary);
+
+  box-shadow:
+    0 20px 45px rgba(10, 37, 64, 0.12);
+}
+
+.page-header h1 {
+  color: #FFFFFF;
+
+  font-size: 2.3rem;
+
+  line-height: 1.3;
+
+  margin-bottom: 0.7rem;
+}
+
+.page-header p {
+  max-width: 750px;
+
+  margin: 0 auto;
+
+  color: #E2E8F0;
+
+  font-size: 1rem;
+}
+
+
+/* ==========================================================================
    HERO
    ========================================================================== */
 
 .hero {
   position: relative;
 
-  z-index: 1;
-
   text-align: center;
-
-  /*
-     PAS DE margin-top ici.
-
-     C'est main qui réserve automatiquement
-     l'espace nécessaire au menu.
-  */
-
-  margin-top: 0;
 
   padding: 5rem 2rem;
 
-  background: linear-gradient(
-    135deg,
-    var(--navy-primary) 0%,
-    var(--navy-dark) 100%
-  );
+  margin: 0 0 3.5rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--navy-primary) 0%,
+      var(--navy-dark) 100%
+    );
 
   border-radius: var(--radius-lg);
 
-  box-shadow:
-    0 20px 45px rgba(10, 37, 64, 0.12);
-
-  margin-bottom: 3.5rem;
-
   border-top:
     4px solid var(--gold-primary);
+
+  box-shadow:
+    0 20px 45px rgba(10, 37, 64, 0.12);
 }
 
 .hero h1 {
-  color: var(--bg-white);
+  color: #FFFFFF;
 
   font-size: 2.8rem;
 
@@ -536,56 +518,13 @@ main {
 }
 
 .hero p {
+  max-width: 700px;
+
+  margin: 0 auto 2rem;
+
   color: #E2E8F0;
 
   font-size: 1.1rem;
-
-  max-width: 700px;
-
-  margin: 0 auto 2rem auto;
-}
-
-
-/* ==========================================================================
-   PAGE HEADER
-   ========================================================================== */
-
-.page-header {
-  position: relative;
-
-  z-index: 1;
-
-  text-align: center;
-
-  padding: 3rem 1rem;
-
-  background: linear-gradient(
-    135deg,
-    var(--navy-primary) 0%,
-    var(--navy-dark) 100%
-  );
-
-  border-radius: var(--radius-lg);
-
-  color: #FFF;
-
-  margin-bottom: 3rem;
-
-  border-top:
-    4px solid var(--gold-primary);
-}
-
-.page-header h1,
-.page-header h2 {
-  color: #FFF;
-
-  font-size: 2.3rem;
-
-  margin-bottom: 0.5rem;
-}
-
-.page-header p {
-  color: #E2E8F0;
 }
 
 
@@ -598,6 +537,8 @@ main {
 
   align-items: center;
 
+  justify-content: center;
+
   gap: 0.8rem;
 
   padding: 0.9rem 2.2rem;
@@ -605,6 +546,10 @@ main {
   background: var(--gold-gradient);
 
   color: var(--navy-dark);
+
+  border: none;
+
+  border-radius: 50px;
 
   font-family: var(--font-heading);
 
@@ -614,28 +559,36 @@ main {
 
   text-transform: uppercase;
 
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
 
   text-decoration: none;
 
-  border-radius: 50px;
+  cursor: pointer;
 
   box-shadow:
     0 8px 25px var(--gold-glow);
 
   transition: var(--transition);
-
-  border: none;
-
-  cursor: pointer;
 }
 
 .btn:hover {
-  background: var(--bg-white);
+  background: #FFFFFF;
 
   color: var(--navy-primary);
 
   transform: translateY(-3px);
+}
+
+.btn-alt {
+  background: #FFFFFF;
+
+  color: var(--navy-primary);
+}
+
+.btn-alt:hover {
+  background: var(--gold-gradient);
+
+  color: var(--navy-dark);
 }
 
 
@@ -660,7 +613,7 @@ main {
    ========================================================================== */
 
 .card {
-  background: var(--bg-white);
+  background: #FFFFFF;
 
   border:
     1px solid #E2E8F0;
@@ -670,8 +623,7 @@ main {
 
   border-radius: var(--radius-md);
 
-  padding:
-    2.2rem 1.8rem;
+  padding: 2.2rem 1.8rem;
 
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.03);
@@ -679,22 +631,25 @@ main {
   transition: var(--transition);
 }
 
-.card h3 {
-  font-size: 1.3rem;
+.card:hover {
+  transform: translateY(-5px);
 
-  margin-bottom: 0.8rem;
-
-  color: var(--navy-primary);
-}
-
-.card p {
-  color: var(--text-muted);
+  box-shadow:
+    0 18px 35px rgba(10, 37, 64, 0.1);
 }
 
 .card-icon {
   width: 48px;
 
   height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 1.2rem;
 
   border-radius: var(--radius-sm);
 
@@ -703,15 +658,19 @@ main {
 
   color: var(--gold-primary);
 
-  display: flex;
+  font-size: 1.3rem;
+}
 
-  align-items: center;
-
-  justify-content: center;
+.card h3 {
+  color: var(--navy-primary);
 
   font-size: 1.3rem;
 
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.card p {
+  color: var(--text-muted);
 }
 
 
@@ -732,13 +691,6 @@ main {
   color: var(--gold-light);
 }
 
-
-/*
-   CORRECTION DE LISIBILITÉ :
-
-   Le texte n'est plus bleu sur fond bleu.
-*/
-
 .grid .card:nth-child(even) p {
   color: #E2E8F0;
 }
@@ -756,27 +708,27 @@ main {
    ========================================================================== */
 
 .cta-banner {
-  background: linear-gradient(
-    135deg,
-    var(--navy-primary) 0%,
-    var(--navy-dark) 100%
-  );
+  padding: 3.5rem 2rem;
 
-  padding:
-    3.5rem 2rem;
+  margin-bottom: 2rem;
 
-  border-radius: var(--radius-lg);
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--navy-primary),
+      var(--navy-dark)
+    );
 
   border-left:
     5px solid var(--gold-primary);
 
-  text-align: center;
-
-  margin-bottom: 2rem;
+  border-radius: var(--radius-lg);
 }
 
 .cta-banner h2 {
-  color: var(--bg-white);
+  color: #FFFFFF;
 
   font-size: 1.8rem;
 
@@ -784,24 +736,12 @@ main {
 }
 
 .cta-banner p {
-  color: #94A3B8;
-
   max-width: 650px;
 
   margin:
-    0 auto 1.8rem auto;
-}
+    0 auto 1.8rem;
 
-.btn-alt {
-  background: var(--bg-white);
-
-  color: var(--navy-primary);
-}
-
-.btn-alt:hover {
-  background: var(--gold-gradient);
-
-  color: var(--navy-dark);
+  color: #94A3B8;
 }
 
 
@@ -810,11 +750,11 @@ main {
    ========================================================================== */
 
 .contact-form {
-  background: #FFF;
+  width: 100%;
+
+  background: #FFFFFF;
 
   padding: 2.5rem;
-
-  border-radius: var(--radius-lg);
 
   border:
     1px solid #E2E8F0;
@@ -822,8 +762,12 @@ main {
   border-top:
     4px solid var(--gold-primary);
 
+  border-radius: var(--radius-lg);
+
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.04);
+
+  margin-bottom: 3rem;
 }
 
 .form-group {
@@ -833,13 +777,13 @@ main {
 .form-group label {
   display: block;
 
-  font-weight: 700;
-
   margin-bottom: 0.5rem;
 
   color: var(--navy-primary);
 
   font-size: 0.9rem;
+
+  font-weight: 700;
 }
 
 .form-group input,
@@ -847,7 +791,11 @@ main {
   width: 100%;
 
   padding:
-    0.8rem 1rem;
+    0.85rem 1rem;
+
+  background: #FFFFFF;
+
+  color: var(--text-dark);
 
   border:
     1px solid #CBD5E1;
@@ -861,6 +809,12 @@ main {
   transition: var(--transition);
 }
 
+.form-group textarea {
+  min-height: 150px;
+
+  resize: vertical;
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
@@ -872,6 +826,19 @@ main {
     0 0 0 3px var(--gold-glow);
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #94A3B8;
+}
+
+.form-group input[type="file"] {
+  padding: 0.65rem;
+
+  cursor: pointer;
+
+  background: #F8FAFC;
+}
+
 
 /* ==========================================================================
    WHATSAPP
@@ -880,22 +847,27 @@ main {
 .whatsapp-float {
   position: fixed;
 
-  bottom: 25px;
-
   right: 25px;
+
+  bottom: 25px;
 
   width: 60px;
 
   height: 60px;
 
-  background-color:
-    var(--whatsapp-green);
+  display: flex;
 
-  color: #FFF;
+  align-items: center;
 
-  border-radius: 50px;
+  justify-content: center;
 
-  text-align: center;
+  background: var(--whatsapp-green);
+
+  color: #FFFFFF;
+
+  border-radius: 50%;
+
+  text-decoration: none;
 
   font-size: 32px;
 
@@ -904,24 +876,13 @@ main {
 
   z-index: 9999;
 
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  text-decoration: none;
-
   transition: var(--transition);
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
 
-  box-shadow:
-    0 12px 30px rgba(37, 211, 102, 0.6);
-
-  color: #FFF;
+  color: #FFFFFF;
 }
 
 
@@ -930,21 +891,23 @@ main {
    ========================================================================== */
 
 footer {
+  padding:
+    4rem 1.5rem 2rem;
+
   background: var(--navy-dark);
 
-  color: var(--bg-white);
-
-  padding:
-    4rem 1.5rem 2rem 1.5rem;
+  color: #FFFFFF;
 
   border-top:
     4px solid var(--gold-primary);
 }
 
 .footer-content {
+  width: 100%;
+
   max-width: 1200px;
 
-  margin: 0 auto;
+  margin: 0 auto 3rem;
 
   display: grid;
 
@@ -952,16 +915,14 @@ footer {
     repeat(auto-fit, minmax(250px, 1fr));
 
   gap: 2.5rem;
-
-  margin-bottom: 3rem;
 }
 
 .footer-col h4 {
+  margin-bottom: 1.2rem;
+
   color: var(--gold-light);
 
   font-size: 1.1rem;
-
-  margin-bottom: 1.2rem;
 }
 
 .footer-col p {
@@ -995,12 +956,16 @@ footer {
 }
 
 .footer-col ul li i {
-  color: var(--gold-primary);
+  width: 20px;
 
   margin-right: 0.5rem;
+
+  color: var(--gold-primary);
 }
 
 .footer-bottom {
+  width: 100%;
+
   max-width: 1200px;
 
   margin: 0 auto;
@@ -1017,54 +982,183 @@ footer {
   font-size: 0.88rem;
 }
 
-/* ===================================================== */
-/* MODALE LANGUE */
-/* ===================================================== */
+
+/* ==========================================================================
+   MODALE LANGUE
+   ========================================================================== */
 
 #language-modal-overlay {
   position: fixed;
+
   inset: 0;
+
   width: 100%;
+
   height: 100%;
-
-  background: rgba(6, 23, 41, 0.65);
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  z-index: 999999;
 
   display: none;
 
   align-items: center;
+
   justify-content: center;
+
+  padding: 1.5rem;
+
+  background:
+    rgba(6, 23, 41, 0.72);
+
+  backdrop-filter: blur(8px);
+
+  -webkit-backdrop-filter: blur(8px);
+
+  z-index: 999999;
 }
 
-/* MODALE OUVERTE */
 #language-modal-overlay.language-modal-open {
   display: flex !important;
 }
 
+.language-modal-card {
+  width: 100%;
+
+  max-width: 480px;
+
+  padding: 2.5rem;
+
+  background: #FFFFFF;
+
+  border-top:
+    5px solid var(--gold-primary);
+
+  border-radius: var(--radius-lg);
+
+  text-align: center;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.25);
+
+  animation:
+    languageModalIn 0.25s ease;
+}
+
+.language-modal-card h2 {
+  margin-bottom: 0.8rem;
+
+  color: var(--navy-primary);
+
+  font-size: 1.7rem;
+}
+
+.language-modal-card p {
+  margin-bottom: 1.8rem;
+
+  color: var(--text-muted);
+
+  font-size: 0.9rem;
+}
+
+.modal-buttons {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.8rem;
+}
+
+.lang-btn {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.6rem;
+
+  padding: 0.85rem 1rem;
+
+  background: #F4F6F9;
+
+  color: var(--navy-primary);
+
+  border:
+    1px solid #E2E8F0;
+
+  border-radius: 50px;
+
+  font-family: var(--font-body);
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.lang-btn:hover {
+  background: var(--gold-gradient);
+
+  color: var(--navy-dark);
+
+  border-color: transparent;
+
+  transform: translateY(-2px);
+}
+
+@keyframes languageModalIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(15px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+
 /* ==========================================================================
-   TABLETTE / MOBILE
+   RESPONSIVE — TABLETTE
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+  .header-container {
+    gap: 1rem;
+  }
+
+  .logo-img {
+    height: 110px;
+  }
+
+  .nav-links {
+    gap: 0.4rem;
+  }
+
+  .nav-links a {
+    padding: 0.45rem 0.7rem;
+
+    font-size: 0.68rem;
+  }
+}
+
+
+/* ==========================================================================
+   RESPONSIVE — MOBILE
    ========================================================================== */
 
 @media (max-width: 768px) {
 
-  /* TOP BAR */
-
-  .top-bar {
-    min-height: 48px;
-  }
-
   .top-actions {
     justify-content: center;
 
-    padding: 0 1rem;
+    padding:
+      0 1rem;
   }
-
-
-  /* HEADER */
 
   header {
     top: var(--topbar-height);
@@ -1073,50 +1167,61 @@ footer {
   .header-container {
     flex-direction: column;
 
-    gap: 1rem;
+    gap: 0.6rem;
 
     padding:
-      0.6rem 1rem;
+      0.5rem 0.8rem;
   }
-
-
-  /* LOGO */
 
   .logo-img {
-    height: 100px;
+    height: 85px;
   }
 
-
-  /* MENU */
-
   .nav-links {
-    flex-wrap: wrap;
+    width: 100%;
 
-    justify-content: center;
-
-    gap: 0.5rem;
+    gap: 0.35rem;
   }
 
   .nav-links a {
     padding:
-      0.45rem 0.8rem;
+      0.4rem 0.65rem;
 
-    font-size: 0.7rem;
+    font-size: 0.62rem;
+
+    letter-spacing: 0.3px;
   }
 
+  main {
+    padding-top:
+      calc(
+        var(--topbar-height) +
+        var(--header-height) +
+        25px
+      );
+  }
 
-  /*
-     IMPORTANT :
+  .container {
+    padding:
+      1.5rem 1rem;
+  }
 
-     Pas de margin-top sur le Hero.
+  .page-header {
+    padding:
+      2.3rem 1rem;
 
-     main reçoit automatiquement la hauteur
-     réelle du header via JavaScript.
-  */
+    margin-bottom: 2rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .page-header p {
+    font-size: 0.9rem;
+  }
 
   .hero {
-    margin-top: 0;
-
     padding:
       3rem 1.2rem;
   }
@@ -1129,22 +1234,19 @@ footer {
     font-size: 0.95rem;
   }
 
-
-  /* GRID */
-
   .grid {
     grid-template-columns: 1fr;
+
+    gap: 1.3rem;
   }
-
-
-  /* FORMULAIRE */
 
   .contact-form {
-    padding: 1.5rem;
+    padding: 1.4rem;
   }
 
-
-  /* WHATSAPP */
+  .language-modal-card {
+    padding: 2rem 1.3rem;
+  }
 
   .whatsapp-float {
     width: 55px;
@@ -1161,14 +1263,38 @@ footer {
 
 
 /* ==========================================================================
-   PETITS ÉCRANS
+   RESPONSIVE — PETITS ÉCRANS
    ========================================================================== */
 
 @media (max-width: 480px) {
 
-  .hero {
-    margin-top: 0;
+  .btn-lang-trigger {
+    padding:
+      0.35rem 0.75rem;
 
+    font-size: 0.7rem;
+  }
+
+  .logo-img {
+    height: 75px;
+  }
+
+  .nav-links {
+    gap: 0.25rem;
+  }
+
+  .nav-links a {
+    padding:
+      0.35rem 0.5rem;
+
+    font-size: 0.57rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.55rem;
+  }
+
+  .hero {
     padding:
       2.5rem 1rem;
   }
@@ -1178,17 +1304,20 @@ footer {
   }
 
   .hero p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 
-  .nav-links a {
+  .card {
     padding:
-      0.4rem 0.65rem;
-
-    font-size: 0.65rem;
+      1.7rem 1.3rem;
   }
 
-  .btn-lang-trigger {
-    font-size: 0.72rem;
+  .contact-form {
+    padding:
+      1.2rem;
+  }
+
+  .btn {
+    width: 100%;
   }
 }
