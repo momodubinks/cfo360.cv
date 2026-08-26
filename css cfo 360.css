@@ -527,7 +527,12 @@ main {
   font-size: 1.1rem;
 }
 
-
+.card h2,
+.card h3,
+.grid .card:nth-child(even) h3,
+.grid .card:nth-child(even) h2 {
+  color: #FFFFFF !important;
+}
 /* ==========================================================================
    BOUTONS
    ========================================================================== */
