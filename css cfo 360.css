@@ -4,6 +4,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
+
+/* ==========================================================================
+   VARIABLES
+   ========================================================================== */
+
 :root {
   --navy-primary: #0A2540;
   --navy-dark: #061729;
@@ -11,7 +16,13 @@
 
   --gold-primary: #C59B27;
   --gold-light: #F3D060;
-  --gold-gradient: linear-gradient(135deg, #F3D060 0%, #C59B27 100%);
+
+  --gold-gradient: linear-gradient(
+    135deg,
+    #F3D060 0%,
+    #C59B27 100%
+  );
+
   --gold-glow: rgba(197, 155, 39, 0.25);
 
   --whatsapp-green: #25D366;
@@ -28,10 +39,18 @@
   --radius-lg: 20px;
   --radius-md: 12px;
   --radius-sm: 8px;
+
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-*, *::before, *::after {
+
+/* ==========================================================================
+   RESET
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -46,11 +65,20 @@ body {
   background-color: var(--bg-body);
   color: var(--text-dark);
   line-height: 1.8;
-  top: 0px !important;
+  top: 0 !important;
   position: static !important;
+  margin: 0;
 }
 
-h1, h2, h3, h4 {
+
+/* ==========================================================================
+   TYPOGRAPHIE
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-heading);
   letter-spacing: 0.8px;
   font-weight: 700;
@@ -90,7 +118,13 @@ font {
    ========================================================================== */
 
 .top-bar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 48px;
+
   z-index: 1100;
 
   background-color: var(--navy-dark);
@@ -107,46 +141,42 @@ font {
 
 
 /* ==========================================================================
-   TOP BAR CONTAINER
+   CONTENEUR TOP BAR
    ========================================================================== */
 
 .top-bar-container {
   max-width: 1200px;
+  height: 100%;
 
   margin: 0 auto;
-
   padding: 0 1.5rem;
 
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 }
 
 .top-actions {
-  display: flex;
+  max-width: 1200px;
+  height: 100%;
 
-  justify-content: flex-end;
-
-  align-items: center;
-
+  margin: 0 auto;
   padding: 0 1.5rem;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .top-info {
   display: flex;
-
   gap: 1.5rem;
-
   flex-wrap: wrap;
 }
 
 .top-info span {
   display: inline-flex;
-
   align-items: center;
-
   gap: 0.4rem;
 }
 
@@ -160,26 +190,23 @@ font {
    ========================================================================== */
 
 .btn-lang-trigger {
+  position: relative;
+  z-index: 1200;
+
   display: inline-flex;
-
   align-items: center;
-
   gap: 0.4rem;
 
   padding: 0.35rem 0.9rem;
 
   background-color: transparent;
-
   color: var(--gold-light);
 
   border: 1px solid var(--gold-primary);
-
   border-radius: 50px;
 
   font-family: var(--font-body);
-
   font-size: 0.78rem;
-
   font-weight: 700;
 
   cursor: pointer;
@@ -189,22 +216,19 @@ font {
 
 .btn-lang-trigger:hover {
   background: var(--gold-gradient);
-
   color: var(--navy-dark);
-
   border-color: transparent;
 }
 
 
 /* ==========================================================================
-   HEADER & NAV
+   HEADER
    ========================================================================== */
 
 header {
   position: fixed;
 
-  top: 0;
-
+  top: 48px;
   left: 0;
 
   width: 100%;
@@ -214,7 +238,6 @@ header {
   background: rgba(255, 255, 255, 0.98);
 
   backdrop-filter: blur(12px);
-
   -webkit-backdrop-filter: blur(12px);
 
   border-bottom: 2px solid var(--gold-primary);
@@ -226,14 +249,8 @@ header {
 
 
 /* ==========================================================================
-   DISPARITION DU MENU + TOP BAR
+   HEADER CONTAINER
    ========================================================================== */
-
-header.header-hidden,
-.top-bar.header-hidden {
-  transform: translateY(-100%);
-}
-
 
 .header-container {
   max-width: 1200px;
@@ -249,9 +266,13 @@ header.header-hidden,
   justify-content: space-between;
 }
 
+
+/* ==========================================================================
+   LOGO
+   ========================================================================== */
+
 .logo-img {
   height: 150px;
-
   width: auto;
 
   object-fit: contain;
@@ -262,6 +283,11 @@ header.header-hidden,
 .logo-img:hover {
   transform: scale(1.02);
 }
+
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
 
 .nav-links {
   display: flex;
@@ -318,177 +344,36 @@ header.header-hidden,
 
 
 /* ==========================================================================
-   MODALE LANGUE
+   DISPARITION DU MENU AU DÉFILEMENT
    ========================================================================== */
 
-#language-modal-overlay {
-  position: fixed;
-
-  top: 0;
-
-  left: 0;
-
-  width: 100vw;
-
-  height: 100vh;
-
-  background: rgba(6, 23, 41, 0.65);
-
-  backdrop-filter: blur(8px);
-
-  -webkit-backdrop-filter: blur(8px);
-
-  z-index: 999999;
-
-  display: none;
-
-  align-items: center;
-
-  justify-content: center;
+header.header-hidden {
+  transform: translateY(-120%);
 }
 
-.language-modal-card {
-  background: var(--bg-white);
-
-  padding: 2.5rem 2rem;
-
-  border-radius: var(--radius-lg);
-
-  border: 1.5px solid rgba(197, 155, 39, 0.3);
-
-  border-top: 5px solid var(--gold-primary);
-
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-
-  text-align: center;
-
-  max-width: 480px;
-
-  width: 90%;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 1.2rem;
-}
-
-.language-modal-card h2 {
-  font-size: 1.5rem;
-}
-
-.modal-buttons {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  justify-content: center;
-
-  gap: 0.8rem;
-
-  margin-top: 0.5rem;
-}
-
-.lang-btn {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 0.5rem;
-
-  padding: 0.75rem 1.4rem;
-
-  font-family: var(--font-body);
-
-  font-size: 0.88rem;
-
-  font-weight: 700;
-
-  color: var(--navy-primary);
-
-  background: #F4F6F9;
-
-  border: 1.5px solid var(--gold-primary);
-
-  border-radius: 50px;
-
-  cursor: pointer;
-
-  transition: var(--transition);
-}
-
-.lang-btn:hover {
-  background: var(--gold-gradient);
-
-  color: var(--navy-dark);
-
-  border-color: transparent;
-
-  box-shadow: 0 6px 20px var(--gold-glow);
-
-  transform: translateY(-2px);
+.top-bar.header-hidden {
+  transform: translateY(-100%);
 }
 
 
 /* ==========================================================================
-   WHATSAPP
+   ESPACE DE SÉCURITÉ DU CONTENU
    ========================================================================== */
 
-.whatsapp-float {
-  position: fixed;
+/*
+   IMPORTANT :
 
-  bottom: 25px;
+   Le header est FIXED.
+   Il ne prend donc aucune place dans le flux normal de la page.
 
-  right: 25px;
+   On réserve volontairement une zone suffisamment grande au début
+   pour empêcher le header de recouvrir le contenu.
 
-  width: 60px;
+   Cette valeur correspond au logo de 150px + la top-bar.
+*/
 
-  height: 60px;
-
-  background-color: var(--whatsapp-green);
-
-  color: #FFF;
-
-  border-radius: 50px;
-
-  text-align: center;
-
-  font-size: 32px;
-
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-
-  z-index: 9999;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  text-decoration: none;
-
-  transition: var(--transition);
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
-
-  color: #FFF;
-}
-
-
-/* ==========================================================================
-   STRUCTURE CONTENU
-   ========================================================================== */
-
-.container {
-  max-width: 1200px;
-
-  margin: 0 auto;
-
-  padding: 2.5rem 1.5rem;
+main.container {
+  padding-top: 2.5rem;
 }
 
 
@@ -498,6 +383,15 @@ header.header-hidden,
 
 .hero {
   text-align: center;
+
+  /*
+     ESPACE DE SÉCURITÉ :
+     top-bar 48px
+     + header/logo 150px
+     + marge supplémentaire
+  */
+
+  margin-top: 250px;
 
   padding: 5rem 2rem;
 
@@ -530,7 +424,6 @@ header.header-hidden,
   background: var(--gold-gradient);
 
   -webkit-background-clip: text;
-
   -webkit-text-fill-color: transparent;
 }
 
@@ -542,6 +435,19 @@ header.header-hidden,
   max-width: 700px;
 
   margin: 0 auto 2rem auto;
+}
+
+
+/* ==========================================================================
+   STRUCTURE PRINCIPALE
+   ========================================================================== */
+
+.container {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 2.5rem 1.5rem;
 }
 
 
@@ -584,7 +490,7 @@ header.header-hidden,
 
 
 /* ==========================================================================
-   BOUTONS
+   BOUTON
    ========================================================================== */
 
 .btn {
@@ -631,35 +537,26 @@ header.header-hidden,
   transform: translateY(-3px);
 }
 
-.btn-alt {
-  background: var(--bg-white);
-
-  color: var(--navy-primary);
-}
-
-.btn-alt:hover {
-  background: var(--gold-gradient);
-
-  color: var(--navy-dark);
-}
-
 
 /* ==========================================================================
-   GRID + CARTES
+   GRID
    ========================================================================== */
 
 .grid {
   display: grid;
 
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(300px, 1fr)
-  );
+  grid-template-columns:
+    repeat(auto-fit, minmax(300px, 1fr));
 
   gap: 2rem;
 
   margin-bottom: 3.5rem;
 }
+
+
+/* ==========================================================================
+   CARTES
+   ========================================================================== */
 
 .card {
   background: var(--bg-white);
@@ -681,6 +578,8 @@ header.header-hidden,
   font-size: 1.3rem;
 
   margin-bottom: 0.8rem;
+
+  color: var(--navy-primary);
 }
 
 .card p {
@@ -689,7 +588,6 @@ header.header-hidden,
 
 .card-icon {
   width: 48px;
-
   height: 48px;
 
   border-radius: var(--radius-sm);
@@ -711,7 +609,7 @@ header.header-hidden,
 
 
 /* ==========================================================================
-   CARTES BLEUES - TEXTE CORRIGÉ
+   CARTES BLEUES
    ========================================================================== */
 
 .grid .card:nth-child(even) {
@@ -726,6 +624,11 @@ header.header-hidden,
   color: var(--gold-light);
 }
 
+/*
+   CORRECTION DE LISIBILITÉ :
+   le texte n'est plus bleu sur fond bleu.
+*/
+
 .grid .card:nth-child(even) p {
   color: #E2E8F0;
 }
@@ -738,7 +641,7 @@ header.header-hidden,
 
 
 /* ==========================================================================
-   CTA BANNER
+   CTA
    ========================================================================== */
 
 .cta-banner {
@@ -773,6 +676,18 @@ header.header-hidden,
   max-width: 650px;
 
   margin: 0 auto 1.8rem auto;
+}
+
+.btn-alt {
+  background: var(--bg-white);
+
+  color: var(--navy-primary);
+}
+
+.btn-alt:hover {
+  background: var(--gold-gradient);
+
+  color: var(--navy-dark);
 }
 
 
@@ -838,6 +753,55 @@ header.header-hidden,
 
 
 /* ==========================================================================
+   WHATSAPP
+   ========================================================================== */
+
+.whatsapp-float {
+  position: fixed;
+
+  bottom: 25px;
+  right: 25px;
+
+  width: 60px;
+  height: 60px;
+
+  background-color: var(--whatsapp-green);
+
+  color: #FFF;
+
+  border-radius: 50px;
+
+  text-align: center;
+
+  font-size: 32px;
+
+  box-shadow:
+    0 8px 25px rgba(37, 211, 102, 0.4);
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-decoration: none;
+
+  transition: var(--transition);
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+
+  box-shadow:
+    0 12px 30px rgba(37, 211, 102, 0.6);
+
+  color: #FFF;
+}
+
+
+/* ==========================================================================
    FOOTER
    ========================================================================== */
 
@@ -858,10 +822,8 @@ footer {
 
   display: grid;
 
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(250px, 1fr)
-  );
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
 
   gap: 2.5rem;
 
@@ -919,7 +881,8 @@ footer {
 
   padding-top: 2rem;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top:
+    1px solid rgba(255, 255, 255, 0.08);
 
   text-align: center;
 
@@ -930,10 +893,16 @@ footer {
 
 
 /* ==========================================================================
-   RESPONSIVE
+   MOBILE
    ========================================================================== */
 
 @media (max-width: 768px) {
+
+  /* ---------------- TOP BAR ---------------- */
+
+  .top-bar {
+    height: 48px;
+  }
 
   .top-bar-container {
     flex-direction: column;
@@ -941,28 +910,123 @@ footer {
     gap: 0.5rem;
   }
 
+  .top-actions {
+    justify-content: center;
+
+    padding: 0 1rem;
+  }
+
+
+  /* ---------------- HEADER ---------------- */
+
+  header {
+    top: 48px;
+  }
+
   .header-container {
     flex-direction: column;
 
     gap: 1rem;
+
+    padding: 0.6rem 1rem;
   }
+
+
+  /* ---------------- LOGO ---------------- */
+
+  .logo-img {
+    height: 100px;
+  }
+
+
+  /* ---------------- MENU ---------------- */
 
   .nav-links {
     flex-wrap: wrap;
 
     justify-content: center;
+
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    padding: 0.45rem 0.8rem;
+
+    font-size: 0.7rem;
+  }
+
+
+  /*
+     IMPORTANT MOBILE
+
+     Le menu mobile est plus haut que sur ordinateur.
+     On augmente donc l'espace avant le Hero.
+  */
+
+  .hero {
+    margin-top: 330px;
+
+    padding: 3rem 1.2rem;
   }
 
   .hero h1 {
     font-size: 2rem;
   }
 
-  .logo-img {
-    height: 120px;
+  .hero p {
+    font-size: 0.95rem;
   }
 
-  .top-actions {
-    justify-content: center;
+
+  /* ---------------- GRID ---------------- */
+
+  .grid {
+    grid-template-columns: 1fr;
   }
 
+
+  /* ---------------- MODALE ---------------- */
+
+  .language-modal-card {
+    padding: 2rem 1.2rem;
+  }
+
+
+  /* ---------------- WHATSAPP ---------------- */
+
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+
+    right: 18px;
+    bottom: 18px;
+
+    font-size: 28px;
+  }
+}
+
+
+/* ==========================================================================
+   PETITS ÉCRANS
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+  .hero {
+    margin-top: 350px;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .nav-links a {
+    padding: 0.4rem 0.65rem;
+
+    font-size: 0.65rem;
+  }
 }
