@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CFO 360° - FEUILLE DE STYLE COMPLETE ET UNIFIÉE
+   CFO 360° - FEUILLE DE STYLE COMPLETE
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -65,8 +65,10 @@ body {
   background-color: var(--bg-body);
   color: var(--text-dark);
   line-height: 1.8;
+
   top: 0 !important;
   position: static !important;
+
   margin: 0;
 }
 
@@ -118,16 +120,16 @@ font {
    ========================================================================== */
 
 .top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
 
   width: 100%;
-  height: 48px;
 
-  z-index: 1100;
+  min-height: 48px;
+
+  z-index: 2000;
 
   background-color: var(--navy-dark);
+
   color: #94A3B8;
 
   font-size: 0.82rem;
@@ -141,42 +143,54 @@ font {
 
 
 /* ==========================================================================
-   CONTENEUR TOP BAR
+   TOP BAR CONTAINER
    ========================================================================== */
 
 .top-bar-container {
   max-width: 1200px;
-  height: 100%;
+
+  min-height: 40px;
 
   margin: 0 auto;
+
   padding: 0 1.5rem;
 
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
 }
 
 .top-actions {
   max-width: 1200px;
-  height: 100%;
+
+  min-height: 40px;
 
   margin: 0 auto;
+
   padding: 0 1.5rem;
 
   display: flex;
+
   justify-content: flex-end;
+
   align-items: center;
 }
 
 .top-info {
   display: flex;
+
   gap: 1.5rem;
+
   flex-wrap: wrap;
 }
 
 .top-info span {
   display: inline-flex;
+
   align-items: center;
+
   gap: 0.4rem;
 }
 
@@ -191,22 +205,29 @@ font {
 
 .btn-lang-trigger {
   position: relative;
-  z-index: 1200;
+
+  z-index: 2100;
 
   display: inline-flex;
+
   align-items: center;
+
   gap: 0.4rem;
 
   padding: 0.35rem 0.9rem;
 
   background-color: transparent;
+
   color: var(--gold-light);
 
   border: 1px solid var(--gold-primary);
+
   border-radius: 50px;
 
   font-family: var(--font-body);
+
   font-size: 0.78rem;
+
   font-weight: 700;
 
   cursor: pointer;
@@ -216,35 +237,63 @@ font {
 
 .btn-lang-trigger:hover {
   background: var(--gold-gradient);
+
   color: var(--navy-dark);
+
   border-color: transparent;
 }
 
 
 /* ==========================================================================
-   HEADER
+   HEADER / MENU
    ========================================================================== */
 
 header {
   position: fixed;
 
   top: 48px;
+
   left: 0;
 
   width: 100%;
 
-  z-index: 1000;
+  z-index: 1500;
 
   background: rgba(255, 255, 255, 0.98);
 
   backdrop-filter: blur(12px);
+
   -webkit-backdrop-filter: blur(12px);
 
   border-bottom: 2px solid var(--gold-primary);
 
   box-shadow: 0 4px 20px rgba(10, 37, 64, 0.06);
 
-  transition: transform 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    visibility 0.35s ease;
+}
+
+
+/* ==========================================================================
+   HEADER CACHÉ AU DÉFILEMENT
+   ========================================================================== */
+
+header.header-hidden {
+  transform: translateY(-110%);
+
+  visibility: hidden;
+}
+
+
+/* ==========================================================================
+   TOP BAR CACHÉE AU DÉFILEMENT
+   ========================================================================== */
+
+.top-bar.header-hidden {
+  transform: translateY(-110%);
+
+  visibility: hidden;
 }
 
 
@@ -273,6 +322,7 @@ header {
 
 .logo-img {
   height: 150px;
+
   width: auto;
 
   object-fit: contain;
@@ -344,36 +394,24 @@ header {
 
 
 /* ==========================================================================
-   DISPARITION DU MENU AU DÉFILEMENT
-   ========================================================================== */
-
-header.header-hidden {
-  transform: translateY(-120%);
-}
-
-.top-bar.header-hidden {
-  transform: translateY(-100%);
-}
-
-
-/* ==========================================================================
-   ESPACE DE SÉCURITÉ DU CONTENU
+   ESPACE DE SÉCURITÉ POUR LE BODY
    ========================================================================== */
 
 /*
-   IMPORTANT :
+   Le header est position: fixed.
+   On réserve donc l'espace correspondant au header avant le contenu.
 
-   Le header est FIXED.
-   Il ne prend donc aucune place dans le flux normal de la page.
+   Top bar       = 48px
+   Header/logo   = environ 180px
+   Marge sécurité = 30px
 
-   On réserve volontairement une zone suffisamment grande au début
-   pour empêcher le header de recouvrir le contenu.
-
-   Cette valeur correspond au logo de 150px + la top-bar.
+   Le contenu commence donc suffisamment bas.
 */
 
-main.container {
-  padding-top: 2.5rem;
+main {
+  position: relative;
+
+  z-index: 1;
 }
 
 
@@ -382,16 +420,18 @@ main.container {
    ========================================================================== */
 
 .hero {
+  position: relative;
+
+  z-index: 1;
+
   text-align: center;
 
   /*
-     ESPACE DE SÉCURITÉ :
-     top-bar 48px
-     + header/logo 150px
-     + marge supplémentaire
+     IMPORTANT :
+     Le hero est placé sous la top-bar + header.
   */
 
-  margin-top: 250px;
+  margin-top: 280px;
 
   padding: 5rem 2rem;
 
@@ -403,7 +443,8 @@ main.container {
 
   border-radius: var(--radius-lg);
 
-  box-shadow: 0 20px 45px rgba(10, 37, 64, 0.12);
+  box-shadow:
+    0 20px 45px rgba(10, 37, 64, 0.12);
 
   margin-bottom: 3.5rem;
 
@@ -424,6 +465,7 @@ main.container {
   background: var(--gold-gradient);
 
   -webkit-background-clip: text;
+
   -webkit-text-fill-color: transparent;
 }
 
@@ -439,7 +481,7 @@ main.container {
 
 
 /* ==========================================================================
-   STRUCTURE PRINCIPALE
+   CONTENEUR PRINCIPAL
    ========================================================================== */
 
 .container {
@@ -456,6 +498,10 @@ main.container {
    ========================================================================== */
 
 .page-header {
+  position: relative;
+
+  z-index: 1;
+
   text-align: center;
 
   padding: 3rem 1rem;
@@ -520,7 +566,8 @@ main.container {
 
   border-radius: 50px;
 
-  box-shadow: 0 8px 25px var(--gold-glow);
+  box-shadow:
+    0 8px 25px var(--gold-glow);
 
   transition: var(--transition);
 
@@ -569,7 +616,8 @@ main.container {
 
   padding: 2.2rem 1.8rem;
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.03);
 
   transition: var(--transition);
 }
@@ -588,11 +636,13 @@ main.container {
 
 .card-icon {
   width: 48px;
+
   height: 48px;
 
   border-radius: var(--radius-sm);
 
-  background: rgba(197, 155, 39, 0.12);
+  background:
+    rgba(197, 155, 39, 0.12);
 
   color: var(--gold-primary);
 
@@ -609,7 +659,7 @@ main.container {
 
 
 /* ==========================================================================
-   CARTES BLEUES
+   CARTES BLEUES - CORRECTION LISIBILITÉ
    ========================================================================== */
 
 .grid .card:nth-child(even) {
@@ -617,7 +667,8 @@ main.container {
 
   border-color: transparent;
 
-  border-top: 4px solid var(--gold-light);
+  border-top:
+    4px solid var(--gold-light);
 }
 
 .grid .card:nth-child(even) h3 {
@@ -625,8 +676,8 @@ main.container {
 }
 
 /*
-   CORRECTION DE LISIBILITÉ :
-   le texte n'est plus bleu sur fond bleu.
+   Le texte était trop proche du bleu du fond.
+   On utilise un blanc légèrement bleuté beaucoup plus lisible.
 */
 
 .grid .card:nth-child(even) p {
@@ -634,7 +685,8 @@ main.container {
 }
 
 .grid .card:nth-child(even) .card-icon {
-  background: rgba(243, 208, 96, 0.18);
+  background:
+    rgba(243, 208, 96, 0.18);
 
   color: var(--gold-light);
 }
@@ -655,7 +707,8 @@ main.container {
 
   border-radius: var(--radius-lg);
 
-  border-left: 5px solid var(--gold-primary);
+  border-left:
+    5px solid var(--gold-primary);
 
   text-align: center;
 
@@ -704,9 +757,11 @@ main.container {
 
   border: 1px solid #E2E8F0;
 
-  border-top: 4px solid var(--gold-primary);
+  border-top:
+    4px solid var(--gold-primary);
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
 .form-group {
@@ -748,7 +803,8 @@ main.container {
 
   border-color: var(--gold-primary);
 
-  box-shadow: 0 0 0 3px var(--gold-glow);
+  box-shadow:
+    0 0 0 3px var(--gold-glow);
 }
 
 
@@ -760,12 +816,15 @@ main.container {
   position: fixed;
 
   bottom: 25px;
+
   right: 25px;
 
   width: 60px;
+
   height: 60px;
 
-  background-color: var(--whatsapp-green);
+  background-color:
+    var(--whatsapp-green);
 
   color: #FFF;
 
@@ -810,9 +869,11 @@ footer {
 
   color: var(--bg-white);
 
-  padding: 4rem 1.5rem 2rem 1.5rem;
+  padding:
+    4rem 1.5rem 2rem 1.5rem;
 
-  border-top: 4px solid var(--gold-primary);
+  border-top:
+    4px solid var(--gold-primary);
 }
 
 .footer-content {
@@ -893,21 +954,15 @@ footer {
 
 
 /* ==========================================================================
-   MOBILE
+   TABLETTE / MOBILE
    ========================================================================== */
 
 @media (max-width: 768px) {
 
-  /* ---------------- TOP BAR ---------------- */
+  /* TOP BAR */
 
   .top-bar {
-    height: 48px;
-  }
-
-  .top-bar-container {
-    flex-direction: column;
-
-    gap: 0.5rem;
+    min-height: 48px;
   }
 
   .top-actions {
@@ -917,7 +972,7 @@ footer {
   }
 
 
-  /* ---------------- HEADER ---------------- */
+  /* HEADER */
 
   header {
     top: 48px;
@@ -928,18 +983,19 @@ footer {
 
     gap: 1rem;
 
-    padding: 0.6rem 1rem;
+    padding:
+      0.6rem 1rem;
   }
 
 
-  /* ---------------- LOGO ---------------- */
+  /* LOGO */
 
   .logo-img {
     height: 100px;
   }
 
 
-  /* ---------------- MENU ---------------- */
+  /* MENU */
 
   .nav-links {
     flex-wrap: wrap;
@@ -950,23 +1006,25 @@ footer {
   }
 
   .nav-links a {
-    padding: 0.45rem 0.8rem;
+    padding:
+      0.45rem 0.8rem;
 
     font-size: 0.7rem;
   }
 
 
   /*
-     IMPORTANT MOBILE
+     Sur mobile, le header est beaucoup plus haut.
 
-     Le menu mobile est plus haut que sur ordinateur.
-     On augmente donc l'espace avant le Hero.
+     On réserve donc une zone plus importante
+     avant le Hero.
   */
 
   .hero {
     margin-top: 330px;
 
-    padding: 3rem 1.2rem;
+    padding:
+      3rem 1.2rem;
   }
 
   .hero h1 {
@@ -978,27 +1036,29 @@ footer {
   }
 
 
-  /* ---------------- GRID ---------------- */
+  /* GRID */
 
   .grid {
     grid-template-columns: 1fr;
   }
 
 
-  /* ---------------- MODALE ---------------- */
+  /* FORMULAIRE */
 
-  .language-modal-card {
-    padding: 2rem 1.2rem;
+  .contact-form {
+    padding: 1.5rem;
   }
 
 
-  /* ---------------- WHATSAPP ---------------- */
+  /* WHATSAPP */
 
   .whatsapp-float {
     width: 55px;
+
     height: 55px;
 
     right: 18px;
+
     bottom: 18px;
 
     font-size: 28px;
@@ -1007,13 +1067,16 @@ footer {
 
 
 /* ==========================================================================
-   PETITS ÉCRANS
+   PETITS TÉLÉPHONES
    ========================================================================== */
 
 @media (max-width: 480px) {
 
   .hero {
     margin-top: 350px;
+
+    padding:
+      2.5rem 1rem;
   }
 
   .hero h1 {
@@ -1025,8 +1088,13 @@ footer {
   }
 
   .nav-links a {
-    padding: 0.4rem 0.65rem;
+    padding:
+      0.4rem 0.65rem;
 
     font-size: 0.65rem;
+  }
+
+  .btn-lang-trigger {
+    font-size: 0.72rem;
   }
 }
