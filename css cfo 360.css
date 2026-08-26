@@ -1,29 +1,30 @@
 /* ==========================================================================
    CFO 360° - FEUILLE DE STYLE COMPLETE ET UNIFIÉE
    ========================================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --navy-primary: #0A2540;     
-  --navy-dark: #061729;        
-  --navy-soft: #F0F4F8;        
-  
-  --gold-primary: #C59B27;    
-  --gold-light: #F3D060;      
+  --navy-primary: #0A2540;
+  --navy-dark: #061729;
+  --navy-soft: #F0F4F8;
+
+  --gold-primary: #C59B27;
+  --gold-light: #F3D060;
   --gold-gradient: linear-gradient(135deg, #F3D060 0%, #C59B27 100%);
   --gold-glow: rgba(197, 155, 39, 0.25);
 
   --whatsapp-green: #25D366;
 
-  --bg-white: #FFFFFF;        
-  --bg-body: #FAFAFC;         
-  
-  --text-dark: #0F172A;       
-  --text-muted: #475569;      
-  
+  --bg-white: #FFFFFF;
+  --bg-body: #FAFAFC;
+
+  --text-dark: #0F172A;
+  --text-muted: #475569;
+
   --font-heading: 'Cinzel', serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
-  
+
   --radius-lg: 20px;
   --radius-md: 12px;
   --radius-sm: 8px;
@@ -60,7 +61,11 @@ p {
   color: var(--text-muted);
 }
 
-/* --- MASQUAGE DE LA BARRE GOOGLE TRANSLATE EN HAUT DE PAGE --- */
+
+/* ==========================================================================
+   MASQUAGE DE LA BARRE GOOGLE TRANSLATE
+   ========================================================================== */
+
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
 #goog-gt-tt,
@@ -79,7 +84,11 @@ font {
   box-shadow: none !important;
 }
 
-/* --- TOP BAR --- */
+
+/* ==========================================================================
+   TOP BAR
+   ========================================================================== */
+
 .top-bar {
   background-color: var(--navy-dark);
   color: #94A3B8;
@@ -113,6 +122,11 @@ font {
   color: var(--gold-primary);
 }
 
+
+/* ==========================================================================
+   BOUTON LANGUE
+   ========================================================================== */
+
 .btn-lang-trigger {
   display: inline-flex;
   align-items: center;
@@ -135,7 +149,63 @@ font {
   border-color: transparent;
 }
 
-/* --- HEADER & NAV --- */
+
+/* ==========================================================================
+   MENU DE LANGUES
+   ========================================================================== */
+
+.language-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.language-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 170px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 2000;
+}
+
+.language-dropdown.show {
+  display: block;
+}
+
+.language-dropdown button {
+  width: 100%;
+  border: none;
+  background: #FFFFFF;
+  padding: 12px 16px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--navy-primary);
+  transition: background 0.2s ease;
+}
+
+.language-dropdown button:hover {
+  background: #F2F2F2;
+}
+
+.language-dropdown button i {
+  width: 18px;
+  color: var(--gold-primary);
+}
+
+
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+
 header {
   position: sticky;
   top: 0;
@@ -145,6 +215,13 @@ header {
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 2px solid var(--gold-primary);
   box-shadow: 0 4px 20px rgba(10, 37, 64, 0.06);
+
+  /* Ajout : animation du menu lors du défilement */
+  transition: transform 0.35s ease;
+}
+
+header.header-hidden {
+  transform: translateY(-100%);
 }
 
 .header-container {
@@ -200,7 +277,13 @@ header {
   box-shadow: 0 4px 15px var(--gold-glow);
 }
 
-/* --- MODALE LANGUE --- */
+
+/* ==========================================================================
+   ANCIENNE MODALE LANGUE
+   Conservée dans le CSS pour compatibilité avec d'autres pages.
+   Elle ne s'affiche pas si elle n'est pas présente dans le HTML.
+   ========================================================================== */
+
 #language-modal-overlay {
   position: fixed;
   top: 0;
@@ -267,7 +350,11 @@ header {
   transform: translateY(-2px);
 }
 
-/* --- BOUTON FLOTTANT WHATSAPP --- */
+
+/* ==========================================================================
+   BOUTON FLOTTANT WHATSAPP
+   ========================================================================== */
+
 .whatsapp-float {
   position: fixed;
   bottom: 25px;
@@ -294,17 +381,30 @@ header {
   color: #FFF;
 }
 
-/* --- STRUCTURE CONTENU --- */
+
+/* ==========================================================================
+   STRUCTURE CONTENU
+   ========================================================================== */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2.5rem 1.5rem;
 }
 
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+
 .hero {
   text-align: center;
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--navy-primary) 0%,
+    var(--navy-dark) 100%
+  );
   border-radius: var(--radius-lg);
   box-shadow: 0 20px 45px rgba(10, 37, 64, 0.12);
   margin-bottom: 3.5rem;
@@ -331,10 +431,19 @@ header {
   margin: 0 auto 2rem auto;
 }
 
+
+/* ==========================================================================
+   PAGE HEADER
+   ========================================================================== */
+
 .page-header {
   text-align: center;
   padding: 3rem 1rem;
-  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--navy-primary) 0%,
+    var(--navy-dark) 100%
+  );
   border-radius: var(--radius-lg);
   color: #FFF;
   margin-bottom: 3rem;
@@ -347,9 +456,20 @@ header {
   margin-bottom: 0.5rem;
 }
 
+.page-header h2 {
+  color: #FFF;
+  font-size: 2.3rem;
+  margin-bottom: 0.5rem;
+}
+
 .page-header p {
   color: #E2E8F0;
 }
+
+
+/* ==========================================================================
+   BOUTONS
+   ========================================================================== */
 
 .btn {
   display: inline-flex;
@@ -376,6 +496,21 @@ header {
   color: var(--navy-primary);
   transform: translateY(-3px);
 }
+
+.btn-alt {
+  background: var(--bg-white);
+  color: var(--navy-primary);
+}
+
+.btn-alt:hover {
+  background: var(--gold-gradient);
+  color: var(--navy-dark);
+}
+
+
+/* ==========================================================================
+   CARTES
+   ========================================================================== */
 
 .grid {
   display: grid;
@@ -412,6 +547,11 @@ header {
   margin-bottom: 1.2rem;
 }
 
+
+/* ==========================================================================
+   CARTES BLEUES - CORRECTION DE LISIBILITÉ
+   ========================================================================== */
+
 .grid .card:nth-child(even) {
   background: var(--navy-primary);
   border-color: transparent;
@@ -423,7 +563,7 @@ header {
 }
 
 .grid .card:nth-child(even) p {
-  color: #CBD5E1;
+  color: #E2E8F0;
 }
 
 .grid .card:nth-child(even) .card-icon {
@@ -431,8 +571,17 @@ header {
   color: var(--gold-light);
 }
 
+
+/* ==========================================================================
+   CTA BANNER
+   ========================================================================== */
+
 .cta-banner {
-  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--navy-primary) 0%,
+    var(--navy-dark) 100%
+  );
   padding: 3.5rem 2rem;
   border-radius: var(--radius-lg);
   border-left: 5px solid var(--gold-primary);
@@ -452,17 +601,11 @@ header {
   margin: 0 auto 1.8rem auto;
 }
 
-.btn-alt {
-  background: var(--bg-white);
-  color: var(--navy-primary);
-}
 
-.btn-alt:hover {
-  background: var(--gold-gradient);
-  color: var(--navy-dark);
-}
+/* ==========================================================================
+   FORMULAIRE CONTACT
+   ========================================================================== */
 
-/* --- FORMULAIRE CONTACT --- */
 .contact-form {
   background: #FFF;
   padding: 2.5rem;
@@ -502,7 +645,11 @@ header {
   box-shadow: 0 0 0 3px var(--gold-glow);
 }
 
-/* --- FOOTER --- */
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
 footer {
   background: var(--navy-dark);
   color: var(--bg-white);
@@ -565,9 +712,38 @@ footer {
   font-size: 0.88rem;
 }
 
+
+/* ==========================================================================
+   RESPONSIVE MOBILE
+   ========================================================================== */
+
 @media (max-width: 768px) {
-  .top-bar-container { flex-direction: column; gap: 0.5rem; }
-  .header-container { flex-direction: column; gap: 1rem; }
-  .nav-links { flex-wrap: wrap; justify-content: center; }
-  .hero h1 { font-size: 2rem; }
+
+  .top-bar-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .language-dropdown {
+    right: 0;
+    min-width: 160px;
+  }
+
+  .btn-lang-trigger {
+    font-size: 0.78rem;
+  }
 }
