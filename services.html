@@ -633,32 +633,64 @@
       }
     );
   </script>
-  <script>
-  let lastScrollTop = 0;
-  const header = document.querySelector("header");
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
 
-  window.addEventListener("scroll", function () {
-    const currentScroll =
-      window.pageYOffset || document.documentElement.scrollTop;
+    const header = document.querySelector("header");
 
-    // Tout en haut : le menu reste visible
-    if (currentScroll <= 20) {
-      header.classList.remove("header-hidden");
-      lastScrollTop = currentScroll;
+    if (!header) {
       return;
     }
 
-    // On descend : cacher le menu
-    if (currentScroll > lastScrollTop) {
-      header.classList.add("header-hidden");
-    }
+    let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    // On remonte : afficher le menu
-    else {
-      header.classList.remove("header-hidden");
-    }
+    window.addEventListener(
+      "scroll",
+      function () {
 
-    lastScrollTop = currentScroll;
+        const currentScrollTop =
+          window.pageYOffset ||
+          document.documentElement.scrollTop;
+
+        /*
+         * Tout en haut du site :
+         * le header est toujours visible.
+         */
+        if (currentScrollTop <= 10) {
+
+          header.classList.remove("header-hidden");
+
+          lastScrollTop = currentScrollTop;
+
+          return;
+        }
+
+        /*
+         * On descend :
+         * le HEADER ENTIER disparaît vers le haut.
+         */
+        if (currentScrollTop > lastScrollTop) {
+
+          header.classList.add("header-hidden");
+
+        }
+
+        /*
+         * On remonte :
+         * le HEADER ENTIER réapparaît.
+         */
+        else if (currentScrollTop < lastScrollTop) {
+
+          header.classList.remove("header-hidden");
+
+        }
+
+        lastScrollTop = currentScrollTop;
+
+      },
+      { passive: true }
+    );
+
   });
 </script>
 </body>
