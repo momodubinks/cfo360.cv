@@ -14,15 +14,53 @@
   >
 
   <style>
+    /* =========================================================
+       MODALE DE LANGUE
+       ========================================================= */
+
     #language-modal-overlay {
       display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #language-modal-overlay.language-modal-open {
+      display: flex;
+    }
+
+    .language-modal-card {
+      position: relative;
+      z-index: 100000;
+    }
+
+    /* =========================================================
+       TOP BAR
+       ========================================================= */
+
+    .top-bar {
+      position: relative;
+      z-index: 1000;
+    }
+
+    .top-actions {
+      position: relative;
+    }
+
+    .btn-lang-trigger {
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
+  <!-- =========================================================
+       TOP BAR
+       ========================================================= -->
+
   <div class="top-bar">
 
     <div class="top-actions">
@@ -31,11 +69,15 @@
         type="button"
         class="btn-lang-trigger"
         onclick="openLangModal()"
+        aria-label="Choisir la langue"
       >
+
         <i class="fa-solid fa-globe"></i>
+
         <span data-i18n="language_button">
-          Langue / Language
+          Langue
         </span>
+
       </button>
 
     </div>
@@ -43,17 +85,23 @@
   </div>
 
 
-  <!-- MODALE DE CHOIX DE LANGUE -->
-  <div id="language-modal-overlay">
+  <!-- =========================================================
+       MODALE DE CHOIX DE LANGUE
+       ========================================================= -->
+
+  <div
+    id="language-modal-overlay"
+    aria-hidden="true"
+  >
 
     <div class="language-modal-card">
 
       <h2 data-i18n="modal_title">
-        Langue / Language
+        Choisir la langue
       </h2>
 
       <p data-i18n="modal_text">
-        Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :
+        Veuillez choisir votre langue préférée.
       </p>
 
       <div class="modal-buttons">
@@ -92,7 +140,10 @@
   </div>
 
 
-  <!-- HEADER -->
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+
   <header>
 
     <div class="header-container">
@@ -101,11 +152,13 @@
         href="index.html"
         class="logo-link"
       >
+
         <img
           src="WhatsApp Image 2026-08-24 at 14.18.25.jpeg"
           alt="CFO 360° Logo"
           class="logo-img"
         >
+
       </a>
 
       <nav>
@@ -167,7 +220,10 @@
   </header>
 
 
-  <!-- CONTENU PRINCIPAL -->
+  <!-- =========================================================
+       CONTENU PRINCIPAL
+       ========================================================= -->
+
   <main class="container">
 
     <section class="page-header">
@@ -185,8 +241,10 @@
 
     <section class="grid">
 
+      <!-- =====================================================
+           MISSION
+           ===================================================== -->
 
-      <!-- MISSION -->
       <div class="card">
 
         <div class="card-icon">
@@ -204,7 +262,10 @@
       </div>
 
 
-      <!-- VISION -->
+      <!-- =====================================================
+           VISION
+           ===================================================== -->
+
       <div class="card">
 
         <div class="card-icon">
@@ -222,7 +283,10 @@
       </div>
 
 
-      <!-- VALEURS -->
+      <!-- =====================================================
+           VALEURS
+           ===================================================== -->
+
       <div class="card">
 
         <div class="card-icon">
@@ -244,24 +308,33 @@
   </main>
 
 
-  <!-- WHATSAPP FLOAT -->
+  <!-- =========================================================
+       WHATSAPP
+       ========================================================= -->
+
   <a
     href="https://wa.me/2389735933"
     class="whatsapp-float"
     target="_blank"
     rel="noopener noreferrer"
+    aria-label="WhatsApp"
   >
+
     <i class="fa-brands fa-whatsapp"></i>
+
   </a>
 
 
-  <!-- FOOTER -->
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
   <footer>
 
     <div class="footer-content">
 
-
       <!-- COLONNE 1 -->
+
       <div class="footer-col">
 
         <h4>
@@ -276,6 +349,7 @@
 
 
       <!-- COLONNE 2 -->
+
       <div class="footer-col">
 
         <h4 data-i18n="footer_navigation">
@@ -307,7 +381,7 @@
               href="realisations.html"
               data-i18n="nav_ambitions"
             >
-              Réalisations
+              Ambitions
             </a>
           </li>
 
@@ -335,6 +409,7 @@
 
 
       <!-- COLONNE 3 -->
+
       <div class="footer-col">
 
         <h4 data-i18n="footer_contact">
@@ -366,423 +441,524 @@
 
 
     <!-- FOOTER BOTTOM -->
+
     <div class="footer-bottom">
 
       <p data-i18n="copyright">
-        © 2026 CFO 360°. Tous droits réservés.
+        ©️ 2026 CFO 360°. Tous droits réservés.
       </p>
 
     </div>
 
   </footer>
 
-<script>
-/* ============================================================
-   CFO 360° — TRADUCTION + MENU
-   ============================================================ */
 
-const translations = {
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
 
-  /* =========================
-     FRANÇAIS
-     ========================= */
+  <script>
 
-  fr: {
-    language_button: "Langue / Language",
-    modal_title: "Langue / Language",
-    modal_text:
-      "Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :",
+    /* =========================================================
+       TRADUCTIONS
+       ========================================================= */
 
-    nav_home: "Accueil",
-    nav_services: "Services",
-    nav_ambitions: "Ambitions",
-    nav_about: "À propos",
-    nav_contact: "Contact",
+    const translations = {
 
-    page_title: "À propos de CFO 360°",
+      /* =======================================================
+         FRANÇAIS
+         ======================================================= */
 
-    page_description:
-      "Un cabinet indépendant dédié à l'excellence financière et à la création de valeur.",
+      fr: {
 
-    mission_title: "Notre Mission",
+        language_button: "Langue",
 
-    mission_text:
-      "Apporter aux dirigeants de PME des compétences de haut niveau en gestion financière sans la lourdeur d'un recrutement à temps plein.",
+        modal_title: "Choisir la langue",
 
-    vision_title: "Notre Vision",
+        modal_text:
+          "Veuillez choisir votre langue préférée.",
 
-    vision_text:
-      "Devenir la référence en conseil et direction financière partagée au Cap-Vert et dans la région, en conjuguant rigueur et proactivité.",
+        nav_home: "Accueil",
 
-    values_title: "Nos Valeurs",
+        nav_services: "Services",
 
-    values_text:
-      "Transparence, confidentialité, pragmatisme et engagement total au service de la rentabilité de nos clients.",
+        nav_ambitions: "Ambitions",
 
-    footer_description:
-      "Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.",
+        nav_about: "À propos",
 
-    footer_navigation: "Navigation",
+        nav_contact: "Contact",
 
-    footer_contact: "Contact",
+        page_title:
+          "À propos de CFO 360°",
 
-    copyright:
-      "©️ 2026 CFO 360°. Tous droits réservés."
-  },
+        page_description:
+          "Un cabinet indépendant dédié à l'excellence financière et à la création de valeur.",
 
+        mission_title:
+          "Notre Mission",
 
-  /* =========================
-     ENGLISH
-     ========================= */
+        mission_text:
+          "Apporter aux dirigeants de PME des compétences de haut niveau en gestion financière sans la lourdeur d'un recrutement à temps plein.",
 
-  en: {
-    language_button: "Language",
-    modal_title: "Language",
+        vision_title:
+          "Notre Vision",
 
-    modal_text:
-      "Please choose your preferred language / Choisissez votre langue / Escolha o seu idioma :",
+        vision_text:
+          "Devenir la référence en conseil et direction financière partagée au Cap-Vert et dans la région, en conjuguant rigueur et proactivité.",
 
-    nav_home: "Home",
-    nav_services: "Services",
-    nav_ambitions: "Goals",
-    nav_about: "About Us",
-    nav_contact: "Contact",
+        values_title:
+          "Nos Valeurs",
 
-    page_title: "About CFO 360°",
+        values_text:
+          "Transparence, confidentialité, pragmatisme et engagement total au service de la rentabilité de nos clients.",
 
-    page_description:
-      "An independent firm dedicated to financial excellence and value creation.",
+        footer_description:
+          "Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.",
 
-    mission_title: "Our Mission",
+        footer_navigation:
+          "Navigation",
 
-    mission_text:
-      "Providing SME executives with high-level financial management expertise without the burden of a full-time recruitment.",
+        footer_contact:
+          "Contact",
 
-    vision_title: "Our Vision",
+        copyright:
+          "©️ 2026 CFO 360°. Tous droits réservés."
 
-    vision_text:
-      "To become the leading reference in financial advisory and part-time CFO services in Cape Verde and the region, combining rigor and proactivity.",
+      },
 
-    values_title: "Our Values",
 
-    values_text:
-      "Transparency, confidentiality, pragmatism and total commitment to our clients' profitability.",
+      /* =======================================================
+         ENGLISH
+         ======================================================= */
 
-    footer_description:
-      "Your trusted partner in part-time financial management and strategic support.",
+      en: {
 
-    footer_navigation: "Navigation",
+        language_button: "Language",
 
-    footer_contact: "Contact",
+        modal_title: "Choose your language",
 
-    copyright:
-      "©️ 2026 CFO 360°. All rights reserved."
-  },
+        modal_text:
+          "Please choose your preferred language.",
 
+        nav_home: "Home",
 
-  /* =========================
-     PORTUGUÊS
-     ========================= */
+        nav_services: "Services",
 
-  pt: {
-    language_button: "Idioma",
-    modal_title: "Idioma",
+        nav_ambitions: "Goals",
 
-    modal_text:
-      "Escolha o seu idioma preferido / Choose your language / Choisissez votre langue :",
+        nav_about: "About Us",
 
-    nav_home: "Início",
-    nav_services: "Serviços",
-    nav_ambitions: "Ambições",
-    nav_about: "Sobre nós",
-    nav_contact: "Contacto",
+        nav_contact: "Contact",
 
-    page_title: "Sobre a CFO 360°",
+        page_title:
+          "About CFO 360°",
 
-    page_description:
-      "Uma empresa independente dedicada à excelência financeira e à criação de valor.",
+        page_description:
+          "An independent firm dedicated to financial excellence and value creation.",
 
-    mission_title: "A Nossa Missão",
+        mission_title:
+          "Our Mission",
 
-    mission_text:
-      "Fornecer aos gestores de PME competências de alto nível em gestão financeira sem o peso de uma contratação a tempo inteiro.",
+        mission_text:
+          "Providing SME executives with high-level financial management expertise without the burden of a full-time recruitment.",
 
-    vision_title: "A Nossa Visão",
+        vision_title:
+          "Our Vision",
 
-    vision_text:
-      "Tornar-nos uma referência em consultoria e direção financeira partilhada em Cabo Verde e na região, combinando rigor e proatividade.",
+        vision_text:
+          "To become the leading reference in financial advisory and part-time CFO services in Cape Verde and the region, combining rigor and proactivity.",
 
-    values_title: "Os Nossos Valores",
+        values_title:
+          "Our Values",
 
-    values_text:
-      "Transparência, confidencialidade, pragmatismo e compromisso total com a rentabilidade dos nossos clientes.",
+        values_text:
+          "Transparency, confidentiality, pragmatism and total commitment to our clients' profitability.",
 
-    footer_description:
-      "O seu parceiro de confiança em direção financeira a tempo parcial e acompanhamento estratégico.",
+        footer_description:
+          "Your trusted partner in part-time financial management and strategic support.",
 
-    footer_navigation: "Navegação",
+        footer_navigation:
+          "Navigation",
 
-    footer_contact: "Contacto",
+        footer_contact:
+          "Contact",
 
-    copyright:
-      "©️ 2026 CFO 360°. Todos os direitos reservados."
-  }
+        copyright:
+          "©️ 2026 CFO 360°. All rights reserved."
 
-};
+      },
 
 
-/* ============================================================
-   APPLICATION DE LA LANGUE
-   ============================================================ */
+      /* =======================================================
+         PORTUGUÊS
+         ======================================================= */
 
-function applyLanguage(lang) {
+      pt: {
 
-  /*
-   * Portugais = langue par défaut
-   */
+        language_button: "Idioma",
 
-  if (!translations[lang]) {
-    lang = "pt";
-  }
+        modal_title: "Escolha o seu idioma",
 
-  document.documentElement.lang = lang;
+        modal_text:
+          "Escolha o seu idioma preferido.",
 
-  const elements =
-    document.querySelectorAll("[data-i18n]");
+        nav_home: "Início",
 
-  elements.forEach(function(element) {
+        nav_services: "Serviços",
 
-    const key =
-      element.getAttribute("data-i18n");
+        nav_ambitions: "Ambições",
 
-    if (
-      translations[lang] &&
-      translations[lang][key] !== undefined
-    ) {
+        nav_about: "Sobre nós",
 
-      element.textContent =
-        translations[lang][key];
+        nav_contact: "Contacto",
 
-    }
+        page_title:
+          "Sobre a CFO 360°",
 
-  });
+        page_description:
+          "Uma empresa independente dedicada à excelência financeira e à criação de valor.",
 
-  localStorage.setItem(
-    "cfo_selected_language",
-    lang
-  );
+        mission_title:
+          "A Nossa Missão",
 
-  localStorage.setItem(
-    "cfo_lang_chosen",
-    "true"
-  );
-}
+        mission_text:
+          "Fornecer aos gestores de PME competências de alto nível em gestão financeira sem o peso de uma contratação a tempo inteiro.",
 
+        vision_title:
+          "A Nossa Visão",
 
-/* ============================================================
-   CHANGEMENT DE LANGUE
-   ============================================================ */
+        vision_text:
+          "Tornar-nos uma referência em consultoria e direção financeira partilhada em Cabo Verde e na região, combinando rigor e proatividade.",
 
-function translatePage(langCode) {
+        values_title:
+          "Os Nossos Valores",
 
-  if (
-    langCode !== "fr" &&
-    langCode !== "en" &&
-    langCode !== "pt"
-  ) {
-    return;
-  }
+        values_text:
+          "Transparência, confidencialidade, pragmatismo e compromisso total com a rentabilidade dos nossos clientes.",
 
-  applyLanguage(langCode);
+        footer_description:
+          "O seu parceiro de confiança em direção financeira a tempo parcial e acompanhamento estratégico.",
 
-  closeLangModal();
-}
+        footer_navigation:
+          "Navegação",
 
+        footer_contact:
+          "Contacto",
 
-/*
- * Si tes boutons HTML utilisent :
- *
- * onclick="translateSite('pt')"
- *
- * on garde également cette fonction.
- */
+        copyright:
+          "©️ 2026 CFO 360°. Todos os direitos reservados."
 
-function translateSite(langCode) {
-  translatePage(langCode);
-}
+      }
 
+    };
 
-/* ===================================================== */
-/* OUVRIR LA MODALE DE LANGUE */
-/* ===================================================== */
 
-function openLangModal() {
+    /* =========================================================
+       APPLICATION DE LA LANGUE
+       ========================================================= */
 
-  const modal =
-    document.getElementById("language-modal-overlay");
+    function applyLanguage(lang) {
 
-  if (!modal) {
-    console.error("Modale de langue introuvable.");
-    return;
-  }
+      if (!translations[lang]) {
+        lang = "fr";
+      }
 
-  modal.classList.add("language-modal-open");
+      document.documentElement.lang = lang;
 
-}
+      const elements =
+        document.querySelectorAll("[data-i18n]");
 
+      elements.forEach(function(element) {
 
-/* ===================================================== */
-/* FERMER LA MODALE DE LANGUE */
-/* ===================================================== */
+        const key =
+          element.getAttribute("data-i18n");
 
-function closeLangModal() {
+        if (
+          translations[lang][key] !== undefined
+        ) {
 
-  const modal =
-    document.getElementById("language-modal-overlay");
+          element.textContent =
+            translations[lang][key];
 
-  if (!modal) {
-    return;
-  }
+        }
 
-  modal.classList.remove("language-modal-open");
+      });
 
-}
-
-/* ============================================================
-   INITIALISATION
-   ============================================================ */
-
-document.addEventListener(
-  "DOMContentLoaded",
-  function() {
-
-    const header =
-      document.querySelector("header");
-
-    const topBar =
-      document.querySelector(".top-bar");
-
-    /*
-     * Langue sauvegardée
-     */
-
-    const savedLanguage =
-      localStorage.getItem(
-        "cfo_selected_language"
+      localStorage.setItem(
+        "cfo_selected_language",
+        lang
       );
 
+    }
 
-    /*
-     * PORTUGAIS PAR DÉFAUT
-     *
-     * La grande fenêtre de choix
-     * ne s'affiche plus automatiquement.
-     */
 
-    if (savedLanguage) {
+    /* =========================================================
+       OUVRIR LA MODALE
+       ========================================================= */
 
-      applyLanguage(savedLanguage);
+    function openLangModal() {
 
-    } else {
+      const modal =
+        document.getElementById(
+          "language-modal-overlay"
+        );
 
-      applyLanguage("pt");
+      if (!modal) {
+        console.error(
+          "Modale de langue introuvable."
+        );
+        return;
+      }
+
+      modal.classList.add(
+        "language-modal-open"
+      );
+
+      modal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
 
     }
 
-    closeLangModal();
 
+    /* =========================================================
+       FERMER LA MODALE
+       ========================================================= */
 
-    /* ========================================================
-       MENU AU DÉFILEMENT
-       ======================================================== */
+    function closeLangModal() {
 
-    if (!header) {
-      return;
+      const modal =
+        document.getElementById(
+          "language-modal-overlay"
+        );
+
+      if (!modal) {
+        return;
+      }
+
+      modal.classList.remove(
+        "language-modal-open"
+      );
+
+      modal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
     }
 
-    let lastScrollTop =
-      window.pageYOffset ||
-      document.documentElement.scrollTop;
+
+    /* =========================================================
+       CHANGER DE LANGUE
+       ========================================================= */
+
+    function translatePage(langCode) {
+
+      if (!translations[langCode]) {
+        return;
+      }
+
+      applyLanguage(langCode);
+
+      closeLangModal();
+
+    }
 
 
-    window.addEventListener(
-      "scroll",
+    /* =========================================================
+       COMPATIBILITÉ AVEC L'ANCIEN SYSTÈME
+       ========================================================= */
+
+    function translateSite(langCode) {
+
+      translatePage(langCode);
+
+    }
+
+
+    /* =========================================================
+       INITIALISATION
+       ========================================================= */
+
+    document.addEventListener(
+      "DOMContentLoaded",
       function() {
 
-        const currentScrollTop =
+        /* -----------------------------------------------------
+           Récupération de la langue enregistrée
+           ----------------------------------------------------- */
+
+        const savedLanguage =
+          localStorage.getItem(
+            "cfo_selected_language"
+          );
+
+
+        /* -----------------------------------------------------
+           Application de la langue
+           ----------------------------------------------------- */
+
+        if (
+          savedLanguage &&
+          translations[savedLanguage]
+        ) {
+
+          applyLanguage(savedLanguage);
+
+        } else {
+
+          applyLanguage("fr");
+
+        }
+
+
+        /* -----------------------------------------------------
+           Toujours fermer la modale au démarrage
+           ----------------------------------------------------- */
+
+        closeLangModal();
+
+
+        /* -----------------------------------------------------
+           Fermer en cliquant à l'extérieur
+           ----------------------------------------------------- */
+
+        const modal =
+          document.getElementById(
+            "language-modal-overlay"
+          );
+
+        if (modal) {
+
+          modal.addEventListener(
+            "click",
+            function(event) {
+
+              if (
+                event.target === modal
+              ) {
+
+                closeLangModal();
+
+              }
+
+            }
+          );
+
+        }
+
+
+        /* -----------------------------------------------------
+           Fermer avec la touche Échap
+           ----------------------------------------------------- */
+
+        document.addEventListener(
+          "keydown",
+          function(event) {
+
+            if (
+              event.key === "Escape"
+            ) {
+
+              closeLangModal();
+
+            }
+
+          }
+        );
+
+
+        /* =====================================================
+           HEADER AU DÉFILEMENT
+           ===================================================== */
+
+        const header =
+          document.querySelector("header");
+
+        if (!header) {
+          return;
+        }
+
+        let lastScrollTop =
           window.pageYOffset ||
           document.documentElement.scrollTop;
 
 
-        /*
-         * TOUT EN HAUT
-         *
-         * Le header revient.
-         */
+        window.addEventListener(
+          "scroll",
+          function() {
 
-        if (currentScrollTop <= 10) {
-
-          header.classList.remove(
-            "header-hidden"
-          );
-
-          lastScrollTop =
-            currentScrollTop;
-
-          return;
-        }
+            const currentScrollTop =
+              window.pageYOffset ||
+              document.documentElement.scrollTop;
 
 
-        /*
-         * ON DESCEND
-         *
-         * SEUL LE HEADER DISPARAÎT.
-         *
-         * La TOP BAR ne reçoit
-         * JAMAIS header-hidden.
-         */
+            /* -----------------------------------------------
+               Tout en haut
+               ----------------------------------------------- */
 
-        if (
-          currentScrollTop >
-          lastScrollTop
-        ) {
+            if (
+              currentScrollTop <= 10
+            ) {
 
-          header.classList.add(
-            "header-hidden"
-          );
+              header.classList.remove(
+                "header-hidden"
+              );
 
-        }
+              lastScrollTop =
+                currentScrollTop;
 
+              return;
 
-        /*
-         * ON REMONTE
-         *
-         * Le header revient.
-         */
-
-        else if (
-          currentScrollTop <
-          lastScrollTop
-        ) {
-
-          header.classList.remove(
-            "header-hidden"
-          );
-
-        }
+            }
 
 
-        lastScrollTop =
-          currentScrollTop;
+            /* -----------------------------------------------
+               Descente
+               ----------------------------------------------- */
 
-      },
-      {
-        passive: true
+            if (
+              currentScrollTop >
+              lastScrollTop
+            ) {
+
+              header.classList.add(
+                "header-hidden"
+              );
+
+            }
+
+
+            /* -----------------------------------------------
+               Remontée
+               ----------------------------------------------- */
+
+            else if (
+              currentScrollTop <
+              lastScrollTop
+            ) {
+
+              header.classList.remove(
+                "header-hidden"
+              );
+
+            }
+
+
+            lastScrollTop =
+              currentScrollTop;
+
+          },
+          {
+            passive: true
+          }
+        );
+
       }
     );
 
-  }
-);
-</script>
+  </script>
+
 </body>
 </html>
