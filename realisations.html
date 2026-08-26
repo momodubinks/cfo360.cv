@@ -767,7 +767,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.pageYOffset ||
       document.documentElement.scrollTop;
 
-    /* Tout en haut : tout réapparaît */
     if (currentScrollTop <= 10) {
 
       header.classList.remove("header-hidden");
@@ -778,16 +777,12 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    /* On descend : tout disparaît */
     if (currentScrollTop > lastScrollTop) {
 
       header.classList.add("header-hidden");
       topBar.classList.add("header-hidden");
 
-    }
-
-    /* On remonte : tout réapparaît */
-    else if (currentScrollTop < lastScrollTop) {
+    } else if (currentScrollTop < lastScrollTop) {
 
       header.classList.remove("header-hidden");
       topBar.classList.remove("header-hidden");
