@@ -372,428 +372,411 @@
 
   </footer>
 
+<script>
+/* ============================================================
+   CFO 360° — TRADUCTION + MENU
+   ============================================================ */
 
-  <!-- ===================================================== -->
-  <!-- TRADUCTION INTERNE CFO 360° -->
-  <!-- ===================================================== -->
+const translations = {
 
-  <script>
+  /* =========================
+     FRANÇAIS
+     ========================= */
 
-    const translations = {
+  fr: {
+    language_button: "Langue / Language",
+    modal_title: "Langue / Language",
+    modal_text:
+      "Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :",
 
-      /* ========================= */
-      /* FRANÇAIS */
-      /* ========================= */
+    nav_home: "Accueil",
+    nav_services: "Services",
+    nav_ambitions: "Ambitions",
+    nav_about: "À propos",
+    nav_contact: "Contact",
 
-      fr: {
+    page_title: "À propos de CFO 360°",
 
-        language_button:
-          "Langue / Language",
+    page_description:
+      "Un cabinet indépendant dédié à l'excellence financière et à la création de valeur.",
 
-        modal_title:
-          "Langue / Language",
+    mission_title: "Notre Mission",
 
-        modal_text:
-          "Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :",
+    mission_text:
+      "Apporter aux dirigeants de PME des compétences de haut niveau en gestion financière sans la lourdeur d'un recrutement à temps plein.",
 
-        nav_home:
-          "Accueil",
+    vision_title: "Notre Vision",
 
-        nav_services:
-          "Services",
+    vision_text:
+      "Devenir la référence en conseil et direction financière partagée au Cap-Vert et dans la région, en conjuguant rigueur et proactivité.",
 
-        nav_ambitions:
-          "Ambitions",
+    values_title: "Nos Valeurs",
 
-        nav_about:
-          "À propos",
+    values_text:
+      "Transparence, confidentialité, pragmatisme et engagement total au service de la rentabilité de nos clients.",
 
-        nav_contact:
-          "Contact",
+    footer_description:
+      "Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.",
 
-        page_title:
-          "Nos Ambitions & Vision",
+    footer_navigation: "Navigation",
 
-        page_description:
-          "Accompagner les entreprises émergentes et consolidées dans l'atteinte de leur plein potentiel financier.",
+    footer_contact: "Contact",
 
-        card1_title:
-          "Accompagnement des Entreprises Émergentes",
+    copyright:
+      "©️ 2026 CFO 360°. Tous droits réservés."
+  },
 
-        card1_text:
-          "Structurer financièrement les entreprises naissantes et les PME en forte croissance pour poser des fondations solides.",
 
-        card2_title:
-          "Optimisation & Performance",
+  /* =========================
+     ENGLISH
+     ========================= */
 
-        card2_text:
-          "Maximiser la rentabilité globale et la valeur de votre entreprise grâce à des outils de gestion financière modernes.",
+  en: {
+    language_button: "Language",
+    modal_title: "Language",
 
-        card3_title:
-          "Expansion & Levées de Fonds",
+    modal_text:
+      "Please choose your preferred language / Choisissez votre langue / Escolha o seu idioma :",
 
-        card3_text:
-          "Préparer vos dossiers stratégiques pour convaincre les partenaires financiers et investisseurs régionaux ou internationaux.",
+    nav_home: "Home",
+    nav_services: "Services",
+    nav_ambitions: "Goals",
+    nav_about: "About Us",
+    nav_contact: "Contact",
 
-        cta_title:
-          "Construisons ensemble l'avenir de votre entreprise",
+    page_title: "About CFO 360°",
 
-        cta_text:
-          "Discutons de vos objectifs stratégiques et définissons la meilleure approche pour y parvenir.",
+    page_description:
+      "An independent firm dedicated to financial excellence and value creation.",
 
-        cta_button:
-          "Prendre rendez-vous",
+    mission_title: "Our Mission",
 
-        footer_description:
-          "Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.",
+    mission_text:
+      "Providing SME executives with high-level financial management expertise without the burden of a full-time recruitment.",
 
-        footer_navigation:
-          "Navigation",
+    vision_title: "Our Vision",
 
-        footer_contact:
-          "Contact",
+    vision_text:
+      "To become the leading reference in financial advisory and part-time CFO services in Cape Verde and the region, combining rigor and proactivity.",
 
-        copyright:
-          "© 2026 CFO 360°. Tous droits réservés."
+    values_title: "Our Values",
 
-      },
+    values_text:
+      "Transparency, confidentiality, pragmatism and total commitment to our clients' profitability.",
 
+    footer_description:
+      "Your trusted partner in part-time financial management and strategic support.",
 
-      /* ========================= */
-      /* ENGLISH */
-      /* ========================= */
+    footer_navigation: "Navigation",
 
-      en: {
+    footer_contact: "Contact",
 
-        language_button:
-          "Language",
+    copyright:
+      "©️ 2026 CFO 360°. All rights reserved."
+  },
 
-        modal_title:
-          "Language",
 
-        modal_text:
-          "Please choose your preferred language / Choisissez votre langue / Escolha o seu idioma :",
+  /* =========================
+     PORTUGUÊS
+     ========================= */
 
-        nav_home:
-          "Home",
+  pt: {
+    language_button: "Idioma",
+    modal_title: "Idioma",
 
-        nav_services:
-          "Services",
+    modal_text:
+      "Escolha o seu idioma preferido / Choose your language / Choisissez votre langue :",
 
-        nav_ambitions:
-          "Goals",
+    nav_home: "Início",
+    nav_services: "Serviços",
+    nav_ambitions: "Ambições",
+    nav_about: "Sobre nós",
+    nav_contact: "Contacto",
 
-        nav_about:
-          "About Us",
+    page_title: "Sobre a CFO 360°",
 
-        nav_contact:
-          "Contact",
+    page_description:
+      "Uma empresa independente dedicada à excelência financeira e à criação de valor.",
 
-        page_title:
-          "Our Ambitions & Vision",
+    mission_title: "A Nossa Missão",
 
-        page_description:
-          "Supporting emerging and established companies in reaching their full financial potential.",
+    mission_text:
+      "Fornecer aos gestores de PME competências de alto nível em gestão financeira sem o peso de uma contratação a tempo inteiro.",
 
-        card1_title:
-          "Supporting Emerging Companies",
+    vision_title: "A Nossa Visão",
 
-        card1_text:
-          "Structuring the finances of new businesses and fast-growing SMEs to build strong foundations.",
+    vision_text:
+      "Tornar-nos uma referência em consultoria e direção financeira partilhada em Cabo Verde e na região, combinando rigor e proatividade.",
 
-        card2_title:
-          "Optimization & Performance",
+    values_title: "Os Nossos Valores",
 
-        card2_text:
-          "Maximizing your company's overall profitability and value through modern financial management tools.",
+    values_text:
+      "Transparência, confidencialidade, pragmatismo e compromisso total com a rentabilidade dos nossos clientes.",
 
-        card3_title:
-          "Expansion & Fundraising",
+    footer_description:
+      "O seu parceiro de confiança em direção financeira a tempo parcial e acompanhamento estratégico.",
 
-        card3_text:
-          "Preparing strategic presentations and files to convince regional and international financial partners and investors.",
+    footer_navigation: "Navegação",
 
-        cta_title:
-          "Let's Build Your Company's Future Together",
+    footer_contact: "Contacto",
 
-        cta_text:
-          "Let's discuss your strategic objectives and define the best approach to achieve them.",
+    copyright:
+      "©️ 2026 CFO 360°. Todos os direitos reservados."
+  }
 
-        cta_button:
-          "Book an Appointment",
+};
 
-        footer_description:
-          "Your trusted partner in part-time financial management and strategic support.",
 
-        footer_navigation:
-          "Navigation",
+/* ============================================================
+   APPLICATION DE LA LANGUE
+   ============================================================ */
 
-        footer_contact:
-          "Contact",
+function applyLanguage(lang) {
 
-        copyright:
-          "© 2026 CFO 360°. All rights reserved."
+  /*
+   * Portugais = langue par défaut
+   */
 
-      },
+  if (!translations[lang]) {
+    lang = "pt";
+  }
 
+  document.documentElement.lang = lang;
 
-      /* ========================= */
-      /* PORTUGUÊS */
-      /* ========================= */
+  const elements =
+    document.querySelectorAll("[data-i18n]");
 
-      pt: {
+  elements.forEach(function(element) {
 
-        language_button:
-          "Idioma",
+    const key =
+      element.getAttribute("data-i18n");
 
-        modal_title:
-          "Idioma",
+    if (
+      translations[lang] &&
+      translations[lang][key] !== undefined
+    ) {
 
-        modal_text:
-          "Escolha o seu idioma preferido / Choose your language / Choisissez votre langue :",
-
-        nav_home:
-          "Início",
-
-        nav_services:
-          "Serviços",
-
-        nav_ambitions:
-          "Ambições",
-
-        nav_about:
-          "Sobre nós",
-
-        nav_contact:
-          "Contacto",
-
-        page_title:
-          "As Nossas Ambições & Visão",
-
-        page_description:
-          "Acompanhar empresas emergentes e consolidadas na concretização de todo o seu potencial financeiro.",
-
-        card1_title:
-          "Acompanhamento de Empresas Emergentes",
-
-        card1_text:
-          "Estruturar financeiramente empresas recém-criadas e PME em forte crescimento para estabelecer bases sólidas.",
-
-        card2_title:
-          "Otimização & Desempenho",
-
-        card2_text:
-          "Maximizar a rentabilidade global e o valor da sua empresa através de ferramentas modernas de gestão financeira.",
-
-        card3_title:
-          "Expansão & Captação de Fundos",
-
-        card3_text:
-          "Preparar os seus dossiers estratégicos para convencer parceiros financeiros e investidores regionais ou internacionais.",
-
-        cta_title:
-          "Vamos construir juntos o futuro da sua empresa",
-
-        cta_text:
-          "Vamos discutir os seus objetivos estratégicos e definir a melhor abordagem para os alcançar.",
-
-        cta_button:
-          "Marcar uma reunião",
-
-        footer_description:
-          "O seu parceiro de confiança em direção financeira a tempo parcial e acompanhamento estratégico.",
-
-        footer_navigation:
-          "Navegação",
-
-        footer_contact:
-          "Contacto",
-
-        copyright:
-          "© 2026 CFO 360°. Todos os direitos reservados."
-
-      }
-
-    };
-
-
-    /* ========================================= */
-    /* APPLICATION DE LA LANGUE */
-    /* ========================================= */
-
-    function applyLanguage(lang) {
-
-      if (!translations[lang]) {
-        lang = "fr";
-      }
-
-      document.documentElement.lang = lang;
-
-      const elements =
-        document.querySelectorAll("[data-i18n]");
-
-      elements.forEach(function(element) {
-
-        const key =
-          element.getAttribute("data-i18n");
-
-        if (
-          translations[lang][key] !== undefined
-        ) {
-
-          element.textContent =
-            translations[lang][key];
-
-        }
-
-      });
-
-      localStorage.setItem(
-        "cfo_selected_language",
-        lang
-      );
-
-      localStorage.setItem(
-        "cfo_lang_chosen",
-        "true"
-      );
+      element.textContent =
+        translations[lang][key];
 
     }
 
+  });
 
-    /* ========================================= */
-    /* CHANGEMENT DE LANGUE */
-    /* ========================================= */
+  localStorage.setItem(
+    "cfo_selected_language",
+    lang
+  );
 
-    function translatePage(langCode) {
-
-      if (
-        langCode !== "fr" &&
-        langCode !== "en" &&
-        langCode !== "pt"
-      ) {
-        return;
-      }
-
-      applyLanguage(langCode);
-
-      closeLangModal();
-
-    }
+  localStorage.setItem(
+    "cfo_lang_chosen",
+    "true"
+  );
+}
 
 
-    /* ========================================= */
-    /* OUVRIR LA MODALE */
-    /* ========================================= */
+/* ============================================================
+   CHANGEMENT DE LANGUE
+   ============================================================ */
 
-    function openLangModal() {
+function translatePage(langCode) {
 
-      const modal =
-        document.getElementById(
-          "language-modal-overlay"
-        );
+  if (
+    langCode !== "fr" &&
+    langCode !== "en" &&
+    langCode !== "pt"
+  ) {
+    return;
+  }
 
-      if (modal) {
+  applyLanguage(langCode);
 
-        modal.style.display = "flex";
-
-      }
-
-    }
-
-
-    /* ========================================= */
-    /* FERMER LA MODALE */
-    /* ========================================= */
-
-    function closeLangModal() {
-
-      const modal =
-        document.getElementById(
-          "language-modal-overlay"
-        );
-
-      if (modal) {
-
-        modal.style.display = "none";
-
-      }
-
-    }
+  closeLangModal();
+}
 
 
-    /* ========================================= */
-    /* CHARGEMENT DE LA PAGE */
-    /* ========================================= */
+/*
+ * Si tes boutons HTML utilisent :
+ *
+ * onclick="translateSite('pt')"
+ *
+ * on garde également cette fonction.
+ */
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      function() {
+function translateSite(langCode) {
+  translatePage(langCode);
+}
 
-        const savedLanguage =
-          localStorage.getItem(
-            "cfo_selected_language"
-          );
 
-        if (savedLanguage) {
+/* ============================================================
+   OUVRIR LA FENÊTRE DES LANGUES
+   ============================================================ */
 
-          applyLanguage(savedLanguage);
+function openLangModal() {
 
-          closeLangModal();
-
-        } else {
-
-          openLangModal();
-
-        }
-
-      }
+  const modal =
+    document.getElementById(
+      "language-modal-overlay"
     );
 
-  </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+  if (modal) {
+    modal.style.display = "flex";
+  }
+}
 
-  const header = document.querySelector("header");
-  const topBar = document.querySelector(".top-bar");
 
-  if (!header || !topBar) return;
+/* ============================================================
+   FERMER LA FENÊTRE DES LANGUES
+   ============================================================ */
 
-  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+function closeLangModal() {
 
-  window.addEventListener("scroll", function () {
+  const modal =
+    document.getElementById(
+      "language-modal-overlay"
+    );
 
-    const currentScrollTop =
-      window.pageYOffset ||
-      document.documentElement.scrollTop;
+  if (modal) {
+    modal.style.display = "none";
+  }
+}
 
-    if (currentScrollTop <= 10) {
 
-      header.classList.remove("header-hidden");
-      topBar.classList.remove("header-hidden");
+/* ============================================================
+   INITIALISATION
+   ============================================================ */
 
-      lastScrollTop = currentScrollTop;
+document.addEventListener(
+  "DOMContentLoaded",
+  function() {
 
+    const header =
+      document.querySelector("header");
+
+    const topBar =
+      document.querySelector(".top-bar");
+
+    /*
+     * Langue sauvegardée
+     */
+
+    const savedLanguage =
+      localStorage.getItem(
+        "cfo_selected_language"
+      );
+
+
+    /*
+     * PORTUGAIS PAR DÉFAUT
+     *
+     * La grande fenêtre de choix
+     * ne s'affiche plus automatiquement.
+     */
+
+    if (savedLanguage) {
+
+      applyLanguage(savedLanguage);
+
+    } else {
+
+      applyLanguage("pt");
+
+    }
+
+    closeLangModal();
+
+
+    /* ========================================================
+       MENU AU DÉFILEMENT
+       ======================================================== */
+
+    if (!header) {
       return;
     }
 
-    if (currentScrollTop > lastScrollTop) {
+    let lastScrollTop =
+      window.pageYOffset ||
+      document.documentElement.scrollTop;
 
-      header.classList.add("header-hidden");
-      topBar.classList.add("header-hidden");
 
-    } else if (currentScrollTop < lastScrollTop) {
+    window.addEventListener(
+      "scroll",
+      function() {
 
-      header.classList.remove("header-hidden");
-      topBar.classList.remove("header-hidden");
+        const currentScrollTop =
+          window.pageYOffset ||
+          document.documentElement.scrollTop;
 
-    }
 
-    lastScrollTop = currentScrollTop;
+        /*
+         * TOUT EN HAUT
+         *
+         * Le header revient.
+         */
 
-  }, { passive: true });
+        if (currentScrollTop <= 10) {
 
-});
+          header.classList.remove(
+            "header-hidden"
+          );
+
+          lastScrollTop =
+            currentScrollTop;
+
+          return;
+        }
+
+
+        /*
+         * ON DESCEND
+         *
+         * SEUL LE HEADER DISPARAÎT.
+         *
+         * La TOP BAR ne reçoit
+         * JAMAIS header-hidden.
+         */
+
+        if (
+          currentScrollTop >
+          lastScrollTop
+        ) {
+
+          header.classList.add(
+            "header-hidden"
+          );
+
+        }
+
+
+        /*
+         * ON REMONTE
+         *
+         * Le header revient.
+         */
+
+        else if (
+          currentScrollTop <
+          lastScrollTop
+        ) {
+
+          header.classList.remove(
+            "header-hidden"
+          );
+
+        }
+
+
+        lastScrollTop =
+          currentScrollTop;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+  }
+);
 </script>
 </body>
 </html>
