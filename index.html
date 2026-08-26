@@ -745,39 +745,41 @@ function translateSite(langCode) {
 }
 
 
-/* ============================================================
-   OUVRIR LA FENÊTRE DES LANGUES
-   ============================================================ */
+/* ===================================================== */
+/* OUVRIR LA MODALE DE LANGUE */
+/* ===================================================== */
 
 function openLangModal() {
 
   const modal =
-    document.getElementById(
-      "language-modal-overlay"
-    );
+    document.getElementById("language-modal-overlay");
 
-  if (modal) {
-    modal.style.display = "flex";
+  if (!modal) {
+    console.error("Modale de langue introuvable.");
+    return;
   }
+
+  modal.classList.add("language-modal-open");
+
 }
 
 
-/* ============================================================
-   FERMER LA FENÊTRE DES LANGUES
-   ============================================================ */
+/* ===================================================== */
+/* FERMER LA MODALE DE LANGUE */
+/* ===================================================== */
 
 function closeLangModal() {
 
   const modal =
-    document.getElementById(
-      "language-modal-overlay"
-    );
+    document.getElementById("language-modal-overlay");
 
-  if (modal) {
-    modal.style.display = "none";
+  if (!modal) {
+    return;
   }
-}
 
+  modal.classList.remove("language-modal-open");
+
+}
 
 /* ============================================================
    INITIALISATION
