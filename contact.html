@@ -1087,48 +1087,41 @@
 
     }
 
+/* ===================================================== */
+/* OUVRIR LA MODALE DE LANGUE */
+/* ===================================================== */
 
-    /* ===================================================== */
-    /* OUVRIR LA MODALE */
-    /* ===================================================== */
+function openLangModal() {
 
-    function openLangModal() {
+  const modal =
+    document.getElementById("language-modal-overlay");
 
-      const modal =
-        document.getElementById(
-          "language-modal-overlay"
-        );
+  if (!modal) {
+    console.error("Modale de langue introuvable.");
+    return;
+  }
 
+  modal.classList.add("language-modal-open");
 
-      if (modal) {
-
-        modal.style.display = "flex";
-
-      }
-
-    }
+}
 
 
-    /* ===================================================== */
-    /* FERMER LA MODALE */
-    /* ===================================================== */
+/* ===================================================== */
+/* FERMER LA MODALE DE LANGUE */
+/* ===================================================== */
 
-    function closeLangModal() {
+function closeLangModal() {
 
-      const modal =
-        document.getElementById(
-          "language-modal-overlay"
-        );
+  const modal =
+    document.getElementById("language-modal-overlay");
 
+  if (!modal) {
+    return;
+  }
 
-      if (modal) {
+  modal.classList.remove("language-modal-open");
 
-        modal.style.display = "none";
-
-      }
-
-    }
-
+}
 
     /* ===================================================== */
     /* FORMULAIRE CONTACT */
