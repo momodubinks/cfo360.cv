@@ -1,469 +1,934 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CFO 360° - Direction Financière & Conseil</title>
+
+  <title>CFO 360° - Direção Financeira & Consultoria</title>
+
   <link rel="stylesheet" href="css cfo 360.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+
   <style>
-    #language-modal-overlay {
+    /* ================================
+       MENU DE LANGUES
+    ================================= */
+
+    .top-bar {
+      position: relative;
+      z-index: 1000;
+    }
+
+    .top-actions {
+      position: relative;
+    }
+
+    .language-selector {
+      position: relative;
+      display: inline-block;
+    }
+
+    .btn-lang-trigger {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+
+    .btn-lang-trigger i {
+      font-size: 15px;
+    }
+
+    /* Petit menu déroulant */
+
+    .language-dropdown {
       display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 170px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      z-index: 2000;
+    }
+
+    .language-dropdown.show {
+      display: block;
+    }
+
+    .language-dropdown button {
+      width: 100%;
+      border: none;
+      background: #ffffff;
+      padding: 12px 16px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      transition: background 0.2s ease;
+    }
+
+    .language-dropdown button:hover {
+      background: #f2f2f2;
+    }
+
+    .language-dropdown button i {
+      width: 18px;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 768px) {
+      .language-dropdown {
+        right: 0;
+        min-width: 160px;
+      }
+
+      .btn-lang-trigger {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <!-- TOP BAR -->
+
+  <!-- =========================================
+       TOP BAR
+  ========================================== -->
+
   <div class="top-bar">
+
     <div class="top-actions">
-      <button type="button" class="btn-lang-trigger" onclick="openLangModal()">
-        <i class="fa-solid fa-globe"></i>
-        <span data-i18n="language_button">Langue / Language</span>
-      </button>
-    </div>
-  </div>
-  <!-- MODALE DE CHOIX DE LANGUE -->
-  <div id="language-modal-overlay">
-    <div class="language-modal-card">
-      <h2 data-i18n="modal_title">
-        Bienvenue chez CFO 360°
-      </h2>
-      <p data-i18n="modal_text">
-        Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :
-      </p>
-      <div class="modal-buttons">
-        <button type="button" class="lang-btn" onclick="translateSite('fr')">
+
+      <div class="language-selector">
+
+        <!-- Bouton langue -->
+        <button
+          type="button"
+          class="btn-lang-trigger"
+          onclick="toggleLanguageMenu()"
+          aria-label="Escolher idioma"
+          aria-expanded="false"
+        >
           <i class="fa-solid fa-globe"></i>
-          Français
+
+          <span data-i18n="language_button">
+            Idioma
+          </span>
+
+          <i class="fa-solid fa-chevron-down"></i>
         </button>
-        <button type="button" class="lang-btn" onclick="translateSite('en')">
-          <i class="fa-solid fa-globe"></i>
-          English
-        </button>
-        <button type="button" class="lang-btn" onclick="translateSite('pt')">
-          <i class="fa-solid fa-globe"></i>
-          Português
-        </button>
+
+        <!-- Menu des langues -->
+        <div
+          id="language-dropdown"
+          class="language-dropdown"
+        >
+
+          <button
+            type="button"
+            onclick="translateSite('pt')"
+          >
+            <i class="fa-solid fa-globe"></i>
+            Português
+          </button>
+
+          <button
+            type="button"
+            onclick="translateSite('fr')"
+          >
+            <i class="fa-solid fa-globe"></i>
+            Français
+          </button>
+
+          <button
+            type="button"
+            onclick="translateSite('en')"
+          >
+            <i class="fa-solid fa-globe"></i>
+            English
+          </button>
+
+        </div>
+
       </div>
+
     </div>
+
   </div>
-  <!-- HEADER -->
+
+
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+
   <header>
+
     <div class="header-container">
-      <a href="index.html" class="logo-link">
+
+      <a
+        href="index.html"
+        class="logo-link"
+      >
+
         <img
           src="WhatsApp Image 2026-08-24 at 14.18.25.jpeg"
           alt="CFO 360° Logo"
           class="logo-img"
         >
+
       </a>
+
       <nav>
+
         <ul class="nav-links">
+
           <li>
-            <a href="index.html" class="active" data-i18n="nav_home">
-              Accueil
+            <a
+              href="index.html"
+              class="active"
+              data-i18n="nav_home"
+            >
+              Início
             </a>
           </li>
+
           <li>
-            <a href="services.html" data-i18n="nav_services">
-              Services
+            <a
+              href="services.html"
+              data-i18n="nav_services"
+            >
+              Serviços
             </a>
           </li>
+
           <li>
-            <a href="realisations.html" data-i18n="nav_ambitions">
-              Ambitions
+            <a
+              href="realisations.html"
+              data-i18n="nav_ambitions"
+            >
+              Ambições
             </a>
           </li>
+
           <li>
-            <a href="a-propos.html" data-i18n="nav_about">
-              À propos
+            <a
+              href="a-propos.html"
+              data-i18n="nav_about"
+            >
+              Sobre nós
             </a>
           </li>
+
           <li>
-            <a href="contact.html" data-i18n="nav_contact">
-              Contact
+            <a
+              href="contact.html"
+              data-i18n="nav_contact"
+            >
+              Contacto
             </a>
           </li>
+
         </ul>
+
       </nav>
+
     </div>
+
   </header>
-  <!-- HERO SECTION -->
+
+
+  <!-- =========================================
+       HERO
+  ========================================== -->
+
   <section class="hero">
+
     <div class="hero-content">
+
       <h1 data-i18n="hero_title">
-        Direction Financière à Temps Partagé & Conseil Stratégique
+        Direção Financeira a Tempo Parcial & Consultoria Estratégica
       </h1>
+
       <p data-i18n="hero_text">
-        Optimisez la gestion financière, la trésorerie et la rentabilité de votre entreprise avec l'expertise d'un CFO dédié.
+        Otimize a gestão financeira, a tesouraria e a rentabilidade da sua empresa com a experiência de um CFO dedicado.
       </p>
-      <a href="contact.html" class="btn">
+
+      <a
+        href="contact.html"
+        class="btn"
+      >
+
         <span data-i18n="hero_button">
-          Prendre rendez-vous
+          Marcar uma reunião
         </span>
+
         <i class="fa-solid fa-arrow-right"></i>
+
       </a>
+
     </div>
+
   </section>
-  <!-- CONTENU PRINCIPAL -->
+
+
+  <!-- =========================================
+       CONTEÚDO PRINCIPAL
+  ========================================== -->
+
   <main class="container">
+
     <section class="page-header">
+
       <h2 data-i18n="why_title">
-        Pourquoi choisir CFO 360° ?
+        Porquê escolher a CFO 360°?
       </h2>
+
       <p data-i18n="why_text">
-        Un accompagnement sur-mesure adapté aux besoins des PME et entreprises en croissance.
+        Acompanhamento personalizado adaptado às necessidades das PME e empresas em crescimento.
       </p>
+
     </section>
+
+
     <section class="grid">
+
       <!-- CARD 1 -->
+
       <div class="card">
+
         <div class="card-icon">
           <i class="fa-solid fa-chart-line"></i>
         </div>
+
         <h3 data-i18n="card1_title">
-          Pilotage Stratégique
+          Gestão Estratégica
         </h3>
+
         <p data-i18n="card1_text">
-          Mise en place de tableaux de bord financiers clés (KPI) et suivi analytique pour guider vos décisions.
+          Implementação de painéis financeiros essenciais (KPI) e acompanhamento analítico para orientar as suas decisões.
         </p>
+
       </div>
+
+
       <!-- CARD 2 -->
+
       <div class="card">
+
         <div class="card-icon">
           <i class="fa-solid fa-wallet"></i>
         </div>
+
         <h3 data-i18n="card2_title">
-          Gestion de Trésorerie
+          Gestão de Tesouraria
         </h3>
+
         <p data-i18n="card2_text">
-          Optimisation du BFR, prévisions de cash-flow et maîtrise du besoin en fonds de roulement.
+          Otimização das necessidades de fundo de maneio, previsões de fluxo de caixa e controlo das necessidades de capital de exploração.
         </p>
+
       </div>
+
+
       <!-- CARD 3 -->
+
       <div class="card">
+
         <div class="card-icon">
           <i class="fa-solid fa-handshake"></i>
         </div>
+
         <h3 data-i18n="card3_title">
-          Relations Bancaires & Restructuration
+          Relações Bancárias & Reestruturação
         </h3>
+
         <p data-i18n="card3_text">
-          Accompagnement dans les négociations bancaires, levées de fonds et restructuration financière.
+          Acompanhamento nas negociações bancárias, captação de financiamento e reestruturação financeira.
         </p>
+
       </div>
+
     </section>
+
   </main>
-  <!-- WHATSAPP FLOAT -->
+
+
+  <!-- =========================================
+       WHATSAPP
+  ========================================== -->
+
   <a
     href="https://wa.me/2389735933"
     class="whatsapp-float"
     target="_blank"
     rel="noopener noreferrer"
+    aria-label="WhatsApp"
   >
+
     <i class="fa-brands fa-whatsapp"></i>
+
   </a>
-  <!-- FOOTER -->
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
   <footer>
+
     <div class="footer-content">
-      <!-- FOOTER COL 1 -->
+
+      <!-- COLONNE 1 -->
+
       <div class="footer-col">
+
         <h4>
           CFO 360°
         </h4>
+
         <p data-i18n="footer_description">
-          Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.
+          O seu parceiro de confiança em direção financeira a tempo parcial e acompanhamento estratégico.
         </p>
+
       </div>
-      <!-- FOOTER COL 2 -->
+
+
+      <!-- COLONNE 2 -->
+
       <div class="footer-col">
+
         <h4 data-i18n="footer_navigation">
-          Navigation
+          Navegação
         </h4>
+
         <ul>
+
           <li>
-            <a href="index.html" data-i18n="nav_home">
-              Accueil
+            <a
+              href="index.html"
+              data-i18n="nav_home"
+            >
+              Início
             </a>
           </li>
+
           <li>
-            <a href="services.html" data-i18n="nav_services">
-              Services
+            <a
+              href="services.html"
+              data-i18n="nav_services"
+            >
+              Serviços
             </a>
           </li>
+
           <li>
-            <a href="realisations.html" data-i18n="nav_ambitions">
-              Ambitions
+            <a
+              href="realisations.html"
+              data-i18n="nav_ambitions"
+            >
+              Ambições
             </a>
           </li>
+
           <li>
-            <a href="a-propos.html" data-i18n="nav_about">
-              À propos
+            <a
+              href="a-propos.html"
+              data-i18n="nav_about"
+            >
+              Sobre nós
             </a>
           </li>
+
           <li>
-            <a href="contact.html" data-i18n="nav_contact">
-              Contact
+            <a
+              href="contact.html"
+              data-i18n="nav_contact"
+            >
+              Contacto
             </a>
           </li>
+
         </ul>
+
       </div>
-      <!-- FOOTER COL 3 -->
+
+
+      <!-- COLONNE 3 -->
+
       <div class="footer-col">
+
         <h4 data-i18n="footer_contact">
-          Contact
+          Contacto
         </h4>
+
         <ul>
+
           <li>
             <i class="fa-solid fa-envelope"></i>
             cfo360.cv@gmail.com
           </li>
+
           <li>
             <i class="fa-solid fa-phone"></i>
             +238 973 59 33
           </li>
+
           <li>
             <i class="fa-solid fa-location-dot"></i>
-            Praia, CAP VERT
+            Praia, CAP VERDE
           </li>
+
         </ul>
+
       </div>
+
     </div>
+
+
     <!-- FOOTER BOTTOM -->
+
     <div class="footer-bottom">
+
       <p data-i18n="copyright">
-        &copy; 2026 CFO 360°. Tous droits réservés.
+        © 2026 CFO 360°. Todos os direitos reservados.
       </p>
+
     </div>
+
   </footer>
-  <!-- ===================================================== -->
-  <!-- TRADUCTION INTÉGRÉE -->
-  <!-- ===================================================== -->
+
+
+  <!-- =========================================
+       TRADUÇÕES
+  ========================================== -->
+
   <script>
+
     const translations = {
-      fr: {
-        language_button: "Langue / Language",
-        modal_title: "Bienvenue chez CFO 360°",
-        modal_text:
-          "Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :",
-        nav_home: "Accueil",
-        nav_services: "Services",
-        nav_ambitions: "Ambitions",
-        nav_about: "À propos",
-        nav_contact: "Contact",
-        hero_title:
-          "Direction Financière à Temps Partagé & Conseil Stratégique",
-        hero_text:
-          "Optimisez la gestion financière, la trésorerie et la rentabilité de votre entreprise avec l'expertise d'un CFO dédié.",
-        hero_button:
-          "Prendre rendez-vous",
-        why_title:
-          "Pourquoi choisir CFO 360° ?",
-        why_text:
-          "Un accompagnement sur-mesure adapté aux besoins des PME et entreprises en croissance.",
-        card1_title:
-          "Pilotage Stratégique",
-        card1_text:
-          "Mise en place de tableaux de bord financiers clés (KPI) et suivi analytique pour guider vos décisions.",
-        card2_title:
-          "Gestion de Trésorerie",
-        card2_text:
-          "Optimisation du BFR, prévisions de cash-flow et maîtrise du besoin en fonds de roulement.",
-        card3_title:
-          "Relations Bancaires & Restructuration",
-        card3_text:
-          "Accompagnement dans les négociations bancaires, levées de fonds et restructuration financière.",
-        footer_description:
-          "Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.",
-        footer_navigation:
-          "Navigation",
-        footer_contact:
-          "Contact",
-        copyright:
-          "© 2026 CFO 360°. Tous droits réservés."
-      },
-      en: {
-        language_button: "Language",
-        modal_title: "Welcome to CFO 360°",
-        modal_text:
-          "Please choose your preferred language / Choisissez votre langue / Escolha o seu idioma :",
-        nav_home: "Home",
-        nav_services: "Services",
-        nav_ambitions: "Goals",
-        nav_about: "About Us",
-        nav_contact: "Contact",
-        hero_title:
-          "Part-Time Financial Management & Strategic Consulting",
-        hero_text:
-          "Optimize your company's financial management, cash flow and profitability with the expertise of a dedicated CFO.",
-        hero_button:
-          "Book an appointment",
-        why_title:
-          "Why choose CFO 360°?",
-        why_text:
-          "Tailored support designed to meet the needs of SMEs and growing companies.",
-        card1_title:
-          "Strategic Management",
-        card1_text:
-          "Implementation of key financial dashboards (KPIs) and analytical monitoring to guide your decisions.",
-        card2_title:
-          "Cash Management",
-        card2_text:
-          "Working capital optimization, cash-flow forecasting and effective management of working capital requirements.",
-        card3_title:
-          "Banking Relations & Restructuring",
-        card3_text:
-          "Support with banking negotiations, fundraising and financial restructuring.",
-        footer_description:
-          "Your trusted partner in part-time financial management and strategic support.",
-        footer_navigation:
-          "Navigation",
-        footer_contact:
-          "Contact",
-        copyright:
-          "© 2026 CFO 360°. All rights reserved."
-      },
+
+      /* =========================
+         PORTUGUÊS
+      ========================== */
+
       pt: {
+
         language_button: "Idioma",
-        modal_title:
-          "Bem-vindo à CFO 360°",
-        modal_text:
-          "Escolha o seu idioma preferido / Choose your language / Choisissez votre langue :",
-        nav_home:
-          "Início",
-        nav_services:
-          "Serviços",
-        nav_ambitions:
-          "Ambições",
-        nav_about:
-          "Sobre nós",
-        nav_contact:
-          "Contacto",
+
+        nav_home: "Início",
+
+        nav_services: "Serviços",
+
+        nav_ambitions: "Ambições",
+
+        nav_about: "Sobre nós",
+
+        nav_contact: "Contacto",
+
         hero_title:
           "Direção Financeira a Tempo Parcial & Consultoria Estratégica",
+
         hero_text:
           "Otimize a gestão financeira, a tesouraria e a rentabilidade da sua empresa com a experiência de um CFO dedicado.",
+
         hero_button:
           "Marcar uma reunião",
+
         why_title:
           "Porquê escolher a CFO 360°?",
+
         why_text:
           "Acompanhamento personalizado adaptado às necessidades das PME e empresas em crescimento.",
+
         card1_title:
           "Gestão Estratégica",
+
         card1_text:
           "Implementação de painéis financeiros essenciais (KPI) e acompanhamento analítico para orientar as suas decisões.",
+
         card2_title:
           "Gestão de Tesouraria",
+
         card2_text:
           "Otimização das necessidades de fundo de maneio, previsões de fluxo de caixa e controlo das necessidades de capital de exploração.",
+
         card3_title:
           "Relações Bancárias & Reestruturação",
+
         card3_text:
           "Acompanhamento nas negociações bancárias, captação de financiamento e reestruturação financeira.",
+
         footer_description:
           "O seu parceiro de confiança em direção financeira a tempo parcial e acompanhamento estratégico.",
+
         footer_navigation:
           "Navegação",
+
         footer_contact:
           "Contacto",
+
         copyright:
           "© 2026 CFO 360°. Todos os direitos reservados."
+
+      },
+
+
+      /* =========================
+         FRANÇAIS
+      ========================== */
+
+      fr: {
+
+        language_button:
+          "Langue",
+
+        nav_home:
+          "Accueil",
+
+        nav_services:
+          "Services",
+
+        nav_ambitions:
+          "Ambitions",
+
+        nav_about:
+          "À propos",
+
+        nav_contact:
+          "Contact",
+
+        hero_title:
+          "Direction Financière à Temps Partagé & Conseil Stratégique",
+
+        hero_text:
+          "Optimisez la gestion financière, la trésorerie et la rentabilité de votre entreprise avec l'expertise d'un CFO dédié.",
+
+        hero_button:
+          "Prendre rendez-vous",
+
+        why_title:
+          "Pourquoi choisir CFO 360° ?",
+
+        why_text:
+          "Un accompagnement sur-mesure adapté aux besoins des PME et entreprises en croissance.",
+
+        card1_title:
+          "Pilotage Stratégique",
+
+        card1_text:
+          "Mise en place de tableaux de bord financiers clés (KPI) et suivi analytique pour guider vos décisions.",
+
+        card2_title:
+          "Gestion de Trésorerie",
+
+        card2_text:
+          "Optimisation du BFR, prévisions de cash-flow et maîtrise du besoin en fonds de roulement.",
+
+        card3_title:
+          "Relations Bancaires & Restructuration",
+
+        card3_text:
+          "Accompagnement dans les négociations bancaires, levées de fonds et restructuration financière.",
+
+        footer_description:
+          "Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.",
+
+        footer_navigation:
+          "Navigation",
+
+        footer_contact:
+          "Contact",
+
+        copyright:
+          "© 2026 CFO 360°. Tous droits réservés."
+
+      },
+
+
+      /* =========================
+         ENGLISH
+      ========================== */
+
+      en: {
+
+        language_button:
+          "Language",
+
+        nav_home:
+          "Home",
+
+        nav_services:
+          "Services",
+
+        nav_ambitions:
+          "Goals",
+
+        nav_about:
+          "About Us",
+
+        nav_contact:
+          "Contact",
+
+        hero_title:
+          "Part-Time Financial Management & Strategic Consulting",
+
+        hero_text:
+          "Optimize your company's financial management, cash flow and profitability with the expertise of a dedicated CFO.",
+
+        hero_button:
+          "Book an appointment",
+
+        why_title:
+          "Why choose CFO 360°?",
+
+        why_text:
+          "Tailored support designed to meet the needs of SMEs and growing companies.",
+
+        card1_title:
+          "Strategic Management",
+
+        card1_text:
+          "Implementation of key financial dashboards (KPIs) and analytical monitoring to guide your decisions.",
+
+        card2_title:
+          "Cash Management",
+
+        card2_text:
+          "Working capital optimization, cash-flow forecasting and effective management of working capital requirements.",
+
+        card3_title:
+          "Banking Relations & Restructuring",
+
+        card3_text:
+          "Support with banking negotiations, fundraising and financial restructuring.",
+
+        footer_description:
+          "Your trusted partner in part-time financial management and strategic support.",
+
+        footer_navigation:
+          "Navigation",
+
+        footer_contact:
+          "Contact",
+
+        copyright:
+          "© 2026 CFO 360°. All rights reserved."
+
       }
+
     };
-    /*
-     * Appliquer une langue
-     */
+
+
+    /* =========================================
+       APPLIQUER UNE LANGUE
+    ========================================== */
+
     function applyLanguage(lang) {
+
       if (!translations[lang]) {
-        lang = "fr";
+        lang = "pt";
       }
+
       document.documentElement.lang = lang;
+
       const elements =
         document.querySelectorAll("[data-i18n]");
-      elements.forEach(function (element) {
+
+      elements.forEach(function(element) {
+
         const key =
           element.getAttribute("data-i18n");
+
         if (
           translations[lang][key] !== undefined
         ) {
+
           element.textContent =
             translations[lang][key];
+
         }
+
       });
+
       localStorage.setItem(
         "cfo_selected_language",
         lang
       );
-      localStorage.setItem(
-        "cfo_lang_chosen",
-        "true"
-      );
+
     }
-    /*
-     * Choix de langue depuis le pop-up
-     */
+
+
+    /* =========================================
+       OUVRIR / FERMER LE MENU
+    ========================================== */
+
+    function toggleLanguageMenu() {
+
+      const menu =
+        document.getElementById(
+          "language-dropdown"
+        );
+
+      const button =
+        document.querySelector(
+          ".btn-lang-trigger"
+        );
+
+      if (!menu) return;
+
+      menu.classList.toggle("show");
+
+      const isOpen =
+        menu.classList.contains("show");
+
+      if (button) {
+
+        button.setAttribute(
+          "aria-expanded",
+          isOpen ? "true" : "false"
+        );
+
+      }
+
+    }
+
+
+    /* =========================================
+       CHANGER DE LANGUE
+    ========================================== */
+
     function translateSite(langCode) {
+
       if (
         langCode !== "fr" &&
         langCode !== "en" &&
         langCode !== "pt"
       ) {
+
         return;
+
       }
+
       applyLanguage(langCode);
-      closeLangModal();
-    }
-    /*
-     * Ouvrir le pop-up
-     */
-    function openLangModal() {
-      const modal =
+
+      const menu =
         document.getElementById(
-          "language-modal-overlay"
+          "language-dropdown"
         );
-      if (modal) {
-        modal.style.display = "flex";
+
+      if (menu) {
+        menu.classList.remove("show");
       }
-    }
-    /*
-     * Fermer le pop-up
-     */
-    function closeLangModal() {
-      const modal =
-        document.getElementById(
-          "language-modal-overlay"
+
+      const button =
+        document.querySelector(
+          ".btn-lang-trigger"
         );
-      if (modal) {
-        modal.style.display = "none";
+
+      if (button) {
+
+        button.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
       }
+
     }
-    /*
-     * Au chargement de la page
-     */
+
+
+    /* =========================================
+       FERMER LE MENU SI ON CLIQUE AILLEURS
+    ========================================== */
+
+    document.addEventListener(
+      "click",
+      function(event) {
+
+        const selector =
+          document.querySelector(
+            ".language-selector"
+          );
+
+        const menu =
+          document.getElementById(
+            "language-dropdown"
+          );
+
+        if (
+          selector &&
+          menu &&
+          !selector.contains(event.target)
+        ) {
+
+          menu.classList.remove("show");
+
+          const button =
+            document.querySelector(
+              ".btn-lang-trigger"
+            );
+
+          if (button) {
+
+            button.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+          }
+
+        }
+
+      }
+    );
+
+
+    /* =========================================
+       CHARGEMENT DU SITE
+    ========================================== */
+
     document.addEventListener(
       "DOMContentLoaded",
-      function () {
+      function() {
+
         const savedLanguage =
           localStorage.getItem(
             "cfo_selected_language"
           );
+
         /*
-         * Si une langue existe déjà,
-         * on l'applique automatiquement.
+         * Si l'utilisateur a déjà choisi
+         * une langue, on la conserve.
+         *
+         * Sinon : PORTUGAIS par défaut.
          */
+
         if (savedLanguage) {
+
           applyLanguage(savedLanguage);
-          closeLangModal();
+
         } else {
-          /*
-           * Première visite :
-           * afficher le pop-up.
-           */
-          openLangModal();
+
+          applyLanguage("pt");
+
         }
+
       }
     );
+
   </script>
+
 </body>
 </html>
