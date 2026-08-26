@@ -345,337 +345,411 @@
       </p>
     </div>
   </footer>
-  <!-- ===================================================== -->
-  <!-- SYSTÈME DE TRADUCTION INTERNE -->
-  <!-- ===================================================== -->
-  <script>
-    const translations = {
-      fr: {
-        language_button: "Langue / Language",
-        modal_title: "Langue / Language",
-        modal_text:
-          "Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :",
-        nav_home: "Accueil",
-        nav_services: "Services",
-        nav_ambitions: "Ambitions",
-        nav_about: "À propos",
-        nav_contact: "Contact",
-        page_title:
-          "Nos Services & Solutions Financières",
-        page_description:
-          "Une gamme complète d'expertises en direction financière pour piloter et sécuriser votre croissance.",
-        service1_title:
-          "01. Financial Health Check",
-        service1_text:
-          "Diagnostic complet de votre santé financière pour identifier les vulnérabilités et définir des axes d'amélioration prioritaires.",
-        service2_title:
-          "02. Management Reporting",
-        service2_text:
-          "Conception et suivi de tableaux de bord sur mesure (KPIs) pour offrir aux dirigeants une visibilité claire sur les performances.",
-        service3_title:
-          "03. Cash Flow Management",
-        service3_text:
-          "Optimisation du besoin en fonds de roulement (BFR), maîtrise du flux de trésorerie et prévisions glissantes à court et moyen terme.",
-        service4_title:
-          "04. Budget & Forecast",
-        service4_text:
-          "Élaboration des budgets annuels, modélisation financière et projections stratégiques pour guider le développement de votre entreprise.",
-        service5_title:
-          "05. Profitability & Cost Analysis",
-        service5_text:
-          "Analyse détaillée des marges, de la structure des coûts et des centres de profit pour maximiser la rentabilité globale.",
-        service6_title:
-          "06. Internal Control & Risk",
-        service6_text:
-          "Mise en place de procédures de contrôle interne, cartographie des risques financiers et sécurisation des processus opérationnels.",
-        service7_title:
-          "07. Bank & Financing Advisory",
-        service7_text:
-          "Accompagnement dans la recherche de financements, la négociation avec les partenaires bancaires et la préparation des dossiers investisseurs.",
-        service8_title:
-          "08. Restructuration financière",
-        service8_text:
-          "Réorganisation de la dette, réalignement des fonds propres et accompagnement stratégique dans les phases de retournement ou de transition.",
-        cta_title:
-          "Besoin d'un accompagnement sur mesure ?",
-        cta_text:
-          "Nos experts analysent vos besoins et conçoivent la feuille de route la plus adaptée à votre structure.",
-        cta_button:
-          "Prendre rendez-vous",
-        footer_description:
-          "Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.",
-        footer_navigation:
-          "Navigation",
-        footer_contact:
-          "Contact",
-        copyright:
-          "© 2026 CFO 360°. Tous droits réservés."
-      },
-      en: {
-        language_button: "Language",
-        modal_title: "Language",
-        modal_text:
-          "Please choose your preferred language / Choisissez votre langue / Escolha o seu idioma :",
-        nav_home:
-          "Home",
-        nav_services:
-          "Services",
-        nav_ambitions:
-          "Goals",
-        nav_about:
-          "About Us",
-        nav_contact:
-          "Contact",
-        page_title:
-          "Our Services & Financial Solutions",
-        page_description:
-          "A comprehensive range of financial management expertise to drive and secure your growth.",
-        service1_title:
-          "01. Financial Health Check",
-        service1_text:
-          "A comprehensive assessment of your financial health to identify vulnerabilities and define priority areas for improvement.",
-        service2_title:
-          "02. Management Reporting",
-        service2_text:
-          "Design and monitoring of customized dashboards (KPIs) to give executives clear visibility into performance.",
-        service3_title:
-          "03. Cash Flow Management",
-        service3_text:
-          "Working capital optimization, cash flow management and rolling short- and medium-term forecasts.",
-        service4_title:
-          "04. Budget & Forecast",
-        service4_text:
-          "Annual budgeting, financial modeling and strategic projections to guide your company's development.",
-        service5_title:
-          "05. Profitability & Cost Analysis",
-        service5_text:
-          "Detailed analysis of margins, cost structure and profit centers to maximize overall profitability.",
-        service6_title:
-          "06. Internal Control & Risk",
-        service6_text:
-          "Implementation of internal control procedures, financial risk mapping and operational process security.",
-        service7_title:
-          "07. Bank & Financing Advisory",
-        service7_text:
-          "Support in finding financing, negotiating with banking partners and preparing investor presentations.",
-        service8_title:
-          "08. Financial Restructuring",
-        service8_text:
-          "Debt reorganization, equity realignment and strategic support during turnaround or transition phases.",
-        cta_title:
-          "Need tailored support?",
-        cta_text:
-          "Our experts analyze your needs and design the roadmap best suited to your organization.",
-        cta_button:
-          "Book an appointment",
-        footer_description:
-          "Your trusted partner in part-time financial management and strategic support.",
-        footer_navigation:
-          "Navigation",
-        footer_contact:
-          "Contact",
-        copyright:
-          "© 2026 CFO 360°. All rights reserved."
-      },
-      pt: {
-        language_button:
-          "Idioma",
-        modal_title:
-          "Idioma",
-        modal_text:
-          "Escolha o seu idioma preferido / Choose your language / Choisissez votre langue :",
-        nav_home:
-          "Início",
-        nav_services:
-          "Serviços",
-        nav_ambitions:
-          "Ambições",
-        nav_about:
-          "Sobre nós",
-        nav_contact:
-          "Contacto",
-        page_title:
-          "Os Nossos Serviços & Soluções Financeiras",
-        page_description:
-          "Uma gama completa de competências em direção financeira para orientar e proteger o seu crescimento.",
-        service1_title:
-          "01. Avaliação da Saúde Financeira",
-        service1_text:
-          "Diagnóstico completo da sua saúde financeira para identificar vulnerabilidades e definir prioridades de melhoria.",
-        service2_title:
-          "02. Relatórios de Gestão",
-        service2_text:
-          "Conceção e acompanhamento de painéis personalizados (KPIs) para proporcionar aos gestores uma visão clara do desempenho.",
-        service3_title:
-          "03. Gestão de Fluxo de Caixa",
-        service3_text:
-          "Otimização das necessidades de fundo de maneio (BFR), controlo do fluxo de caixa e previsões contínuas de curto e médio prazo.",
-        service4_title:
-          "04. Orçamento & Previsões",
-        service4_text:
-          "Elaboração de orçamentos anuais, modelização financeira e projeções estratégicas para orientar o desenvolvimento da sua empresa.",
-        service5_title:
-          "05. Análise de Rentabilidade & Custos",
-        service5_text:
-          "Análise detalhada das margens, da estrutura de custos e dos centros de lucro para maximizar a rentabilidade global.",
-        service6_title:
-          "06. Controlo Interno & Risco",
-        service6_text:
-          "Implementação de procedimentos de controlo interno, mapeamento dos riscos financeiros e segurança dos processos operacionais.",
-        service7_title:
-          "07. Consultoria Bancária & Financiamento",
-        service7_text:
-          "Acompanhamento na procura de financiamento, negociação com parceiros bancários e preparação de dossiers para investidores.",
-        service8_title:
-          "08. Reestruturação Financeira",
-        service8_text:
-          "Reorganização da dívida, realinhamento dos capitais próprios e acompanhamento estratégico em fases de recuperação ou transição.",
-        cta_title:
-          "Precisa de um acompanhamento personalizado?",
-        cta_text:
-          "Os nossos especialistas analisam as suas necessidades e elaboram o roteiro mais adequado à sua estrutura.",
-        cta_button:
-          "Marcar uma reunião",
-        footer_description:
-          "O seu parceiro de confiança em direção financeira a tempo parcial e acompanhamento estratégico.",
-        footer_navigation:
-          "Navegação",
-        footer_contact:
-          "Contacto",
-        copyright:
-          "© 2026 CFO 360°. Todos os direitos reservados."
-      }
-    };
-    /*
-     * Appliquer la langue
-     */
-    function applyLanguage(lang) {
-      if (!translations[lang]) {
-        lang = "fr";
-      }
-      document.documentElement.lang = lang;
-      const elements =
-        document.querySelectorAll("[data-i18n]");
-      elements.forEach(function (element) {
-        const key =
-          element.getAttribute("data-i18n");
-        if (
-          translations[lang][key] !== undefined
-        ) {
-          element.textContent =
-            translations[lang][key];
-        }
-      });
-      localStorage.setItem(
-        "cfo_selected_language",
-        lang
-      );
-      localStorage.setItem(
-        "cfo_lang_chosen",
-        "true"
-      );
+ <script>
+/* ============================================================
+   CFO 360° — TRADUCTION + MENU
+   ============================================================ */
+
+const translations = {
+
+  /* =========================
+     FRANÇAIS
+     ========================= */
+
+  fr: {
+    language_button: "Langue / Language",
+    modal_title: "Langue / Language",
+    modal_text:
+      "Veuillez choisir votre langue préférée / Choose your language / Escolha o seu idioma :",
+
+    nav_home: "Accueil",
+    nav_services: "Services",
+    nav_ambitions: "Ambitions",
+    nav_about: "À propos",
+    nav_contact: "Contact",
+
+    page_title: "À propos de CFO 360°",
+
+    page_description:
+      "Un cabinet indépendant dédié à l'excellence financière et à la création de valeur.",
+
+    mission_title: "Notre Mission",
+
+    mission_text:
+      "Apporter aux dirigeants de PME des compétences de haut niveau en gestion financière sans la lourdeur d'un recrutement à temps plein.",
+
+    vision_title: "Notre Vision",
+
+    vision_text:
+      "Devenir la référence en conseil et direction financière partagée au Cap-Vert et dans la région, en conjuguant rigueur et proactivité.",
+
+    values_title: "Nos Valeurs",
+
+    values_text:
+      "Transparence, confidentialité, pragmatisme et engagement total au service de la rentabilité de nos clients.",
+
+    footer_description:
+      "Votre partenaire de confiance en direction financière à temps partagé et accompagnement stratégique.",
+
+    footer_navigation: "Navigation",
+
+    footer_contact: "Contact",
+
+    copyright:
+      "©️ 2026 CFO 360°. Tous droits réservés."
+  },
+
+
+  /* =========================
+     ENGLISH
+     ========================= */
+
+  en: {
+    language_button: "Language",
+    modal_title: "Language",
+
+    modal_text:
+      "Please choose your preferred language / Choisissez votre langue / Escolha o seu idioma :",
+
+    nav_home: "Home",
+    nav_services: "Services",
+    nav_ambitions: "Goals",
+    nav_about: "About Us",
+    nav_contact: "Contact",
+
+    page_title: "About CFO 360°",
+
+    page_description:
+      "An independent firm dedicated to financial excellence and value creation.",
+
+    mission_title: "Our Mission",
+
+    mission_text:
+      "Providing SME executives with high-level financial management expertise without the burden of a full-time recruitment.",
+
+    vision_title: "Our Vision",
+
+    vision_text:
+      "To become the leading reference in financial advisory and part-time CFO services in Cape Verde and the region, combining rigor and proactivity.",
+
+    values_title: "Our Values",
+
+    values_text:
+      "Transparency, confidentiality, pragmatism and total commitment to our clients' profitability.",
+
+    footer_description:
+      "Your trusted partner in part-time financial management and strategic support.",
+
+    footer_navigation: "Navigation",
+
+    footer_contact: "Contact",
+
+    copyright:
+      "©️ 2026 CFO 360°. All rights reserved."
+  },
+
+
+  /* =========================
+     PORTUGUÊS
+     ========================= */
+
+  pt: {
+    language_button: "Idioma",
+    modal_title: "Idioma",
+
+    modal_text:
+      "Escolha o seu idioma preferido / Choose your language / Choisissez votre langue :",
+
+    nav_home: "Início",
+    nav_services: "Serviços",
+    nav_ambitions: "Ambições",
+    nav_about: "Sobre nós",
+    nav_contact: "Contacto",
+
+    page_title: "Sobre a CFO 360°",
+
+    page_description:
+      "Uma empresa independente dedicada à excelência financeira e à criação de valor.",
+
+    mission_title: "A Nossa Missão",
+
+    mission_text:
+      "Fornecer aos gestores de PME competências de alto nível em gestão financeira sem o peso de uma contratação a tempo inteiro.",
+
+    vision_title: "A Nossa Visão",
+
+    vision_text:
+      "Tornar-nos uma referência em consultoria e direção financeira partilhada em Cabo Verde e na região, combinando rigor e proatividade.",
+
+    values_title: "Os Nossos Valores",
+
+    values_text:
+      "Transparência, confidencialidade, pragmatismo e compromisso total com a rentabilidade dos nossos clientes.",
+
+    footer_description:
+      "O seu parceiro de confiança em direção financeira a tempo parcial e acompanhamento estratégico.",
+
+    footer_navigation: "Navegação",
+
+    footer_contact: "Contacto",
+
+    copyright:
+      "©️ 2026 CFO 360°. Todos os direitos reservados."
+  }
+
+};
+
+
+/* ============================================================
+   APPLICATION DE LA LANGUE
+   ============================================================ */
+
+function applyLanguage(lang) {
+
+  /*
+   * Portugais = langue par défaut
+   */
+
+  if (!translations[lang]) {
+    lang = "pt";
+  }
+
+  document.documentElement.lang = lang;
+
+  const elements =
+    document.querySelectorAll("[data-i18n]");
+
+  elements.forEach(function(element) {
+
+    const key =
+      element.getAttribute("data-i18n");
+
+    if (
+      translations[lang] &&
+      translations[lang][key] !== undefined
+    ) {
+
+      element.textContent =
+        translations[lang][key];
+
     }
-    /*
-     * Changer la langue
-     */
-    function translatePage(langCode) {
-      if (
-        langCode !== "fr" &&
-        langCode !== "en" &&
-        langCode !== "pt"
-      ) {
-        return;
-      }
-      applyLanguage(langCode);
-      closeLangModal();
-    }
-    /*
-     * Ouvrir la modale
-     */
-    function openLangModal() {
-      const modal =
-        document.getElementById(
-          "language-modal-overlay"
-        );
-      if (modal) {
-        modal.style.display = "flex";
-      }
-    }
-    /*
-     * Fermer la modale
-     */
-    function closeLangModal() {
-      const modal =
-        document.getElementById(
-          "language-modal-overlay"
-        );
-      if (modal) {
-        modal.style.display = "none";
-      }
-    }
-    /*
-     * Charger automatiquement la langue
-     * précédemment choisie sur index.html
-     */
-    document.addEventListener(
-      "DOMContentLoaded",
-      function () {
-        const savedLanguage =
-          localStorage.getItem(
-            "cfo_selected_language"
-          );
-        if (savedLanguage) {
-          applyLanguage(savedLanguage);
-          closeLangModal();
-        } else {
-          openLangModal();
-        }
-      }
+
+  });
+
+  localStorage.setItem(
+    "cfo_selected_language",
+    lang
+  );
+
+  localStorage.setItem(
+    "cfo_lang_chosen",
+    "true"
+  );
+}
+
+
+/* ============================================================
+   CHANGEMENT DE LANGUE
+   ============================================================ */
+
+function translatePage(langCode) {
+
+  if (
+    langCode !== "fr" &&
+    langCode !== "en" &&
+    langCode !== "pt"
+  ) {
+    return;
+  }
+
+  applyLanguage(langCode);
+
+  closeLangModal();
+}
+
+
+/*
+ * Si tes boutons HTML utilisent :
+ *
+ * onclick="translateSite('pt')"
+ *
+ * on garde également cette fonction.
+ */
+
+function translateSite(langCode) {
+  translatePage(langCode);
+}
+
+
+/* ============================================================
+   OUVRIR LA FENÊTRE DES LANGUES
+   ============================================================ */
+
+function openLangModal() {
+
+  const modal =
+    document.getElementById(
+      "language-modal-overlay"
     );
-  </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-  const header = document.querySelector("header");
-  const topBar = document.querySelector(".top-bar");
+  if (modal) {
+    modal.style.display = "flex";
+  }
+}
 
-  if (!header || !topBar) return;
 
-  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+/* ============================================================
+   FERMER LA FENÊTRE DES LANGUES
+   ============================================================ */
 
-  window.addEventListener("scroll", function () {
+function closeLangModal() {
 
-    const currentScrollTop =
-      window.pageYOffset ||
-      document.documentElement.scrollTop;
+  const modal =
+    document.getElementById(
+      "language-modal-overlay"
+    );
 
-    if (currentScrollTop <= 10) {
+  if (modal) {
+    modal.style.display = "none";
+  }
+}
 
-      header.classList.remove("header-hidden");
-      topBar.classList.remove("header-hidden");
 
-      lastScrollTop = currentScrollTop;
+/* ============================================================
+   INITIALISATION
+   ============================================================ */
 
+document.addEventListener(
+  "DOMContentLoaded",
+  function() {
+
+    const header =
+      document.querySelector("header");
+
+    const topBar =
+      document.querySelector(".top-bar");
+
+    /*
+     * Langue sauvegardée
+     */
+
+    const savedLanguage =
+      localStorage.getItem(
+        "cfo_selected_language"
+      );
+
+
+    /*
+     * PORTUGAIS PAR DÉFAUT
+     *
+     * La grande fenêtre de choix
+     * ne s'affiche plus automatiquement.
+     */
+
+    if (savedLanguage) {
+
+      applyLanguage(savedLanguage);
+
+    } else {
+
+      applyLanguage("pt");
+
+    }
+
+    closeLangModal();
+
+
+    /* ========================================================
+       MENU AU DÉFILEMENT
+       ======================================================== */
+
+    if (!header) {
       return;
     }
 
-    if (currentScrollTop > lastScrollTop) {
+    let lastScrollTop =
+      window.pageYOffset ||
+      document.documentElement.scrollTop;
 
-      header.classList.add("header-hidden");
-      topBar.classList.add("header-hidden");
 
-    } else if (currentScrollTop < lastScrollTop) {
+    window.addEventListener(
+      "scroll",
+      function() {
 
-      header.classList.remove("header-hidden");
-      topBar.classList.remove("header-hidden");
+        const currentScrollTop =
+          window.pageYOffset ||
+          document.documentElement.scrollTop;
 
-    }
 
-    lastScrollTop = currentScrollTop;
+        /*
+         * TOUT EN HAUT
+         *
+         * Le header revient.
+         */
 
-  }, { passive: true });
+        if (currentScrollTop <= 10) {
 
-});
+          header.classList.remove(
+            "header-hidden"
+          );
+
+          lastScrollTop =
+            currentScrollTop;
+
+          return;
+        }
+
+
+        /*
+         * ON DESCEND
+         *
+         * SEUL LE HEADER DISPARAÎT.
+         *
+         * La TOP BAR ne reçoit
+         * JAMAIS header-hidden.
+         */
+
+        if (
+          currentScrollTop >
+          lastScrollTop
+        ) {
+
+          header.classList.add(
+            "header-hidden"
+          );
+
+        }
+
+
+        /*
+         * ON REMONTE
+         *
+         * Le header revient.
+         */
+
+        else if (
+          currentScrollTop <
+          lastScrollTop
+        ) {
+
+          header.classList.remove(
+            "header-hidden"
+          );
+
+        }
+
+
+        lastScrollTop =
+          currentScrollTop;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+  }
+);
 </script>
 </body>
 </html>
