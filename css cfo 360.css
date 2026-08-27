@@ -686,6 +686,7 @@ main {
   color: var(--text-muted);
 }
 
+.grid .card:nth-child(odd) h1,
 .grid .card:nth-child(odd) h2,
 .grid .card:nth-child(odd) h3,
 .grid .card:nth-child(odd) h4 {
@@ -741,6 +742,7 @@ main {
   color: #FFFFFF;
 }
 
+.grid .card:nth-child(even) h1,
 .grid .card:nth-child(even) h2,
 .grid .card:nth-child(even) h3,
 .grid .card:nth-child(even) h4 {
