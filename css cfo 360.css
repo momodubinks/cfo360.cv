@@ -529,29 +529,6 @@ main {
 
 
 /* ==========================================================================
-   CORRECTION DES TITRES DES CARTES
-   ========================================================================== */
-
-/*
-   Carte blanche :
-   titre bleu foncé pour être parfaitement visible.
-
-   Carte bleue :
-   titre doré clair pour être parfaitement visible.
-*/
-
-.card h2,
-.card h3 {
-  color: var(--navy-primary);
-}
-
-.grid .card:nth-child(even) h2,
-.grid .card:nth-child(even) h3 {
-  color: var(--gold-light);
-}
-
-
-/* ==========================================================================
    BOUTONS
    ========================================================================== */
 
@@ -652,6 +629,8 @@ main {
     0 10px 30px rgba(0, 0, 0, 0.03);
 
   transition: var(--transition);
+
+  color: var(--text-muted);
 }
 
 .card:hover {
@@ -660,6 +639,11 @@ main {
   box-shadow:
     0 18px 35px rgba(10, 37, 64, 0.1);
 }
+
+
+/* ==========================================================================
+   ICÔNES DES CARTES
+   ========================================================================== */
 
 .card-icon {
   width: 48px;
@@ -684,22 +668,67 @@ main {
   font-size: 1.3rem;
 }
 
-.card h3 {
-  color: var(--navy-primary);
 
-  font-size: 1.3rem;
+/* ==========================================================================
+   CARTES BLANCHES — TEXTE
+   ========================================================================== */
 
-  margin-bottom: 0.8rem;
+/*
+   Toutes les cartes impaires sont blanches.
+
+   Le texte est volontairement foncé pour garantir
+   un contraste clair sur le fond blanc.
+*/
+
+.grid .card:nth-child(odd) {
+  background: #FFFFFF;
+
+  color: var(--text-muted);
 }
 
-.card p {
+.grid .card:nth-child(odd) h2,
+.grid .card:nth-child(odd) h3,
+.grid .card:nth-child(odd) h4 {
+  color: var(--navy-primary) !important;
+}
+
+.grid .card:nth-child(odd) p {
+  color: var(--text-muted) !important;
+}
+
+.grid .card:nth-child(odd) strong {
+  color: var(--navy-primary) !important;
+}
+
+.grid .card:nth-child(odd) span {
   color: var(--text-muted);
+}
+
+.grid .card:nth-child(odd) li {
+  color: var(--text-muted);
+}
+
+.grid .card:nth-child(odd) a {
+  color: var(--navy-primary);
+}
+
+.grid .card:nth-child(odd) .card-icon {
+  background:
+    rgba(197, 155, 39, 0.12);
+
+  color: var(--gold-primary) !important;
 }
 
 
 /* ==========================================================================
-   CARTES BLEUES
+   CARTES BLEUES — TEXTE
    ========================================================================== */
+
+/*
+   Toutes les cartes paires sont bleues.
+
+   Aucun texte bleu foncé ne peut rester sur ces cartes.
+*/
 
 .grid .card:nth-child(even) {
   background: var(--navy-primary);
@@ -708,21 +737,64 @@ main {
 
   border-top:
     4px solid var(--gold-light);
+
+  color: #FFFFFF;
 }
 
-.grid .card:nth-child(even) h3 {
-  color: var(--gold-light);
+.grid .card:nth-child(even) h2,
+.grid .card:nth-child(even) h3,
+.grid .card:nth-child(even) h4 {
+  color: var(--gold-light) !important;
 }
 
 .grid .card:nth-child(even) p {
-  color: #E2E8F0;
+  color: #FFFFFF !important;
+}
+
+.grid .card:nth-child(even) strong {
+  color: var(--gold-light) !important;
+}
+
+.grid .card:nth-child(even) span {
+  color: #FFFFFF !important;
+}
+
+.grid .card:nth-child(even) li {
+  color: #FFFFFF !important;
+}
+
+.grid .card:nth-child(even) a {
+  color: var(--gold-light) !important;
 }
 
 .grid .card:nth-child(even) .card-icon {
   background:
     rgba(243, 208, 96, 0.18);
 
-  color: var(--gold-light);
+  color: var(--gold-light) !important;
+}
+
+
+/* ==========================================================================
+   SÉCURITÉ — TEXTE DES CARTES
+   ========================================================================== */
+
+/*
+   Empêche une éventuelle règle héritée de rendre
+   le texte invisible.
+*/
+
+.grid .card h1,
+.grid .card h2,
+.grid .card h3,
+.grid .card h4,
+.grid .card p,
+.grid .card strong,
+.grid .card span,
+.grid .card li,
+.grid .card a {
+  opacity: 1;
+  visibility: visible;
 }
 
 
