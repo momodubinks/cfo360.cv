@@ -527,12 +527,30 @@ main {
   font-size: 1.1rem;
 }
 
+
+/* ==========================================================================
+   CORRECTION DES TITRES DES CARTES
+   ========================================================================== */
+
+/*
+   Carte blanche :
+   titre bleu foncé pour être parfaitement visible.
+
+   Carte bleue :
+   titre doré clair pour être parfaitement visible.
+*/
+
 .card h2,
-.card h3,
-.grid .card:nth-child(even) h3,
-.grid .card:nth-child(even) h2 {
-  color: #FFFFFF !important;
+.card h3 {
+  color: var(--navy-primary);
 }
+
+.grid .card:nth-child(even) h2,
+.grid .card:nth-child(even) h3 {
+  color: var(--gold-light);
+}
+
+
 /* ==========================================================================
    BOUTONS
    ========================================================================== */
